@@ -6,6 +6,7 @@ import {
   LayoutDashboard,
   LogOut,
   Package,
+  Settings,
   MessageSquareText,
   ShieldAlert,
   Tag,
@@ -26,6 +27,7 @@ const NAV = [
   { to: '/admin/reviews', label: 'Reviews', icon: MessageSquareText, end: false },
   { to: '/admin/inbox', label: 'Inbox', icon: Inbox, end: false },
   { to: '/admin/coupons', label: 'Coupons', icon: Tag, end: false },
+  { to: '/admin/settings', label: 'Settings', icon: Settings, end: false },
 ] as const;
 
 /**
