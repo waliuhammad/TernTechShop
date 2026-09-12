@@ -1,6 +1,7 @@
 import {
   ArrowLeft,
   Cpu,
+  Inbox,
   LayoutDashboard,
   LogOut,
   Package,
@@ -21,6 +22,7 @@ const NAV = [
   { to: '/admin/products', label: 'Products', icon: Package, end: false },
   { to: '/admin/customers', label: 'Customers', icon: Users, end: false },
   { to: '/admin/reviews', label: 'Reviews', icon: MessageSquareText, end: false },
+  { to: '/admin/inbox', label: 'Inbox', icon: Inbox, end: false },
   { to: '/admin/coupons', label: 'Coupons', icon: Tag, end: false },
 ] as const;
 
