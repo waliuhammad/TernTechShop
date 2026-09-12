@@ -21,7 +21,7 @@ import { getFirestore } from 'firebase-admin/firestore';
 import { existsSync, readFileSync } from 'node:fs';
 import { categories } from '../src/data/categories';
 import { products } from '../src/data/products';
-import { coupons, logistics } from '../src/data/site-data';
+import { coupons, logistics, shippingZones } from '../src/data/site-data';
 
 const projectId = process.env.FIREBASE_PROJECT_ID ?? process.env.VITE_FIREBASE_PROJECT_ID;
 const usingEmulator = Boolean(process.env.FIRESTORE_EMULATOR_HOST);
@@ -130,11 +130,20 @@ async function seedCoupons() {
 }
 
 async function seedSettings() {
-  // Mirrors the constants compiled into firestore.rules. Changing the fee here
-  // alone will NOT change what the rules accept — update both together.
-  await db.collection('settings').doc('logistics').set({
+  // The security rules read this document to validate every order's shipping,
+  // so it must exist. merge: re-seeding keeps any fee or zones an admin has
+  // since changed in Admin -> Settings.
+  const ref = db.collection('settings').doc('logistics');
+  const existing = await ref.get();
+  if (existing.exists) {
+    if (!('zones' in (existing.data() ?? {}))) await ref.set({ zones: shippingZones }, { merge: true });
+    console.log('  settings: logistics already set (kept)');
+    return;
+  }
+  await ref.set({
     freeShippingThreshold: logistics.freeThreshold,
     standardShippingFee: logistics.standardFee,
+    zones: shippingZones,
     currency: 'PKR',
   });
   console.log('  settings: logistics');
