@@ -86,6 +86,7 @@ export const legalSections = [
     quote:
       'Tern Technologies does not sell, lease, or distribute identity manifests to third-party data aggregators. Ever.',
     points: [
+      'We store the details you give us: account name, email and phone; delivery addresses; orders; reviews; contact messages; and warranty registrations.',
       'Deployment addresses are retained only as long as required to complete logistics and honour warranty claims.',
       'Payment is collected on delivery; we never store card credentials on our infrastructure.',
     ],
@@ -104,10 +105,11 @@ export const legalSections = [
   {
     id: 'cookies',
     title: 'Cookie Policy',
-    body: 'Our interface uses strictly necessary tokens to maintain your session state. We do not use persistent tracking cookies or shadow profiles.',
+    body: 'Our interface uses strictly necessary storage to keep you signed in and remember your cart. We do not use tracking cookies or advertising profiles.',
     points: [
-      'Your hardware cart and watchlist are stored locally in your own browser, never on our servers.',
-      'Clearing your browser storage will clear both.',
+      'Browsing without an account: your cart and watchlist are kept only in your own browser. Clearing your browser storage clears them.',
+      'Signed in: your cart, watchlist, saved addresses, orders and reviews are stored with your account in our database (Google Firebase), so they follow you across devices.',
+      'Your sign-in session is kept by Firebase Authentication in your browser until you sign out.',
     ],
   },
 ] as const;
