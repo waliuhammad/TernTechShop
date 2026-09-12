@@ -1,4 +1,4 @@
-import { ArrowRight, PackageX } from 'lucide-react';
+import { ArrowRight, Inbox, MessageSquareText, PackageX, ShieldCheck, Truck } from 'lucide-react';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -12,6 +12,8 @@ import { useAsync } from '@/hooks/useAsync';
 import { formatPrice } from '@/lib/money';
 import { formatDateTime } from '@/lib/utils';
 import { fetchAllOrders, fetchAllProducts } from '@/services/admin';
+import { fetchContactMessages, fetchWarranties } from '@/services/inbox';
+import { fetchAllReviews } from '@/services/reviews';
 
 const LOW_STOCK_THRESHOLD = 5;
 const DAY_NAMES = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
@@ -21,6 +23,20 @@ export default function Dashboard() {
     () => Promise.all([fetchAllOrders(), fetchAllProducts()]),
     'dashboard',
   );
+
+  // Loaded separately so a failure here never blanks the main dashboard.
+  const attention = useAsync(async () => {
+    const [reviews, messages, warranties] = await Promise.all([
+      fetchAllReviews().catch(() => []),
+      fetchContactMessages().catch(() => []),
+      fetchWarranties().catch(() => []),
+    ]);
+    return {
+      reviews: reviews.filter((review) => review.status === 'PENDING').length,
+      messages: messages.filter((message) => message.status === 'NEW').length,
+      warranties: warranties.filter((warranty) => warranty.status === 'PENDING').length,
+    };
+  }, 'dashboard-attention');
 
   const stats = useMemo(() => {
     if (!data) return null;
@@ -72,6 +88,15 @@ export default function Dashboard() {
         !error && <AdminSpinner />
       ) : (
         <div className="space-y-8">
+          <AttentionPanel
+            items={[
+              { to: '/admin/orders', icon: Truck, label: 'Orders to confirm', count: stats.pending.length },
+              { to: '/admin/reviews', icon: MessageSquareText, label: 'Reviews to approve', count: attention.data?.reviews ?? 0 },
+              { to: '/admin/inbox', icon: Inbox, label: 'New messages', count: attention.data?.messages ?? 0 },
+              { to: '/admin/inbox', icon: ShieldCheck, label: 'Warranty registrations', count: attention.data?.warranties ?? 0 },
+            ]}
+          />
+
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
             <StatCard label="Revenue" value={formatPrice(stats.revenue)} hint="Excluding cancelled" />
             <StatCard label="Orders" value={String(stats.orderCount)} hint="Most recent 500" />
@@ -183,5 +208,38 @@ export default function Dashboard() {
         </div>
       )}
     </div>
+  );
+}
+
+function AttentionPanel({
+  items,
+}: {
+  items: Array<{ to: string; icon: typeof Truck; label: string; count: number }>;
+}) {
+  const waiting = items.filter((item) => item.count > 0);
+  if (waiting.length === 0) {
+    return (
+      <p className="rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm font-bold text-emerald-800">
+        Nothing needs attention — all orders, reviews and messages are handled.
+      </p>
+    );
+  }
+  return (
+    <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+      <h2 className="mb-3 text-xs font-black tracking-widest text-amber-800 uppercase">Needs attention</h2>
+      <div className="flex flex-wrap gap-3">
+        {waiting.map(({ to, icon: Icon, label, count }) => (
+          <Link
+            key={label}
+            to={to}
+            className="flex items-center gap-2 rounded-xl border border-amber-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition-colors hover:border-amber-400"
+          >
+            <Icon size={16} className="text-amber-600" />
+            {label}
+            <span className="rounded-full bg-amber-500 px-2 py-0.5 text-xs text-white">{count}</span>
+          </Link>
+        ))}
+      </div>
+    </section>
   );
 }
