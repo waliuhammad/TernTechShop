@@ -24,15 +24,6 @@ export interface Specification {
   value: string;
 }
 
-export interface Review {
-  id: string;
-  productId: string;
-  author: string;
-  rating: number;
-  body: string;
-  date: string;
-}
-
 export interface Product {
   id: string;
   slug: string;

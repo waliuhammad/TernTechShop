@@ -1,4 +1,4 @@
-import type { Coupon, Review, ShippingZone } from '@/types';
+import type { Coupon, ShippingZone } from '@/types';
 
 /** The three sectors published on /shipping. */
 export const shippingZones: ShippingZone[] = [
@@ -66,78 +66,6 @@ export const coupons: Coupon[] = [
     description: 'Rs. 500 off manifests above Rs. 10,000.',
   },
 ];
-
-/** Sample feedback rendered on product pages. */
-export const reviews: Review[] = [
-  {
-    id: 'r-01',
-    productId: 'p-cpu-01',
-    author: 'Bilal Ahmed',
-    rating: 5,
-    body: 'Running sustained all-core compile loads for three weeks now. Thermals stable at 78C under a 360mm AIO. Packaging was properly ESD shielded.',
-    date: '2026-06-02',
-  },
-  {
-    id: 'r-02',
-    productId: 'p-cpu-01',
-    author: 'Hamza Sheikh',
-    rating: 4,
-    body: 'Excellent throughput but the 170W draw is real. Budget for cooling properly or you will thermal throttle in a cramped chassis.',
-    date: '2026-05-18',
-  },
-  {
-    id: 'r-03',
-    productId: 'p-gpu-01',
-    author: 'Ayesha Khan',
-    rating: 5,
-    body: 'Deployed into a render node. The 16GB clears our scene memory ceiling comfortably. Delivered to Islamabad in two days.',
-    date: '2026-06-21',
-  },
-  {
-    id: 'r-04',
-    productId: 'p-st-01',
-    author: 'Usman Tariq',
-    rating: 5,
-    body: 'Sustained write performance holds up far better than the drive it replaced. Sequential numbers match the rating on our bench.',
-    date: '2026-04-11',
-  },
-  {
-    id: 'r-05',
-    productId: 'p-st-01',
-    author: 'Fatima Noor',
-    rating: 5,
-    body: 'Third unit sourced from Tern. Consistent genuine stock and the serial registered against the warranty portal without issue.',
-    date: '2026-03-27',
-  },
-  {
-    id: 'r-06',
-    productId: 'p-pr-01',
-    author: 'Daniyal Raza',
-    rating: 5,
-    body: 'Quiet actuation makes a real difference in a shared office. Battery has gone six weeks on the first charge.',
-    date: '2026-05-09',
-  },
-  {
-    id: 'r-07',
-    productId: 'p-nw-01',
-    author: 'Saad Mehmood',
-    rating: 5,
-    body: 'PoE budget handled twelve access points with headroom. Layer 3 routing configured cleanly through the controller.',
-    date: '2026-06-14',
-  },
-  {
-    id: 'r-08',
-    productId: 'p-mb-01',
-    author: 'Zainab Iqbal',
-    rating: 4,
-    body: 'VRM stays cool under load. Four M.2 sockets was the deciding factor for our storage layout.',
-    date: '2026-04-30',
-  },
-];
-
-export function reviewsForProduct(productId: string): Review[] {
-  return reviews.filter((review) => review.productId === productId);
-}
 
 /** /legal sections. `id` is the anchor target used by the footer links. */
 export const legalSections = [

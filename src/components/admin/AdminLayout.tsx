@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   LogOut,
   Package,
+  MessageSquareText,
   ShieldAlert,
   Tag,
   Truck,
@@ -19,6 +20,7 @@ const NAV = [
   { to: '/admin/orders', label: 'Orders', icon: Truck, end: false },
   { to: '/admin/products', label: 'Products', icon: Package, end: false },
   { to: '/admin/customers', label: 'Customers', icon: Users, end: false },
+  { to: '/admin/reviews', label: 'Reviews', icon: MessageSquareText, end: false },
   { to: '/admin/coupons', label: 'Coupons', icon: Tag, end: false },
 ] as const;
 
