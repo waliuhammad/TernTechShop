@@ -1,0 +1,549 @@
+rules_version = '2';
+
+// ===========================================================================
+// Tern Technologies — Firestore Security Rules
+//
+// This file IS the backend's authorization layer. The storefront is a static
+// bundle, so nothing between the browser and the database can be trusted:
+// every constraint that matters has to be expressed and enforced here.
+//
+// The critical one is order integrity. A client submits an order document; if
+// these rules only checked "is the user signed in", a tampered client could
+// write total = 1 and buy a graphics card for one paisa. So `validOrder()`
+// re-derives every figure from the products collection and rejects any order
+// whose arithmetic does not match.
+//
+// Budget note: Firestore allows 10 document lookups per single-document
+// request (repeat lookups of the same document count once). An order costs one
+// per product line, plus one each for the coupon, the suspension check and the
+// shipping settings — 7 + 1 + 1 + 1 = 10 at most, which is why
+// MAX_ORDER_LINES is 7. A test places a full 7-line order with a coupon to
+// prove it fits, and an 8-line order to prove it is refused.
+// ===========================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Order limits ---------------------------------------------------
+    function maxOrderLines() { return 7; }
+
+    /// Shipping fee and free-shipping threshold, edited from the admin panel
+    /// (Settings). Amounts are integer paisa. This document must exist — the
+    /// rules below refuse to let anyone delete it.
+    function logistics() {
+      return get(/databases/$(database)/documents/settings/logistics).data;
+    }
+
+    // --- Identity -------------------------------------------------------
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function roleOf(uid) {
+      return get(/databases/$(database)/documents/roles/$(uid)).data.role;
+    }
+
+    function hasRoleDoc(uid) {
+      return exists(/databases/$(database)/documents/roles/$(uid));
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && hasRoleDoc(request.auth.uid)
+        && roleOf(request.auth.uid) == 'ADMIN';
+    }
+
+    function isStaff() {
+      return signedIn()
+        && hasRoleDoc(request.auth.uid)
+        && roleOf(request.auth.uid) in ['ADMIN', 'STAFF'];
+    }
+
+    // --- Primitives -----------------------------------------------------
+    function isPositiveInt(value) {
+      return value is int && value > 0;
+    }
+
+    function isNonNegativeInt(value) {
+      return value is int && value >= 0;
+    }
+
+    // ===================================================================
+    // Roles — the source of truth for RBAC.
+    //
+    // A user may read their own role but never write one.
+    //
+    // An ADMIN may grant or revoke the STAFF role for someone else from the
+    // admin panel. ADMIN itself can only be granted with the Admin SDK
+    // (`npm run seed -- --admin <uid>`), so a hijacked admin session can hand
+    // out staff access — which it effectively has anyway — but cannot mint
+    // further admins, and nobody can promote or demote themselves.
+    // ===================================================================
+    match /roles/{uid} {
+      allow read: if isOwner(uid) || isStaff();
+
+      allow create: if isAdmin()
+        && uid != request.auth.uid
+        && exists(/databases/$(database)/documents/users/$(uid))
+        && request.resource.data.keys().hasOnly(['role', 'grantedBy', 'grantedAt'])
+        && request.resource.data.role == 'STAFF'
+        && request.resource.data.grantedBy == request.auth.uid
+        && request.resource.data.grantedAt == request.time;
+
+      // No in-place edits: STAFF -> ADMIN would be an escalation path.
+      allow update: if false;
+
+      allow delete: if isAdmin()
+        && uid != request.auth.uid
+        && resource.data.role == 'STAFF';
+    }
+
+    // ===================================================================
+    // Suspensions — an ADMIN can stop a customer from shopping.
+    //
+    // The account can still sign in and see its order history, but the
+    // cart and order rules below refuse every write while this document
+    // exists. Staff and admins cannot be suspended: revoke the role first.
+    // ===================================================================
+    function isSuspended() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/suspensions/$(request.auth.uid));
+    }
+
+    match /suspensions/{uid} {
+      allow read: if isOwner(uid) || isStaff();
+
+      allow create: if isAdmin()
+        && uid != request.auth.uid
+        && !hasRoleDoc(uid)
+        && request.resource.data.keys().hasOnly(['reason', 'suspendedBy', 'suspendedAt'])
+        && request.resource.data.reason is string
+        && request.resource.data.reason.size() <= 500
+        && request.resource.data.suspendedBy == request.auth.uid
+        && request.resource.data.suspendedAt == request.time;
+
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    // ===================================================================
+    // Catalog — world readable, staff writable.
+    // ===================================================================
+    /// Product shape. Order validation compares `unitPrice == product.price`
+    /// as integers, so a price saved as a string or float from the admin
+    /// panel would silently make that product unpurchasable. Enforce it here.
+    function validProduct(d) {
+      return d.name is string && d.name.size() >= 2 && d.name.size() <= 200
+        && d.slug is string && d.slug.size() >= 2 && d.slug.size() <= 200
+        && d.sku is string && d.sku.size() >= 1 && d.sku.size() <= 60
+        && d.category is string && d.category.size() >= 2
+        && d.tier in ['Essential', 'Professional', 'Enterprise', 'Extreme']
+        && d.price is int && d.price > 0
+        && d.stock is int && d.stock >= 0 && d.stock <= 100000
+        && d.isActive is bool
+        && d.images is list && d.images.size() <= 12
+        && (!('compareAtPrice' in d) || d.compareAtPrice == null
+            || (d.compareAtPrice is int && d.compareAtPrice > d.price));
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isStaff() && validProduct(request.resource.data);
+      // Deleting breaks nothing historical (order lines are snapshots), but
+      // archiving via isActive is the normal path, so deletion is admin-only.
+      allow delete: if isAdmin();
+    }
+
+    /// Categories are keyed by their slug, which never changes after creation;
+    /// renaming changes `name` only.
+    function validCategory(categoryId, d) {
+      return d.slug == categoryId
+        && d.slug is string && d.slug.matches('^[a-z0-9-]{2,60}$')
+        && d.name is string && d.name.size() >= 2 && d.name.size() <= 60
+        && d.iconKey is string && d.iconKey.size() >= 1 && d.iconKey.size() <= 40
+        && d.colorHex is string && d.colorHex.matches('^#[0-9a-fA-F]{6}$')
+        && d.sortOrder is int
+        && d.isActive is bool
+        && d.get('tagline', '') is string && d.get('tagline', '').size() <= 80
+        && d.get('description', '') is string && d.get('description', '').size() <= 300;
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow create, update: if isStaff() && validCategory(categoryId, request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    function validLogistics(d) {
+      return d.standardShippingFee is int
+        && d.standardShippingFee >= 0 && d.standardShippingFee <= 10000000
+        && d.freeShippingThreshold is int
+        && d.freeShippingThreshold >= 0 && d.freeShippingThreshold <= 1000000000
+        && (!('zones' in d) || (d.zones is list && d.zones.size() <= 12));
+    }
+
+    match /settings/{docId} {
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && (docId != 'logistics' || validLogistics(request.resource.data));
+      // Every order's shipping is checked against settings/logistics; deleting
+      // it would make every order fail, so nobody may.
+      allow delete: if false;
+    }
+
+    // ===================================================================
+    // Coupons — fetchable by exact code, never listable.
+    //
+    // `get` on a single document requires already knowing the code, which
+    // is exactly what a shopper typing it into the cart has. `list` would
+    // let anyone enumerate every code, so only staff may list. Orders are
+    // still re-validated against the coupon server-side regardless.
+    // ===================================================================
+    function validCoupon(d) {
+      return d.type in ['percentage', 'fixed']
+        && d.value is int && d.value > 0
+        && (d.type != 'percentage' || d.value <= 100)
+        && d.minOrderAmount is int && d.minOrderAmount >= 0
+        && d.isActive is bool
+        && (!('maxDiscountAmount' in d) || d.maxDiscountAmount == null
+            || (d.maxDiscountAmount is int && d.maxDiscountAmount > 0));
+    }
+
+    match /coupons/{code} {
+      allow get: if true;
+      allow list: if isStaff();
+      allow create, update: if isAdmin() && validCoupon(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    // ===================================================================
+    // User profile — private to its owner.
+    // ===================================================================
+    match /users/{uid} {
+      allow read: if isOwner(uid) || isStaff();
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(
+             ['name', 'email', 'phone', 'city', 'address', 'updatedAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2
+        && request.resource.data.name.size() <= 120;
+      allow delete: if isOwner(uid);
+    }
+
+    // ===================================================================
+    // Saved addresses — private to their owner.
+    // ===================================================================
+    match /users/{uid}/addresses/{addressId} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(
+             ['label', 'fullName', 'phone', 'address', 'city', 'isDefault', 'updatedAt'])
+        && request.resource.data.label is string
+        && request.resource.data.label.size() >= 1 && request.resource.data.label.size() <= 40
+        && request.resource.data.fullName is string
+        && request.resource.data.fullName.size() >= 3 && request.resource.data.fullName.size() <= 120
+        && request.resource.data.phone is string
+        && request.resource.data.phone.size() >= 10 && request.resource.data.phone.size() <= 20
+        && request.resource.data.address is string
+        && request.resource.data.address.size() >= 10 && request.resource.data.address.size() <= 500
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2 && request.resource.data.city.size() <= 60
+        && request.resource.data.isDefault is bool;
+    }
+
+    // ===================================================================
+    // Cart — private to its owner. One document per line, keyed by product
+    // id, so adding the same product twice updates rather than duplicates.
+    // ===================================================================
+    match /carts/{uid}/items/{productId} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && !isSuspended()
+        && request.resource.data.keys().hasOnly(['quantity', 'updatedAt'])
+        && isPositiveInt(request.resource.data.quantity)
+        && request.resource.data.quantity <= 99
+        // Refuse to hold more than exists. Advisory only — see the stock
+        // note at the bottom of this file.
+        && request.resource.data.quantity
+             <= get(/databases/$(database)/documents/products/$(productId)).data.stock;
+    }
+
+    match /carts/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // ===================================================================
+    // Wishlist — private to its owner.
+    // ===================================================================
+    match /wishlists/{uid}/items/{productId} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['addedAt']);
+    }
+
+    match /wishlists/{uid} {
+      allow read, write: if isOwner(uid);
+    }
+
+    // ===================================================================
+    // Orders — the integrity-critical collection.
+    // ===================================================================
+
+    /// One line re-derived from the catalog: the price the client claims must
+    /// equal the price actually stored on the product, the quantity must be
+    /// available, and the line total must be the honest product of the two.
+    function validLine(line) {
+      // No exists() before get(): lookups are budgeted (10 per request) and a
+      // get() on a missing product is an evaluation error, which denies the
+      // order anyway. Checking both would spend two lookups per line.
+      return line.keys().hasAll(['productId', 'name', 'sku', 'unitPrice', 'quantity', 'lineTotal'])
+        && line.productId is string
+        && isPositiveInt(line.quantity)
+        && line.quantity <= 99
+        && line.unitPrice == get(/databases/$(database)/documents/products/$(line.productId)).data.price
+        && line.lineTotal == line.unitPrice * line.quantity;
+    }
+
+    /// Sum of the claimed line totals, for up to maxOrderLines() lines.
+    /// Rules have no fold, so this is unrolled.
+    function lineSum(items) {
+      return (items.size() > 0 ? items[0].lineTotal : 0)
+           + (items.size() > 1 ? items[1].lineTotal : 0)
+           + (items.size() > 2 ? items[2].lineTotal : 0)
+           + (items.size() > 3 ? items[3].lineTotal : 0)
+           + (items.size() > 4 ? items[4].lineTotal : 0)
+           + (items.size() > 5 ? items[5].lineTotal : 0)
+           + (items.size() > 6 ? items[6].lineTotal : 0)
+           + (items.size() > 7 ? items[7].lineTotal : 0);
+    }
+
+    function allLinesValid(items) {
+      return (items.size() < 1 || validLine(items[0]))
+        && (items.size() < 2 || validLine(items[1]))
+        && (items.size() < 3 || validLine(items[2]))
+        && (items.size() < 4 || validLine(items[3]))
+        && (items.size() < 5 || validLine(items[4]))
+        && (items.size() < 6 || validLine(items[5]))
+        && (items.size() < 7 || validLine(items[6]))
+        && (items.size() < 8 || validLine(items[7]));
+    }
+
+    /// Discount the submitted coupon code actually entitles this order to.
+    /// An unknown, inactive or under-minimum code yields -1, which can never
+    /// equal a valid discount and so fails the order.
+    function expectedDiscount(code, subtotal) {
+      // An unknown code makes get() error, which rejects the order — the
+      // right outcome, without spending a separate exists() lookup.
+      return code == null || code == ''
+        ? 0
+        : couponDiscount(get(/databases/$(database)/documents/coupons/$(code)).data, subtotal);
+    }
+
+    function couponDiscount(c, subtotal) {
+      return (c.isActive != true || subtotal < c.minOrderAmount)
+        ? -1
+        : (c.type == 'percentage'
+            ? cap(math.floor(subtotal * c.value / 100), c, subtotal)
+            : cap(c.value, c, subtotal));
+    }
+
+    /// Rules expose math.floor/ceil/round/abs/pow/sqrt but NOT math.min,
+    /// so the comparison is spelled out.
+    function smaller(a, b) {
+      return a < b ? a : b;
+    }
+
+    /// A coupon's ceiling. Absent OR explicitly null means "no cap" — the
+    /// admin panel stores null, and comparing a number against null would be
+    /// an evaluation error that silently rejects every order using it.
+    function ceilingOf(c, subtotal) {
+      return c.get('maxDiscountAmount', null) == null ? subtotal : c.maxDiscountAmount;
+    }
+
+    /// Never exceed the coupon's ceiling, and never exceed the order itself.
+    function cap(amount, c, subtotal) {
+      return smaller(smaller(amount, ceilingOf(c, subtotal)), subtotal);
+    }
+
+    function expectedShipping(subtotal, discount) {
+      return (subtotal - discount) >= logistics().freeShippingThreshold
+        ? 0
+        : logistics().standardShippingFee;
+    }
+
+    function validOrder(d) {
+      return d.userId == request.auth.uid
+        && d.status == 'PENDING'
+        && d.paymentMethod == 'COD'
+        && d.items is list
+        && d.items.size() >= 1
+        && d.items.size() <= maxOrderLines()
+        && allLinesValid(d.items)
+        && isNonNegativeInt(d.subtotal)
+        && d.subtotal == lineSum(d.items)
+        && d.discount == expectedDiscount(d.get('couponCode', ''), d.subtotal)
+        && d.shipping == expectedShipping(d.subtotal, d.discount)
+        && d.total == d.subtotal - d.discount + d.shipping
+        // Consignee details must be present and plausible.
+        && d.fullName is string && d.fullName.size() >= 3 && d.fullName.size() <= 120
+        && d.phone is string && d.phone.size() >= 10 && d.phone.size() <= 20
+        && d.address is string && d.address.size() >= 10 && d.address.size() <= 500
+        && d.city is string && d.city.size() >= 2;
+    }
+
+    match /orders/{orderId} {
+      allow read: if signedIn()
+        && (resource.data.userId == request.auth.uid || isStaff());
+
+      allow create: if signedIn() && !isSuspended() && validOrder(request.resource.data);
+
+      // A customer cannot alter an order once placed. Staff may move it
+      // through its lifecycle but can never rewrite the money or the lines.
+      // `stockDeducted` records whether confirming this order has already
+      // taken its units out of inventory, so cancelling can put them back
+      // exactly once.
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'adminNote', 'updatedAt', 'stockDeducted'])
+        && request.resource.data.status
+             in ['PENDING', 'CONFIRMED', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED']
+        && request.resource.data.get('stockDeducted', false) is bool
+        && (request.resource.data.get('adminNote', '') is string
+            && request.resource.data.get('adminNote', '').size() <= 1000);
+
+      allow delete: if false;
+    }
+
+    // ===================================================================
+    // Reviews — one per customer per product, hidden until staff approve.
+    //
+    // The document id is `<productId>_<uid>`, so a second review from the
+    // same account for the same product is an update, which customers may
+    // not perform. Approved reviews are public; a pending one is visible only
+    // to its author and to staff.
+    // ===================================================================
+    function validReview(reviewId, d) {
+      return signedIn()
+        && d.keys().hasOnly(
+             ['productId', 'userId', 'authorName', 'rating', 'title', 'body', 'status', 'createdAt'])
+        && d.userId == request.auth.uid
+        && d.productId is string
+        && reviewId == d.productId + '_' + request.auth.uid
+        && exists(/databases/$(database)/documents/products/$(d.productId))
+        && d.rating is int && d.rating >= 1 && d.rating <= 5
+        && d.authorName is string && d.authorName.size() >= 2 && d.authorName.size() <= 80
+        && d.get('title', '') is string && d.get('title', '').size() <= 120
+        && d.body is string && d.body.size() >= 10 && d.body.size() <= 2000
+        && d.status == 'PENDING'
+        && d.createdAt == request.time;
+    }
+
+    function canSeeReview(r) {
+      return r.status == 'APPROVED'
+        || (signedIn() && r.userId == request.auth.uid)
+        || isStaff();
+    }
+
+    match /reviews/{reviewId} {
+      // `resource == null`: lets a customer check "have I already reviewed
+      // this?" without error. A missing document reveals nothing.
+      allow get: if resource == null || canSeeReview(resource.data);
+      allow list: if canSeeReview(resource.data);
+      allow create: if !isSuspended() && validReview(reviewId, request.resource.data);
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'moderatedBy', 'moderatedAt'])
+        && request.resource.data.status in ['PENDING', 'APPROVED', 'REJECTED']
+        && request.resource.data.moderatedBy == request.auth.uid;
+      allow delete: if isStaff() || (signedIn() && resource.data.userId == request.auth.uid);
+    }
+
+    // ===================================================================
+    // Contact messages — anyone may send, only staff may read.
+    // ===================================================================
+    function validEmail(value) {
+      return value is string && value.size() >= 5 && value.size() <= 200
+        && value.matches('^[^@ ]+@[^@ ]+[.][^@ ]+$');
+    }
+
+    match /contactMessages/{messageId} {
+      allow create: if request.resource.data.keys().hasOnly(
+             ['name', 'email', 'subject', 'message', 'status', 'userId', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() >= 2 && request.resource.data.name.size() <= 120
+        && validEmail(request.resource.data.email)
+        && request.resource.data.subject in [
+             'Bulk Deployment Query', 'Technical Implementation Hub',
+             'Warranty Claim Escalation', 'Other / General']
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 10 && request.resource.data.message.size() <= 5000
+        && request.resource.data.status == 'NEW'
+        && (!('userId' in request.resource.data)
+            || (signedIn() && request.resource.data.userId == request.auth.uid))
+        && request.resource.data.createdAt == request.time;
+      allow read: if isStaff();
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'handledBy', 'handledAt'])
+        && request.resource.data.status in ['NEW', 'HANDLED'];
+      allow delete: if isAdmin();
+    }
+
+    // ===================================================================
+    // Warranty registrations — keyed by serial number, so each serial can be
+    // registered once. Anyone may register; only staff may read or decide.
+    // ===================================================================
+    match /warranties/{serial} {
+      allow create: if serial.matches('^[A-Z0-9-]{4,64}$')
+        && request.resource.data.keys().hasOnly(
+             ['serialNumber', 'manifestId', 'email', 'productName', 'userId', 'status', 'createdAt'])
+        && request.resource.data.serialNumber == serial
+        && request.resource.data.manifestId is string
+        && request.resource.data.manifestId.size() >= 4 && request.resource.data.manifestId.size() <= 40
+        && validEmail(request.resource.data.email)
+        && request.resource.data.get('productName', '') is string
+        && request.resource.data.get('productName', '').size() <= 200
+        && (!('userId' in request.resource.data)
+            || (signedIn() && request.resource.data.userId == request.auth.uid))
+        && request.resource.data.status == 'PENDING'
+        && request.resource.data.createdAt == request.time;
+      allow get: if isStaff()
+        || (signedIn() && resource != null && resource.data.get('userId', '') == request.auth.uid);
+      allow list: if isStaff();
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys()
+             .hasOnly(['status', 'note', 'reviewedBy', 'reviewedAt'])
+        && request.resource.data.status in ['PENDING', 'APPROVED', 'REJECTED']
+        && request.resource.data.get('note', '') is string
+        && request.resource.data.get('note', '').size() <= 500
+        && request.resource.data.reviewedBy == request.auth.uid;
+      allow delete: if isAdmin();
+    }
+
+    // ===================================================================
+    // Everything not matched above is denied.
+    // ===================================================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Known limit — stock decrement
+//
+// These rules stop a client buying at the wrong price, ordering a product that
+// does not exist, or claiming a discount it has not earned. They cannot
+// atomically decrement stock when an order is placed: rules authorise writes,
+// they do not perform them.
+//
+// So two shoppers can both pass the `quantity <= stock` check for the last
+// unit at the same time and both orders will be accepted. Preventing that
+// needs a Cloud Function triggered on order creation, running the decrement in
+// a transaction — which requires the Blaze plan. Until then, treat stock as
+// advisory and confirm availability when you contact the customer.
+// ---------------------------------------------------------------------------
