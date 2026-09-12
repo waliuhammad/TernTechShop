@@ -1,5 +1,5 @@
 import { ArrowDown, ArrowUp, Eye, EyeOff, Pencil, Plus, Trash2 } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { createElement, useMemo, useState } from 'react';
 import { AdminError, AdminPageHeader, AdminSpinner } from '@/components/admin/AdminUI';
 import { useAuth } from '@/context/AuthContext';
 import { useCatalog } from '@/context/CatalogContext';
@@ -172,8 +172,6 @@ export default function AdminCategories() {
     });
   };
 
-  const DraftIcon = draft ? resolveIcon(draft.iconKey) : null;
-
   return (
     <div>
       <AdminPageHeader eyebrow="// REGISTRY_STRUCTURE" title="Product" accent="Categories">
@@ -186,7 +184,7 @@ export default function AdminCategories() {
 
       <AdminError message={error} />
 
-      {draft && DraftIcon && (
+      {draft && (
         <form onSubmit={(event) => void submit(event)} className="mb-8 space-y-5 rounded-2xl border border-primary/20 bg-white p-6" noValidate>
           <h2 className="text-sm font-black tracking-widest uppercase">
             {draft.originalName === null ? 'New category' : `Edit ${draft.originalName}`}
@@ -293,7 +291,7 @@ export default function AdminCategories() {
 
           <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl text-white" style={{ backgroundColor: draft.colorHex }}>
-              <DraftIcon size={22} />
+              <IconByKey iconKey={draft.iconKey} size={22} />
             </div>
             <div>
               <p className="font-black tracking-tight uppercase italic">{draft.name || 'Preview'}</p>
@@ -380,4 +378,9 @@ export default function AdminCategories() {
       </p>
     </div>
   );
+}
+
+/** Looks the icon up inside a stable component, so a key change never remounts the preview. */
+function IconByKey({ iconKey, size }: { iconKey: string; size: number }) {
+  return createElement(resolveIcon(iconKey), { size });
 }
