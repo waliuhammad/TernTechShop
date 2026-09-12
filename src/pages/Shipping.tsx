@@ -1,10 +1,14 @@
 import { Seo } from '@/components/ui/Seo';
 import { TerminalPage } from '@/components/ui/TerminalPage';
-import { logistics, shippingAssurances, shippingZones } from '@/data/site-data';
+import { useSettings } from '@/context/SettingsContext';
+import { shippingAssurances } from '@/data/site-data';
 import { resolveIcon } from '@/lib/icons';
 import { formatPrice } from '@/lib/money';
 
 export default function Shipping() {
+  // Fee, threshold and zones are edited in Admin -> Settings.
+  const { logistics } = useSettings();
+
   return (
     <>
       <Seo
@@ -53,7 +57,7 @@ export default function Shipping() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800">
-                {shippingZones.map((zone) => (
+                {logistics.zones.map((zone) => (
                   <tr key={zone.sector} className="transition-colors hover:bg-slate-900/40">
                     <td className="px-6 py-4 font-bold text-white">{zone.sector}</td>
                     <td className="px-6 py-4 text-slate-300">{zone.deliveryWindow}</td>
@@ -69,14 +73,14 @@ export default function Shipping() {
           <div className="space-y-3 rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6">
             <h3 className="font-bold text-blue-400">Free Deployment</h3>
             <p className="text-sm leading-relaxed text-slate-400">
-              Manifests valued at {formatPrice(logistics.freeThreshold)} or above ship with zero
+              Manifests valued at {formatPrice(logistics.freeShippingThreshold)} or above ship with zero
               logistics charges, nationwide.
             </p>
           </div>
           <div className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
             <h3 className="font-bold">Standard Logistics Fee</h3>
             <p className="text-sm leading-relaxed text-slate-400">
-              A flat {formatPrice(logistics.standardFee)} applies below the free-deployment
+              A flat {formatPrice(logistics.standardShippingFee)} applies below the free-deployment
               threshold, regardless of sector.
             </p>
           </div>
