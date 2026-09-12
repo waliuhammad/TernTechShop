@@ -1,6 +1,7 @@
 import {
   ArrowLeft,
   Cpu,
+  FolderTree,
   Inbox,
   LayoutDashboard,
   LogOut,
@@ -20,6 +21,7 @@ const NAV = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true },
   { to: '/admin/orders', label: 'Orders', icon: Truck, end: false },
   { to: '/admin/products', label: 'Products', icon: Package, end: false },
+  { to: '/admin/categories', label: 'Categories', icon: FolderTree, end: false },
   { to: '/admin/customers', label: 'Customers', icon: Users, end: false },
   { to: '/admin/reviews', label: 'Reviews', icon: MessageSquareText, end: false },
   { to: '/admin/inbox', label: 'Inbox', icon: Inbox, end: false },

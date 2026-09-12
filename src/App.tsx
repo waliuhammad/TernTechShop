@@ -35,6 +35,7 @@ const AdminCustomers = lazy(() => import('@/pages/admin/Customers'));
 const AdminCoupons = lazy(() => import('@/pages/admin/Coupons'));
 const AdminReviews = lazy(() => import('@/pages/admin/Reviews'));
 const AdminInbox = lazy(() => import('@/pages/admin/Inbox'));
+const AdminCategories = lazy(() => import('@/pages/admin/Categories'));
 
 /** /category/:slug is not a route here; forward it to the filtered catalog. */
 function CategoryRedirect() {
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="coupons" element={<AdminCoupons />} />
           <Route path="reviews" element={<AdminReviews />} />
           <Route path="inbox" element={<AdminInbox />} />
+          <Route path="categories" element={<AdminCategories />} />
         </Route>
         <Route path="admin-login" element={<Navigate to="/login" replace state={{ from: '/admin' }} />} />
 
