@@ -148,11 +148,15 @@ Sign in with your admin account and use **Admin Portal** in the header (or go to
 
 | Screen | What you can do |
 |---|---|
-| **Dashboard** | Revenue, orders awaiting action, 7-day sales, low-stock alerts |
+| **Dashboard** | Revenue, a **Needs attention** panel (orders, reviews, messages, warranties waiting), 7-day sales, low-stock alerts |
 | **Orders** | Search and filter; open an order to call or WhatsApp the customer, confirm, ship, deliver or cancel |
 | **Products** | Create, edit, archive or delete; upload images; click a stock number to adjust it inline |
+| **Categories** | Add, rename, recolour, reorder or hide categories. Renaming moves every product in it. A category with products can't be deleted |
 | **Customers** | Every account with order count and spend. ADMIN can **make staff / remove staff** and **suspend / reinstate** customers |
+| **Reviews** | Customer reviews wait here until approved. Approving or unpublishing recalculates the product's star rating |
+| **Inbox** | Contact-form messages (reply by email, mark handled) and warranty registrations (approve or reject with a note) |
 | **Coupons** | Create percentage or fixed-amount codes, pause or delete them (ADMIN only) |
+| **Settings** | Shipping fee, free-shipping threshold and delivery zones (ADMIN only). Applies to the next order |
 
 **Stock is deducted when you confirm an order**, not when the customer places it. If a product
 has sold out since the order came in, confirmation is refused so you can call the customer
@@ -195,7 +199,8 @@ npm run test:rules     # terminal 2
 ```
 
 Run these after any change to `firestore.rules`. They include the attacks that matter — forged
-prices, forged totals, invented coupons, reading another user's orders, self-promotion to admin.
+prices, forged totals, a forged shipping fee, invented coupons, reading another user's orders,
+self-promotion to admin, self-approved reviews.
 
 ---
 
@@ -203,11 +208,10 @@ prices, forged totals, invented coupons, reading another user's orders, self-pro
 
 | Limit | Why | Lifting it |
 |---|---|---|
-| **At most 8 distinct products per order** | Rules re-check each line's price against the catalog, and Firestore caps a rule at 10 document lookups | Cloud Functions |
+| **At most 7 distinct products per order** (any quantity of each) | Rules re-check each line's price against the catalog, plus the coupon, suspension status and shipping settings, and Firestore caps a request at 10 document lookups | Cloud Functions |
 | **Stock is reserved at confirmation, not at checkout** | Rules can approve a write but cannot perform a second one, so a customer's order can't decrement stock itself. Two shoppers can both *place* an order for the last unit — but only one can be *confirmed*; the admin panel refuses the second | A Cloud Function on order creation, to reserve at checkout |
 | **Image uploads use an unsigned Cloudinary preset** | No server to sign uploads. The preset name is public, so someone could upload to your account (not read or delete) | Blaze plan + a signing function |
 | **Suspension is soft** | Disabling sign-in itself needs the Admin SDK on a server. A suspended customer can sign in, but cart and ordering are refused by the rules | Blaze plan + a function calling `updateUser({ disabled: true })` |
-| **Changing the shipping fee takes two edits** | The fee is in both `src/data/site-data.ts` and `firestore.rules`, so the rules don't spend a lookup reading it | Edit both, then redeploy rules |
 
 Lifting the first two needs **Cloud Functions**, which require the **Blaze** plan. Blaze is pay-as-you-go
 with the same free allowance as Spark, so a store at this scale typically pays nothing — but it

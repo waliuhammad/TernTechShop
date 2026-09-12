@@ -84,12 +84,15 @@ Upload into `public_html/shop/`.
 
 ## Updating the site later
 
-**Products, prices and stock** live in Firestore — edit them in the Firebase console and the
-change is live immediately. No rebuild or upload needed.
+**Products, prices, stock, categories, coupons, shipping settings, reviews and messages** live in
+Firestore — manage them in the admin panel (`/admin`) and the change is live immediately. No
+rebuild or upload needed.
 
 **Design, copy, pages or security rules** need a rebuild:
 
-1. Edit the code (`src/`), or `firestore.rules` then `npx firebase deploy --only firestore`
+1. Edit the code (`src/`). If `firestore.rules` or `firestore.indexes.json` changed too, run
+   `npx firebase deploy --only firestore` **before** uploading — new site code that expects new
+   rules will be refused by the old ones
 2. `npm run build`
 3. Re-upload the contents of `dist/`
 
