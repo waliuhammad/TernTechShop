@@ -100,9 +100,9 @@ each attack above.
 | 7 different products per order | Rules verify each line against the catalog, plus the coupon, suspension and shipping settings, within Firestore's 10-lookup cap. Quantities per product are not limited |
 | Stock reserved at confirmation | Two shoppers can both order the last unit; only one can be confirmed |
 | Image uploads via Cloudinary (unsigned) | The upload preset name is public; someone could upload images to your account, but not read or delete existing ones |
-| Suspension is soft | A suspended customer can still sign in and see past orders; cart and checkout are refused |
+| Suspension signs out, not disables | A suspended customer is signed straight back out with a message; the rules refuse their cart, orders and reviews regardless. Disabling the Firebase account itself needs a server |
 | No online payments | Cash on Delivery only |
-| Client-rendered SEO | Crawlers that don't run JavaScript see only `index.html` |
+| SEO pages refresh on deploy | Public pages and products are pre-rendered at build time from live Firestore data. Products added or edited later are still served, but their crawler copy and sitemap entry update on the next **Redeploy** |
 
 Details and remedies: [docs/FIREBASE-SETUP.md](docs/FIREBASE-SETUP.md#known-limits).
 

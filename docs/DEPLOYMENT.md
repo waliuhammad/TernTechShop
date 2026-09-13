@@ -48,6 +48,7 @@ Open the site and check each of these:
 - [ ] Homepage loads, fonts look right (Inter), header turns solid on scroll
 - [ ] **Reload the page while on `/shop`** — it must load the shop, not a 404
 - [ ] Same for `/cart`, `/about`, and a product URL
+- [ ] `/sitemap.xml` and `/robots.txt` load, and `/some-junk-url` shows the "Route Not Found" page
 - [ ] Register an account, sign out, sign back in
 - [ ] Add a product to the cart, reload, cart still holds it
 - [ ] Complete a checkout — the order appears under **Firestore → `orders`**
@@ -55,8 +56,27 @@ Open the site and check each of these:
 
 **The deep-link check matters most.** The reference site fails it — visiting
 `terntechshop.com/shop` directly returns the host's 404 page, because a single-page app has no
-real file at that path. `.htaccess` is what fixes it, by routing unknown paths to `index.html`.
-If deep links 404 on your upload, `.htaccess` did not make it into `public_html`.
+real file at that path. `.htaccess` is what fixes it: public pages are served from their pre-rendered
+`.html` files and app routes (cart, account, admin) from `app.html`.
+If deep links 404 on your upload, `.htaccess` did not make it into the site root.
+
+## Search engines
+
+`npm run build` finishes with `scripts/prerender.ts`, which reads the live catalog from Firestore
+and writes a real HTML page for the home page, shop, information pages and **every active
+product** — each with its own title, description, social-preview tags and Google structured data
+— plus `sitemap.xml` and `robots.txt`. Visitors see the normal app; crawlers that don't run
+JavaScript now see the actual content.
+
+The build prints `prerender: N pages (M products)`. If it says `Firestore skipped`, the build
+couldn't reach Firebase: the site still works, but product pages aren't pre-rendered until the
+next build.
+
+**After adding or renaming products, click Redeploy on Hostinger** now and then so the sitemap
+and product pages catch up. New products work immediately either way.
+
+Submit `https://terntechshop.com/sitemap.xml` once in
+[Google Search Console](https://search.google.com/search-console) → Sitemaps.
 
 ---
 
@@ -107,7 +127,8 @@ Filenames in `assets/` are content-hashed, so browsers pick up changes immediate
 | Block | Purpose |
 |---|---|
 | HTTPS redirect | Forces `https://` |
-| SPA fallback | Routes any non-file path to `index.html` so client-side routing works |
+| Page routing | `/shop` → `shop.html`, `/product/x` → `product/x.html`; app routes → `app.html`; unknown paths → a real 404 showing the app's not-found page |
+| Old URLs | `/privacy`, `/terms`, `/cookies`, `/returns`, `/products`, `/search` redirect permanently; `/shop/` → `/shop` |
 | Compression | gzip for HTML, CSS, JS, JSON, SVG |
 | Caching | One year for hashed assets; `no-cache` for `index.html` |
 | Security headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, HSTS |

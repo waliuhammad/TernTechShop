@@ -164,7 +164,8 @@ first. Cancelling a confirmed order puts the units back.
 
 **Staff and suspensions.** On **Customers**, an ADMIN can make any customer STAFF (or remove it),
 and suspend or reinstate a customer. A new staff member must sign out and back in to see the
-Admin Portal. Staff and admins can't be suspended — remove the role first.
+Admin Portal. Staff and admins can't be suspended — remove the role first. A suspended customer
+is signed out on their next page load and can't sign back in until reinstated.
 
 **Images.** Connect Cloudinary to get an **Upload images** button — see
 [CLOUDINARY-SETUP.md](CLOUDINARY-SETUP.md). Without it, paste image URLs.
@@ -211,7 +212,7 @@ self-promotion to admin, self-approved reviews.
 | **At most 7 distinct products per order** (any quantity of each) | Rules re-check each line's price against the catalog, plus the coupon, suspension status and shipping settings, and Firestore caps a request at 10 document lookups | Cloud Functions |
 | **Stock is reserved at confirmation, not at checkout** | Rules can approve a write but cannot perform a second one, so a customer's order can't decrement stock itself. Two shoppers can both *place* an order for the last unit — but only one can be *confirmed*; the admin panel refuses the second | A Cloud Function on order creation, to reserve at checkout |
 | **Image uploads use an unsigned Cloudinary preset** | No server to sign uploads. The preset name is public, so someone could upload to your account (not read or delete) | Blaze plan + a signing function |
-| **Suspension is soft** | Disabling sign-in itself needs the Admin SDK on a server. A suspended customer can sign in, but cart and ordering are refused by the rules | Blaze plan + a function calling `updateUser({ disabled: true })` |
+| **Suspension signs out rather than disables** | Disabling a Firebase account needs the Admin SDK on a server. The site signs a suspended customer straight back out, and the rules refuse their cart, orders and reviews even if they bypass the site | A server calling `updateUser({ disabled: true })` |
 
 Lifting the first two needs **Cloud Functions**, which require the **Blaze** plan. Blaze is pay-as-you-go
 with the same free allowance as Spark, so a store at this scale typically pays nothing — but it
