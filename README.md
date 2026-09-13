@@ -58,6 +58,7 @@ Without a `.env` the site still runs on the bundled catalog, with sign-in disabl
 | **Wishlist** | Same guest/account model as the cart |
 | **Checkout** | Three validated steps; requires sign-in; fills from a saved address |
 | **Orders** | Written to Firestore, **prices and totals re-verified server-side** |
+| **Stock** | Reserved the moment an order is placed; cancelling returns it. A shopper mid-checkout is told if the last unit just sold |
 | **Order history** | Per-account, with status |
 | **Search / filters / sort / pagination** | All mirrored to the URL |
 | **Coupons** | Looked up by exact code, never listable; re-validated server-side on every order |
@@ -80,15 +81,18 @@ The critical rule is order integrity. When a customer places an order, the rules
 - recompute every **line total**, the **subtotal**, the **grand total**, and **shipping** from the fee and threshold saved in Admin → Settings
 - look up the **coupon** and reject any discount it doesn't entitle
 - confirm the order belongs to the **signed-in user** and starts as `PENDING`
+- require each product's **stock to be reduced by exactly the ordered quantity in the same write**,
+  and refuse it if stock would drop below zero — so the last unit can't be sold twice
 
 A tampered client that submits a Rs. 452,000 graphics card at Rs. 1 is refused by the server.
 
 The rules also prevent: reading another user's cart, wishlist, profile or orders; editing an
 order after it's placed; rewriting an order's money (even as staff); enumerating coupon codes;
-granting yourself a role; publishing your own review without approval; and reading someone else's
-warranty registration or contact message.
+granting yourself a role; publishing your own review without approval; reading someone else's
+warranty registration or contact message; and changing a product's stock except by placing a
+genuine order for it.
 
-**All of this is tested.** `npm run test:rules` runs 148 cases against the emulator, including
+**All of this is tested.** `npm run test:rules` runs 166 cases against the emulator, including
 each attack above.
 
 ---
@@ -97,8 +101,8 @@ each attack above.
 
 | Limit | Detail |
 |---|---|
-| 7 different products per order | Rules verify each line against the catalog, plus the coupon, suspension and shipping settings, within Firestore's 10-lookup cap. Quantities per product are not limited |
-| Stock reserved at confirmation | Two shoppers can both order the last unit; only one can be confirmed |
+| 7 different products per order | Rules verify each line against the catalog, plus the coupon, suspension and shipping settings, within Firestore's per-write limits. Up to 99 of each |
+| Unconfirmed orders hold stock | Stock is reserved at checkout, so a fake COD order keeps its units out of stock until staff cancel it |
 | Image uploads via Cloudinary (unsigned) | The upload preset name is public; someone could upload images to your account, but not read or delete existing ones |
 | Suspension signs out, not disables | A suspended customer is signed straight back out with a message; the rules refuse their cart, orders and reviews regardless. Disabling the Firebase account itself needs a server |
 | No online payments | Cash on Delivery only |
@@ -119,7 +123,7 @@ ADMIN is granted only with `npm run seed -- --admin <uid>`. An ADMIN can then gr
 | Dashboard, orders, customers | ✅ | ✅ |
 | Approve / reject reviews, handle inbox messages and warranties | ✅ | ✅ |
 | Create / edit / reorder / hide categories | ✅ | ✅ |
-| Change order status (with stock deduction/restock) | ✅ | ✅ |
+| Change order status (cancelling returns stock) | ✅ | ✅ |
 | Create / edit / archive products, adjust stock | ✅ | ✅ |
 | Upload product images | ✅ | ✅ |
 | Delete products, categories, messages and warranty registrations | — | ✅ |

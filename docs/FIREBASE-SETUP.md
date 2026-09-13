@@ -158,9 +158,13 @@ Sign in with your admin account and use **Admin Portal** in the header (or go to
 | **Coupons** | Create percentage or fixed-amount codes, pause or delete them (ADMIN only) |
 | **Settings** | Shipping fee, free-shipping threshold and delivery zones (ADMIN only). Applies to the next order |
 
-**Stock is deducted when you confirm an order**, not when the customer places it. If a product
-has sold out since the order came in, confirmation is refused so you can call the customer
-first. Cancelling a confirmed order puts the units back.
+**Stock is taken the moment a customer places an order**, so two customers can never buy the
+last unit. Confirming, shipping and delivering don't change stock; **cancelling an order puts its
+units back** — so cancel fake or unreachable COD orders promptly, or their stock stays held.
+Orders placed before this change still deduct on confirmation, as they used to.
+
+If you edit a product while customers are buying it, saving keeps the live stock count unless
+you changed the stock field yourself.
 
 **Staff and suspensions.** On **Customers**, an ADMIN can make any customer STAFF (or remove it),
 and suspend or reinstate a customer. A new staff member must sign out and back in to see the
@@ -209,12 +213,10 @@ self-promotion to admin, self-approved reviews.
 
 | Limit | Why | Lifting it |
 |---|---|---|
-| **At most 7 distinct products per order** (any quantity of each) | Rules re-check each line's price against the catalog, plus the coupon, suspension status and shipping settings, and Firestore caps a request at 10 document lookups | Cloud Functions |
-| **Stock is reserved at confirmation, not at checkout** | Rules can approve a write but cannot perform a second one, so a customer's order can't decrement stock itself. Two shoppers can both *place* an order for the last unit — but only one can be *confirmed*; the admin panel refuses the second | A Cloud Function on order creation, to reserve at checkout |
+| **At most 7 distinct products per order** (any quantity of each) | Rules re-check each line's price and stock against the catalog, plus the coupon, suspension status and shipping settings; Firestore caps a write at 10 lookups and 1,000 rule expressions | A server that places orders |
 | **Image uploads use an unsigned Cloudinary preset** | No server to sign uploads. The preset name is public, so someone could upload to your account (not read or delete) | Blaze plan + a signing function |
 | **Suspension signs out rather than disables** | Disabling a Firebase account needs the Admin SDK on a server. The site signs a suspended customer straight back out, and the rules refuse their cart, orders and reviews even if they bypass the site | A server calling `updateUser({ disabled: true })` |
 
-Lifting the first two needs **Cloud Functions**, which require the **Blaze** plan. Blaze is pay-as-you-go
-with the same free allowance as Spark, so a store at this scale typically pays nothing — but it
-does require a billing card on file. Until then, confirm availability when you call the customer
-to confirm their order.
+Lifting these needs a small server — a Node.js app on Hostinger, or Cloud Functions on
+Firebase's pay-as-you-go **Blaze** plan. Online payments need the same server, so they're best
+added together.

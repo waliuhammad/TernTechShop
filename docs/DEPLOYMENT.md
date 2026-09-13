@@ -110,9 +110,10 @@ rebuild or upload needed.
 
 **Design, copy, pages or security rules** need a rebuild:
 
-1. Edit the code (`src/`). If `firestore.rules` or `firestore.indexes.json` changed too, run
-   `npx firebase deploy --only firestore` **before** uploading — new site code that expects new
-   rules will be refused by the old ones
+1. Edit the code (`src/`). If `firestore.rules` or `firestore.indexes.json` changed too, deploy
+   them with `npx firebase deploy --only firestore` **right after** the new site goes live. When
+   the checkout write changes shape (as it did for stock reservation), old site + new rules and
+   new site + old rules both refuse orders, so keep the gap between the two to a minute or two
 2. `npm run build`
 3. Re-upload the contents of `dist/`
 
