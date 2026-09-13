@@ -1,0 +1,40 @@
+{
+  "name": "5-in-1 Rechargeable Salon Nail Kit",
+  "slug": "5-in-1-rechargeable-salon-nail-kit",
+  "sku": "TT-PER-141",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 884,
+  "compareAtPrice": 1700,
+  "stock": 23,
+  "shortDescription": "Rechargeable manicure pen with five attachments.",
+  "description": "A rechargeable 5-in-1 manicure pen with interchangeable heads for filing, buffing and shaping nails at home. Salon-style results in a compact, cordless tool.",
+  "highlights": [
+    "5 interchangeable heads",
+    "Rechargeable and cordless",
+    "File, buff and shape nails",
+    "Compact pen design"
+  ],
+  "specifications": [
+    {
+      "label": "Attachments",
+      "value": "5"
+    },
+    {
+      "label": "Power",
+      "value": "Rechargeable"
+    },
+    {
+      "label": "Use",
+      "value": "Manicure and pedicure"
+    },
+    {
+      "label": "Colour",
+      "value": "Blush / rose gold"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

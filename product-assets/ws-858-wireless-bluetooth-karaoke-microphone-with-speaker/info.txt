@@ -1,0 +1,8 @@
+price: 899
+stock: 21
+compare at price: 1099
+name: WS-858 Wireless Bluetooth Karaoke Microphone with Speaker
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "WS 858 Portable Rechargeable Wireless Bluetooth Microphone & HiFi Speaker KTV…" — Rs. 899 (was Rs. 1,099) — in stock, 103 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/ws-858-hifi-ktv-ws858-i925350659.html

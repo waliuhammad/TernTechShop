@@ -1,0 +1,40 @@
+{
+  "name": "Wall-Mounted Phone Holder with 2 Hooks (Upgraded)",
+  "slug": "wall-mounted-phone-holder-with-2-hooks-upgraded",
+  "sku": "TT-PER-104",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 186,
+  "compareAtPrice": 400,
+  "stock": 17,
+  "shortDescription": "Adhesive wall pocket for phones and remotes, with two cable hooks.",
+  "description": "An adhesive wall-mounted holder that keeps your phone or remote in reach while charging, with two hooks for cables or keys. No drilling needed.",
+  "highlights": [
+    "No-drill adhesive mount",
+    "Two hooks for cables and keys",
+    "Holds phones and remotes",
+    "Charging cable slot"
+  ],
+  "specifications": [
+    {
+      "label": "Mounting",
+      "value": "Adhesive"
+    },
+    {
+      "label": "Hooks",
+      "value": "2"
+    },
+    {
+      "label": "Material",
+      "value": "ABS plastic"
+    },
+    {
+      "label": "Colours",
+      "value": "Blue, pink, green, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

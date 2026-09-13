@@ -1,0 +1,8 @@
+price: 
+stock: 23
+compare at price: 
+name: Micro-ATX Intel Desktop Motherboard (Model to Confirm)
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: Needs price verification — brand and model are not readable in the photo.

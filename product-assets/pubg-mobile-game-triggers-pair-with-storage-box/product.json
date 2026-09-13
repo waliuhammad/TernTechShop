@@ -1,0 +1,40 @@
+{
+  "name": "PUBG Mobile Game Triggers (Pair) with Storage Box",
+  "slug": "pubg-mobile-game-triggers-pair-with-storage-box",
+  "sku": "TT-PER-119",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 799,
+  "compareAtPrice": 1499,
+  "stock": 11,
+  "shortDescription": "Clip-on shoot and aim triggers for mobile shooter games.",
+  "description": "A pair of clip-on L1/R1 triggers that give you console-style shoot and aim buttons in PUBG, Free Fire and COD Mobile. Comes in a protective storage box.",
+  "highlights": [
+    "Pair of L1/R1 triggers",
+    "Clip-on, no pairing needed",
+    "Works with PUBG, Free Fire, COD",
+    "Storage box included"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Conductive clip-on triggers"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most smartphones"
+    },
+    {
+      "label": "Included",
+      "value": "Storage box"
+    },
+    {
+      "label": "Colour",
+      "value": "Red and clear"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

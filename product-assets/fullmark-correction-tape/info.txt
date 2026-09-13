@@ -1,0 +1,8 @@
+price: 
+stock: 24
+compare at price: 
+name: Fullmark Correction Tape
+brand: Fullmark
+category: Peripherals
+featured: yes
+notes: Needs price verification — no Fullmark listing found; other correction tapes sell for about Rs. 190–275.

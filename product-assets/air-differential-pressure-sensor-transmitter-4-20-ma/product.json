@@ -1,0 +1,44 @@
+{
+  "name": "Air Differential Pressure Sensor Transmitter (4–20 mA)",
+  "slug": "air-differential-pressure-sensor-transmitter-4-20-ma",
+  "sku": "TT-MBD-066",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Enterprise",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "Industrial differential pressure transmitter for air and HVAC monitoring.",
+  "description": "An industrial air differential pressure transmitter with twin barbed ports that measures pressure difference across filters, ducts and cleanrooms. Outputs a standard current signal for PLCs and building management systems.",
+  "highlights": [
+    "Twin barbed pressure ports",
+    "Industrial current output",
+    "Metal enclosure",
+    "For HVAC, filters and cleanrooms"
+  ],
+  "specifications": [
+    {
+      "label": "Medium",
+      "value": "Air / non-corrosive gas"
+    },
+    {
+      "label": "Output",
+      "value": "4–20 mA (as printed on label, to confirm)"
+    },
+    {
+      "label": "Range",
+      "value": "Not specified"
+    },
+    {
+      "label": "Supply",
+      "value": "Not specified"
+    },
+    {
+      "label": "Ports",
+      "value": "2 barbed"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 250
+stock: 25
+compare at price: 450
+name: 6A 66W USB-A to USB-C Super Fast Charging Cable
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "6A 66W USB Type C Super Fast Cable For  Fast Charging USB C Charger Cable Data…" — Rs. 250 (was Rs. 450) — in stock, 70 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/6a-66-usb-c-usb-c-i491862316.html

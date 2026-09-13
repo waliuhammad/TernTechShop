@@ -1,0 +1,8 @@
+price: 690
+stock: 15
+compare at price: 
+name: NodeMCU ESP8266 ESP-12E WiFi Development Board (CP2102)
+brand: Unbranded
+category: Processors
+featured: yes
+notes: digilog.pk — "NodeMCU V2 Lua WiFi IOT Development Board ESP 12E ESP8266" — Rs. 690 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/nodemcu-v2-lua-esp8266-development-board-cp2102-in-pakistan

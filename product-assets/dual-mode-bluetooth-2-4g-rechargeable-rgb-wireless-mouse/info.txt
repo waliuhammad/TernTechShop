@@ -1,0 +1,8 @@
+price: 1450
+stock: 10
+compare at price: 1500
+name: Dual-Mode Bluetooth + 2.4G Rechargeable RGB Wireless Mouse
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: alhamdtech.pk — "Mikuso MOS-W115 Wireless Bluetooth Rechargeable Mouse Black" — Rs. 1,450 (was Rs. 1,500) — in stock — checked 13 Sep 2026 | https://alhamdtech.pk/products/mikuso-mos-w115-wireless-bluetooth-rechargeable-mouse | Price is for a comparable dual-mode rechargeable mouse (Mikuso MOS-W115); the photo shows an unbranded RGB model.

@@ -1,0 +1,40 @@
+{
+  "name": "Custom Name Sticker for Laptop with Crown Design",
+  "slug": "custom-name-sticker-for-laptop-with-crown-design",
+  "sku": "TT-PER-136",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 91,
+  "compareAtPrice": 99,
+  "stock": 21,
+  "shortDescription": "Personalised vinyl name sticker with a crown for your laptop.",
+  "description": "A personalised vinyl sticker with your name in elegant script and a crown, made to decorate a laptop, bottle or notebook. Easy step-by-step application with no bubbles.",
+  "highlights": [
+    "Personalised with your name",
+    "Crown design",
+    "Easy bubble-free application",
+    "Water-resistant vinyl"
+  ],
+  "specifications": [
+    {
+      "label": "Size",
+      "value": "4 × 1.5 in (per listing)"
+    },
+    {
+      "label": "Material",
+      "value": "Vinyl"
+    },
+    {
+      "label": "Customisation",
+      "value": "Your name"
+    },
+    {
+      "label": "Use",
+      "value": "Laptops, bottles, notebooks"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

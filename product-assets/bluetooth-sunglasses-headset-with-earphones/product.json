@@ -1,0 +1,44 @@
+{
+  "name": "Bluetooth Sunglasses Headset with Earphones",
+  "slug": "bluetooth-sunglasses-headset-with-earphones",
+  "sku": "TT-PER-081",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 2899,
+  "compareAtPrice": 6800,
+  "stock": 14,
+  "shortDescription": "Sporty sunglasses with built-in Bluetooth earphones for music and calls.",
+  "description": "Wraparound sunglasses with built-in Bluetooth earphones, ideal for riding, driving and outdoor sports. Listen to music and answer calls without a separate headset.",
+  "highlights": [
+    "Built-in Bluetooth earphones",
+    "Hands-free calling",
+    "Sporty wraparound frame",
+    "Tinted lenses"
+  ],
+  "specifications": [
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Audio",
+      "value": "In-ear earphones"
+    },
+    {
+      "label": "Lenses",
+      "value": "Tinted"
+    },
+    {
+      "label": "Battery life",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

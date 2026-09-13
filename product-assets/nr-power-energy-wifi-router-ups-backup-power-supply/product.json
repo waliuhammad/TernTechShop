@@ -1,0 +1,44 @@
+{
+  "name": "NR Power Energy WiFi Router UPS Backup Power Supply",
+  "slug": "nr-power-energy-wifi-router-ups-backup-power-supply",
+  "sku": "TT-NET-004",
+  "brand": "NR Power Energy",
+  "category": "Networking",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "WiFi router UPS that keeps your connection alive during power outages.",
+  "description": "A dedicated router UPS from NR Power Energy that sits between the adapter and your router and powers it through outages. Designed for reliable, easy-to-install backup for home WiFi.",
+  "highlights": [
+    "Keeps WiFi on during power outages",
+    "Easy plug-in installation",
+    "Reliable, long-lasting backup",
+    "Compact unit for home and office"
+  ],
+  "specifications": [
+    {
+      "label": "Output",
+      "value": "Not specified"
+    },
+    {
+      "label": "Battery capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Backup time",
+      "value": "Not specified"
+    },
+    {
+      "label": "Compatibility",
+      "value": "WiFi routers (voltage to be confirmed)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

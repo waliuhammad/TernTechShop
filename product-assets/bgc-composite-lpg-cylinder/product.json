@@ -1,0 +1,45 @@
+{
+  "name": "BGC Composite LPG Cylinder",
+  "slug": "bgc-composite-lpg-cylinder",
+  "sku": "TT-PER-148",
+  "brand": "BGC (Burhan Gas Company)",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 10,
+  "shortDescription": "Lightweight, explosion-proof composite LPG cylinder from BGC.",
+  "description": "A BGC composite LPG cylinder that is lighter than steel, non-corrosive and translucent so you can see the gas level. A safer, easier-to-handle cylinder for home kitchens.",
+  "highlights": [
+    "Non-corrosive composite body",
+    "Explosion-proof design (as advertised)",
+    "Translucent to check gas level",
+    "Lightweight, easy handling",
+    "UV resistant"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "Burhan Gas Company (BGC)"
+    },
+    {
+      "label": "Material",
+      "value": "Composite"
+    },
+    {
+      "label": "Capacity",
+      "value": "Not specified — 5, 10 and 13 kg sizes exist"
+    },
+    {
+      "label": "Features",
+      "value": "Non-corrosive, explosion-proof, easy handling, light weight, translucent, UV resistant (as advertised)"
+    },
+    {
+      "label": "Colour",
+      "value": "Yellow"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

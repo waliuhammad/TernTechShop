@@ -1,0 +1,8 @@
+price: 8070
+stock: 16
+compare at price: 
+name: Raspberry Pi M.2 HAT+ (M Key) for Raspberry Pi 5
+brand: Raspberry Pi
+category: Motherboards
+featured: yes
+notes: digilog.pk — "Raspberry Pi 5 Official M.2 HAT+ (M Key) � NVMe & PCIe Expansion Board…" — Rs. 8,070 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/raspberry-pi-5-official-m-2-hat

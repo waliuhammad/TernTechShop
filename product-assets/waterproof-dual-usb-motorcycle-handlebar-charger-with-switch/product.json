@@ -1,0 +1,44 @@
+{
+  "name": "Waterproof Dual USB Motorcycle Handlebar Charger with Switch",
+  "slug": "waterproof-dual-usb-motorcycle-handlebar-charger-with-switch",
+  "sku": "TT-PER-032",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 549,
+  "compareAtPrice": 850,
+  "stock": 21,
+  "shortDescription": "Handlebar-mounted dual USB charger for motorbikes with waterproof cap.",
+  "description": "A handlebar-clamp USB charger that wires into your motorcycle battery to charge phones and GPS on the move. The rubber cap keeps rain and dust out of the ports when not in use.",
+  "highlights": [
+    "Dual USB charging ports",
+    "Handlebar clamp mount",
+    "Waterproof rubber cap",
+    "On/off switch"
+  ],
+  "specifications": [
+    {
+      "label": "Ports",
+      "value": "2 × USB-A"
+    },
+    {
+      "label": "Mount",
+      "value": "Handlebar clamp"
+    },
+    {
+      "label": "Input",
+      "value": "12V motorcycle battery (typical — not specified)"
+    },
+    {
+      "label": "Protection",
+      "value": "Waterproof cap"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

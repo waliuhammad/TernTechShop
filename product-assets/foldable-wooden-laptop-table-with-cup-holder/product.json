@@ -1,0 +1,40 @@
+{
+  "name": "Foldable Wooden Laptop Table with Cup Holder",
+  "slug": "foldable-wooden-laptop-table-with-cup-holder",
+  "sku": "TT-PER-133",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1352,
+  "compareAtPrice": 2900,
+  "stock": 19,
+  "shortDescription": "Folding bed and sofa laptop table with a built-in cup holder.",
+  "description": "A foldable wooden laptop table with sturdy legs and a cup holder for working, studying or eating in bed or on the sofa. Legs fold away for easy storage.",
+  "highlights": [
+    "Foldable legs",
+    "Built-in cup holder",
+    "Improved stability (as advertised)",
+    "For bed, sofa and floor"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Wood top, metal legs"
+    },
+    {
+      "label": "Features",
+      "value": "Cup holder"
+    },
+    {
+      "label": "Dimensions",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Wood / black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

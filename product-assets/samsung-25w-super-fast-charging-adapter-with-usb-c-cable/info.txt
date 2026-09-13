@@ -1,0 +1,8 @@
+price: 2650
+stock: 14
+compare at price: 4700
+name: Samsung 25W Super Fast Charging Adapter with USB-C Cable
+brand: Samsung
+category: Peripherals
+featured: yes
+notes: alhamdtech.pk — "Samsung Type C Wall Charger 25W" — Rs. 2,650 (was Rs. 4,700) — in stock — checked 13 Sep 2026 | https://alhamdtech.pk/products/samsung-type-c-wall-charger-25w | Retailer listing is for the 25W adapter; confirm whether the cable is included before publishing.

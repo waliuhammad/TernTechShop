@@ -1,0 +1,40 @@
+{
+  "name": "Akrapovic-Style Motorcycle Exhaust Muffler (Matte Black)",
+  "slug": "akrapovic-style-motorcycle-exhaust-muffler-matte-black",
+  "sku": "TT-PER-149",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 7399,
+  "compareAtPrice": 8500,
+  "stock": 18,
+  "shortDescription": "Matte black sports exhaust muffler with DB killer for motorcycles.",
+  "description": "A matte-black sports muffler in the Akrapovic style with a mounting clamp and springs, for a deeper exhaust note. Fits many motorcycles with a universal slip-on connection.",
+  "highlights": [
+    "Sporty matte black finish",
+    "Universal slip-on fit",
+    "Mounting clamp and springs included",
+    "Deeper exhaust sound"
+  ],
+  "specifications": [
+    {
+      "label": "Finish",
+      "value": "Matte black with metal tip"
+    },
+    {
+      "label": "Fitting",
+      "value": "Universal slip-on (inlet size not specified)"
+    },
+    {
+      "label": "Included",
+      "value": "Clamp, springs"
+    },
+    {
+      "label": "Brand",
+      "value": "Styled after Akrapovic — genuine origin not confirmed"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

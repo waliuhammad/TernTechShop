@@ -1,0 +1,44 @@
+{
+  "name": "Magnetic Nylon Loop Smart Watch Strap (22 mm)",
+  "slug": "magnetic-nylon-loop-smart-watch-strap-22-mm",
+  "sku": "TT-PER-086",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1228,
+  "compareAtPrice": 2456,
+  "stock": 11,
+  "shortDescription": "Breathable braided nylon watch band with a magnetic clasp.",
+  "description": "A breathable nylon loop strap with a strong magnetic clasp for a comfortable, adjustable fit. Suits 22 mm round smart watches and comes in a range of colours.",
+  "highlights": [
+    "Breathable braided nylon",
+    "Magnetic adjustable clasp",
+    "Quick-release pins",
+    "Multiple colours"
+  ],
+  "specifications": [
+    {
+      "label": "Width",
+      "value": "22 mm"
+    },
+    {
+      "label": "Material",
+      "value": "Nylon"
+    },
+    {
+      "label": "Clasp",
+      "value": "Magnetic"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Watches with 22 mm lugs"
+    },
+    {
+      "label": "Colours",
+      "value": "Blue, brown, orange, green, grey, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

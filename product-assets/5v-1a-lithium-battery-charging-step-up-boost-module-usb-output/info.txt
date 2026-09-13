@@ -1,0 +1,8 @@
+price: 150
+stock: 25
+compare at price: 
+name: 5V 1A Lithium Battery Charging & Step-Up Boost Module (USB Output)
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "5V 1A Power Bank Charger Step Up Boost Charging Circuit Module Lithium…" — Rs. 150 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/power-bank-charger-step-boost-charging-circuit-module-lithium-battery

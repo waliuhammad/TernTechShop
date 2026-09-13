@@ -1,0 +1,44 @@
+{
+  "name": "FOTEK PL-05N Inductive Proximity Sensor (5 mm, NPN)",
+  "slug": "fotek-pl-05n-inductive-proximity-sensor-5-mm-npn",
+  "sku": "TT-MBD-063",
+  "brand": "FOTEK",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 518,
+  "compareAtPrice": 610,
+  "stock": 10,
+  "shortDescription": "Square inductive proximity sensor that detects metal up to 5 mm.",
+  "description": "The FOTEK PL-05N is a compact square inductive proximity sensor that detects metal objects without contact. Used in CNC homing, 3D printer auto-levelling and industrial automation.",
+  "highlights": [
+    "Detects metal without contact",
+    "5 mm sensing distance",
+    "NPN normally-open output",
+    "IP67 rated"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "PL-05N"
+    },
+    {
+      "label": "Sensing distance",
+      "value": "5 mm"
+    },
+    {
+      "label": "Output",
+      "value": "NPN"
+    },
+    {
+      "label": "Supply",
+      "value": "10–30V DC"
+    },
+    {
+      "label": "Protection",
+      "value": "IP67"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,39 @@
+{
+  "name": "65W Super Fast Charger Adapter with Red USB-C Cable",
+  "slug": "65w-super-fast-charger-adapter-with-red-usb-c-cable",
+  "sku": "TT-PER-018",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1499,
+  "compareAtPrice": 3500,
+  "stock": 22,
+  "shortDescription": "White fast wall charger bundled with a red USB-C charging cable.",
+  "description": "A white wall charger with a matching red USB-C cable, styled for fast phone charging. A convenient charger-and-cable set for home, office or travel.",
+  "highlights": [
+    "Charger and cable set",
+    "Red USB-C cable",
+    "Compact wall adapter"
+  ],
+  "specifications": [
+    {
+      "label": "Output",
+      "value": "65W (per matching listing; confirm on label)"
+    },
+    {
+      "label": "Cable",
+      "value": "USB-C (red)"
+    },
+    {
+      "label": "Plug",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "White adapter, red cable"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

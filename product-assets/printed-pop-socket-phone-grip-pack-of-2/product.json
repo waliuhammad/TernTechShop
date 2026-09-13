@@ -1,0 +1,40 @@
+{
+  "name": "Printed Pop Socket Phone Grip (Pack of 2)",
+  "slug": "printed-pop-socket-phone-grip-pack-of-2",
+  "sku": "TT-PER-100",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 92,
+  "compareAtPrice": 199,
+  "stock": 22,
+  "shortDescription": "Two expanding phone grips that double as stands.",
+  "description": "A pair of expanding phone grips with fun printed designs that give a secure hold and prop your phone up for videos. Stick to your phone or case in seconds.",
+  "highlights": [
+    "Pack of 2 grips",
+    "Expands into a stand",
+    "Adhesive base",
+    "Many printed designs"
+  ],
+  "specifications": [
+    {
+      "label": "Pack",
+      "value": "2 grips"
+    },
+    {
+      "label": "Mounting",
+      "value": "Adhesive"
+    },
+    {
+      "label": "Function",
+      "value": "Grip and kickstand"
+    },
+    {
+      "label": "Designs",
+      "value": "Assorted prints"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

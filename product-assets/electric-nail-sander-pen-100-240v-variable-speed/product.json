@@ -1,0 +1,40 @@
+{
+  "name": "Electric Nail Sander Pen (100–240V, Variable Speed)",
+  "slug": "electric-nail-sander-pen-100-240v-variable-speed",
+  "sku": "TT-PER-140",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1499,
+  "compareAtPrice": 2999,
+  "stock": 24,
+  "shortDescription": "Portable electric nail file for manicure, pedicure and callus removal.",
+  "description": "A pen-style electric nail sander with adjustable speed for shaping nails, removing cuticles and smoothing calluses. Quiet, cool-running and works on 100–240V worldwide.",
+  "highlights": [
+    "Adjustable speed",
+    "Low noise, does not get hot (as advertised)",
+    "100–240V universal adapter",
+    "Six colour options"
+  ],
+  "specifications": [
+    {
+      "label": "Power",
+      "value": "100–240V adapter"
+    },
+    {
+      "label": "Speed",
+      "value": "Adjustable"
+    },
+    {
+      "label": "Use",
+      "value": "Nails, cuticles, dead skin, calluses"
+    },
+    {
+      "label": "Colours",
+      "value": "Pink, purple, white, green, blue, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

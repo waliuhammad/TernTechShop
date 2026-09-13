@@ -1,0 +1,48 @@
+{
+  "name": "Bluetooth Audio Smart Glasses with Open-Ear Speakers",
+  "slug": "bluetooth-audio-smart-glasses-with-open-ear-speakers",
+  "sku": "TT-PER-080",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 2364,
+  "compareAtPrice": 5000,
+  "stock": 10,
+  "shortDescription": "Clear-lens smart glasses with built-in Bluetooth speakers and microphone.",
+  "description": "Stylish frames with open-ear speakers built into the arms for music and hands-free calls, while you stay aware of your surroundings. Comes with a pouch, case and magnetic charging cable.",
+  "highlights": [
+    "Open-ear speakers in the arms",
+    "Hands-free calls with built-in mic",
+    "Magnetic charging cable",
+    "Pouch and case included"
+  ],
+  "specifications": [
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Audio",
+      "value": "Open-ear speakers"
+    },
+    {
+      "label": "Microphone",
+      "value": "Built-in"
+    },
+    {
+      "label": "Charging",
+      "value": "Magnetic cable"
+    },
+    {
+      "label": "Lenses",
+      "value": "Clear (as shown)"
+    },
+    {
+      "label": "Battery life",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

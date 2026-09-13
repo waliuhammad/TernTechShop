@@ -1,0 +1,8 @@
+price: 
+stock: 24
+compare at price: 
+name: Full-Size USB Wired Office Keyboard
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: Needs price verification — the exact HP or Dell model is not visible; confirm the model to price it accurately.

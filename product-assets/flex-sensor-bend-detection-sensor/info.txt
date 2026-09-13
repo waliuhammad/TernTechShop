@@ -1,0 +1,8 @@
+price: 2500
+stock: 14
+compare at price: 
+name: Flex Sensor (Bend Detection Sensor)
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "1 Piece 2.2 Inch Flex Sensor Bend Detection Sensor" — Rs. 2,500 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/2-2-flex-sensor-in-pakistan-bend-detection-sensor | Priced as the 2.2-inch version; the 4.5-inch version lists at Rs. 4,290.

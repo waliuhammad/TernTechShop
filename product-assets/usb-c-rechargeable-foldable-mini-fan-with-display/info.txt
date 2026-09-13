@@ -1,0 +1,8 @@
+price: 1250
+stock: 17
+compare at price: 2300
+name: USB-C Rechargeable Foldable Mini Fan with Display
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — ""USB Type C Rechargeable Portable Fan with LED Display, 5 Speeds, 90° Foldable…" — Rs. 1,250 (was Rs. 2,300) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/5-90-i1957393636.html | Price is for a comparable listing of the same product type; the exact unit in the photo is not confirmed.

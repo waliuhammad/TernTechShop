@@ -1,0 +1,40 @@
+{
+  "name": "Flex Sensor (Bend Detection Sensor)",
+  "slug": "flex-sensor-bend-detection-sensor",
+  "sku": "TT-MBD-068",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 2500,
+  "compareAtPrice": null,
+  "stock": 14,
+  "shortDescription": "Resistance changes as it bends; ideal for data gloves and robotics.",
+  "description": "A thin flex sensor whose resistance rises as it is bent, letting projects detect finger movement or flexing. Popular for data gloves, robotic hands and interactive wearables.",
+  "highlights": [
+    "Resistance changes with bending",
+    "Thin and flexible",
+    "For data gloves and robotics",
+    "Simple voltage-divider circuit"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Resistive flex sensor"
+    },
+    {
+      "label": "Length",
+      "value": "2.2 in (confirm; a 4.5 in version also exists)"
+    },
+    {
+      "label": "Flat resistance",
+      "value": "Not specified"
+    },
+    {
+      "label": "Use",
+      "value": "Voltage divider with Arduino analog input"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

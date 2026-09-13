@@ -1,0 +1,40 @@
+{
+  "name": "ESP32 38-Pin Expansion Breakout Board",
+  "slug": "esp32-38-pin-expansion-breakout-board",
+  "sku": "TT-CPU-051",
+  "brand": "Unbranded",
+  "category": "Processors",
+  "tier": "Essential",
+  "price": 610,
+  "compareAtPrice": null,
+  "stock": 25,
+  "shortDescription": "Breakout board with power input and labelled pin headers for 38-pin ESP32 boards.",
+  "description": "A purple expansion board that seats a 38-pin ESP32 DevKit and breaks every GPIO out to labelled headers with power rails. Includes a DC jack and USB input for easy, solder-free prototyping.",
+  "highlights": [
+    "Fits 38-pin ESP32 DevKit boards",
+    "Labelled GPIO, 5V and GND headers",
+    "DC barrel jack and USB power input",
+    "Solder-free prototyping"
+  ],
+  "specifications": [
+    {
+      "label": "Compatibility",
+      "value": "ESP32 38-pin DevKit (25.5 mm row spacing, as printed)"
+    },
+    {
+      "label": "Power input",
+      "value": "DC barrel jack and USB"
+    },
+    {
+      "label": "Headers",
+      "value": "GPIO with 5V / 3.3V / GND rows"
+    },
+    {
+      "label": "Board colour",
+      "value": "Purple"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

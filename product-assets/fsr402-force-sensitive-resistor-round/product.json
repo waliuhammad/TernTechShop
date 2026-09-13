@@ -1,0 +1,40 @@
+{
+  "name": "FSR402 Force Sensitive Resistor (Round)",
+  "slug": "fsr402-force-sensitive-resistor-round",
+  "sku": "TT-MBD-069",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 710,
+  "compareAtPrice": null,
+  "stock": 12,
+  "shortDescription": "Thin round sensor whose resistance drops as you press it.",
+  "description": "The FSR402 is a thin round force-sensitive resistor that detects touch and pressure. Use it for touch buttons, weighing, and pressure-sensitive games and wearables.",
+  "highlights": [
+    "Detects touch and pressure",
+    "Thin round sensing area",
+    "Simple two-pin connection",
+    "Arduino compatible"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "FSR402"
+    },
+    {
+      "label": "Sensing area",
+      "value": "Round (about 12.7 mm diameter)"
+    },
+    {
+      "label": "Type",
+      "value": "Force-sensitive resistor"
+    },
+    {
+      "label": "Connection",
+      "value": "2 pins"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

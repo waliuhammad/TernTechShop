@@ -1,0 +1,39 @@
+{
+  "name": "Class-D Audio Amplifier Board (Model to Confirm)",
+  "slug": "class-d-audio-amplifier-board-model-to-confirm",
+  "sku": "TT-MBD-071",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 15,
+  "shortDescription": "Compact digital audio amplifier board for DIY speakers.",
+  "description": "A compact digital amplifier board with onboard filter inductors and capacitors for building powered speakers. Confirm the chip and output rating before listing.",
+  "highlights": [
+    "Compact amplifier board",
+    "Onboard filter inductors",
+    "Connector-based wiring"
+  ],
+  "specifications": [
+    {
+      "label": "Amplifier type",
+      "value": "Class-D (not confirmed)"
+    },
+    {
+      "label": "Chip",
+      "value": "Not specified"
+    },
+    {
+      "label": "Output power",
+      "value": "Not specified"
+    },
+    {
+      "label": "Supply",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Matte Black Soft Silicone Phone Case",
+  "slug": "matte-black-soft-silicone-phone-case",
+  "sku": "TT-PER-096",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 13,
+  "shortDescription": "Slim matte black silicone case with raised camera protection.",
+  "description": "A slim, soft silicone case with a matte black finish and a raised lip around the camera. Everyday grip and scratch protection with a clean look.",
+  "highlights": [
+    "Matte black finish",
+    "Raised camera lip",
+    "Soft, grippy silicone"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Soft silicone"
+    },
+    {
+      "label": "Finish",
+      "value": "Matte"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Phone model to confirm"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Adhesive Wall Mobile Charging Holder",
+  "slug": "adhesive-wall-mobile-charging-holder",
+  "sku": "TT-PER-105",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 165,
+  "compareAtPrice": 179,
+  "stock": 25,
+  "shortDescription": "Stick-on wall pocket that holds your phone while it charges.",
+  "description": "A simple adhesive wall pocket that holds your phone next to the socket while it charges. Also great for remotes, glasses and small items.",
+  "highlights": [
+    "Strong adhesive, no drilling",
+    "Holds phone while charging",
+    "Space-saving",
+    "Multiple colours"
+  ],
+  "specifications": [
+    {
+      "label": "Mounting",
+      "value": "Adhesive"
+    },
+    {
+      "label": "Material",
+      "value": "ABS plastic"
+    },
+    {
+      "label": "Colours",
+      "value": "Red, blue, yellow and more"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

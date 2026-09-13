@@ -1,0 +1,44 @@
+{
+  "name": "Aluminium Lipstick Mini Power Bank",
+  "slug": "aluminium-lipstick-mini-power-bank",
+  "sku": "TT-PER-008",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 799,
+  "compareAtPrice": 1499,
+  "stock": 11,
+  "shortDescription": "Lipstick-sized aluminium power bank for emergency phone charging.",
+  "description": "A cylindrical, lipstick-sized power bank in a colourful aluminium shell that fits any bag or pocket. Perfect for an emergency top-up of a phone, earbuds or smartwatch.",
+  "highlights": [
+    "Lipstick-sized cylindrical design",
+    "Durable aluminium shell",
+    "Single USB output",
+    "Available in multiple colours"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "Not specified on product (commonly sold as 2600mAh)"
+    },
+    {
+      "label": "Output",
+      "value": "1 × USB-A"
+    },
+    {
+      "label": "Input",
+      "value": "Micro-USB"
+    },
+    {
+      "label": "Material",
+      "value": "Aluminium body"
+    },
+    {
+      "label": "Colours",
+      "value": "Orange, green, blue, silver, pink, black and more"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

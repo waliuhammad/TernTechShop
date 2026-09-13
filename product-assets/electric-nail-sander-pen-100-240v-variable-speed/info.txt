@@ -1,0 +1,8 @@
+price: 1499
+stock: 24
+compare at price: 2999
+name: Electric Nail Sander Pen (100–240V, Variable Speed)
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "100V-240V Nail Care Pen Electric Grinding Machine Variable Speed Rotary Detail…" — Rs. 1,499 (was Rs. 2,999) — in stock, 63 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/-i667355041.html

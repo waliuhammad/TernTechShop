@@ -1,0 +1,8 @@
+price: 
+stock: 14
+compare at price: 
+name: Makita 5806B 7-1/4 inch (185 mm) Circular Saw
+brand: Makita
+category: Peripherals
+featured: yes
+notes: Needs price verification — no Pakistani listing was found for the Makita 5806B. Specs from Makita (makita.com.sg).

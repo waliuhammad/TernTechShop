@@ -1,0 +1,8 @@
+price: 2880
+stock: 14
+compare at price: 5000
+name: VR Shinecon SC-G10 3D Virtual Reality Headset
+brand: VR Shinecon
+category: Peripherals
+featured: yes
+notes: daraz.pk — "SC-G10 Shinecon VR Headset 3D Virtual Reality Glasses for Android & iPhone | H…" — Rs. 2,880 (was Rs. 5,000) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/sc-g10-vr-3d-hd-100-7-i1962145485.html

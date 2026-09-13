@@ -1,0 +1,40 @@
+{
+  "name": "SHERICE Foldable Aluminium Laptop Stand",
+  "slug": "sherice-foldable-aluminium-laptop-stand",
+  "sku": "TT-PER-130",
+  "brand": "SHERICE",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 998,
+  "compareAtPrice": 2000,
+  "stock": 14,
+  "shortDescription": "Foldable metal laptop stand with storage bag.",
+  "description": "The SHERICE foldable laptop stand is an adjustable aluminium riser that folds into a slim pouch. Raise your laptop for better posture at home, the office or on the go.",
+  "highlights": [
+    "Adjustable aluminium riser",
+    "Folds into a slim pouch",
+    "Non-slip silicone pads",
+    "Boxed with storage bag"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Aluminium alloy"
+    },
+    {
+      "label": "Adjustment",
+      "value": "Height and angle"
+    },
+    {
+      "label": "Included",
+      "value": "Storage bag"
+    },
+    {
+      "label": "Colour",
+      "value": "Silver"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

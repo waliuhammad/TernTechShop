@@ -1,0 +1,44 @@
+{
+  "name": "MQ-5 LPG and Natural Gas Sensor Module",
+  "slug": "mq-5-lpg-and-natural-gas-sensor-module",
+  "sku": "TT-MBD-060",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 260,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "Detects LPG, natural gas and coal gas for leak alarms.",
+  "description": "The MQ-5 module senses LPG, natural gas and town gas and provides analog and adjustable digital outputs. A low-cost core for kitchen gas leak detectors.",
+  "highlights": [
+    "Detects LPG and natural gas",
+    "Analog and digital outputs",
+    "Adjustable sensitivity",
+    "Arduino compatible"
+  ],
+  "specifications": [
+    {
+      "label": "Sensor",
+      "value": "MQ-5"
+    },
+    {
+      "label": "Target gases",
+      "value": "LPG, natural gas, coal gas"
+    },
+    {
+      "label": "Outputs",
+      "value": "Analog (AO) and digital (DO)"
+    },
+    {
+      "label": "Supply",
+      "value": "5V"
+    },
+    {
+      "label": "Board colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

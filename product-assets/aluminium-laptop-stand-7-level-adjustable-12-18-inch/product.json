@@ -1,0 +1,48 @@
+{
+  "name": "Aluminium Laptop Stand, 7-Level Adjustable (12–18 inch)",
+  "slug": "aluminium-laptop-stand-7-level-adjustable-12-18-inch",
+  "sku": "TT-PER-129",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 799,
+  "compareAtPrice": 1699,
+  "stock": 25,
+  "shortDescription": "Ergonomic 7-gear aluminium stand for 12–18 inch laptops.",
+  "description": "An aluminium laptop stand with 7 height and angle levels that brings your screen up to eye level and eases neck strain. Folds compactly into its storage bag for travel.",
+  "highlights": [
+    "7 adjustable height levels",
+    "Fits 12–18 inch laptops",
+    "Ergonomic eye-level viewing",
+    "Storage bag included"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Aluminium alloy"
+    },
+    {
+      "label": "Levels",
+      "value": "7"
+    },
+    {
+      "label": "Laptop size",
+      "value": "12–18 in"
+    },
+    {
+      "label": "Folded size",
+      "value": "25.5 × 19 cm (as advertised)"
+    },
+    {
+      "label": "Included",
+      "value": "Storage bag"
+    },
+    {
+      "label": "Colour",
+      "value": "Silver"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

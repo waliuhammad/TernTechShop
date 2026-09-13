@@ -1,0 +1,39 @@
+{
+  "name": "Projectile Speed Chronograph with LED Display",
+  "slug": "projectile-speed-chronograph-with-led-display",
+  "sku": "TT-PER-072",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "Sky-screen chronograph that measures projectile speed.",
+  "description": "A chronograph with twin sky-screen frames and an LED display that measures the speed of projectiles passing through it. Used for testing airguns, archery and hobby launchers.",
+  "highlights": [
+    "Twin sky-screen sensors",
+    "LED speed display",
+    "Portable frame design"
+  ],
+  "specifications": [
+    {
+      "label": "Measurement",
+      "value": "Projectile velocity"
+    },
+    {
+      "label": "Display",
+      "value": "LED"
+    },
+    {
+      "label": "Range",
+      "value": "Not specified"
+    },
+    {
+      "label": "Power",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

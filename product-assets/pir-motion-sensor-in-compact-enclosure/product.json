@@ -1,0 +1,39 @@
+{
+  "name": "PIR Motion Sensor in Compact Enclosure",
+  "slug": "pir-motion-sensor-in-compact-enclosure",
+  "sku": "TT-MBD-070",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Ready-housed PIR motion sensor for security and automation projects.",
+  "description": "A PIR motion sensor mounted in a compact white enclosure, ready to detect people moving in a room. Use it to trigger lights, alarms or cameras.",
+  "highlights": [
+    "Detects human movement",
+    "Compact white enclosure",
+    "For lights, alarms and cameras"
+  ],
+  "specifications": [
+    {
+      "label": "Sensor",
+      "value": "PIR (model not specified)"
+    },
+    {
+      "label": "Housing",
+      "value": "White enclosure"
+    },
+    {
+      "label": "Output",
+      "value": "Not specified"
+    },
+    {
+      "label": "Supply",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

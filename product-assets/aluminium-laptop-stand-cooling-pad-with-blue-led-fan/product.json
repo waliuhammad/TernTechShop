@@ -1,0 +1,40 @@
+{
+  "name": "Aluminium Laptop Stand Cooling Pad with Blue LED Fan",
+  "slug": "aluminium-laptop-stand-cooling-pad-with-blue-led-fan",
+  "sku": "TT-PER-131",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 716,
+  "compareAtPrice": 1600,
+  "stock": 19,
+  "shortDescription": "Metal laptop stand with a blue LED cooling fan.",
+  "description": "A black aluminium laptop stand with a detachable blue LED cooling fan that keeps your laptop cool during long sessions. Adjustable to a comfortable working angle.",
+  "highlights": [
+    "Blue LED cooling fan",
+    "Adjustable aluminium stand",
+    "Improves airflow and posture",
+    "USB powered"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Aluminium"
+    },
+    {
+      "label": "Fans",
+      "value": "1 (blue LED)"
+    },
+    {
+      "label": "Power",
+      "value": "USB"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

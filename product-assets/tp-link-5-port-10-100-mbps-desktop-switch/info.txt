@@ -1,0 +1,8 @@
+price: 2250
+stock: 13
+compare at price: 2500
+name: TP-Link 5-Port 10/100 Mbps Desktop Switch
+brand: TP-Link
+category: Networking
+featured: yes
+notes: alhamdtech.pk — "Tp Link LS1005 5 Port 10/100Mbps Desktop Switch" — Rs. 2,250 (was Rs. 2,500) — in stock — checked 13 Sep 2026 | https://alhamdtech.pk/products/tp-link-ls1005-5-port-10-100mbps-desktop-switch | Priced as the TP-Link LS1005; confirm the model on the box (a gigabit model would cost more).

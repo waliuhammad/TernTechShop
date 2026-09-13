@@ -1,0 +1,48 @@
+{
+  "name": "DSB Electronics 12V Mini UPS for WiFi Router",
+  "slug": "dsb-electronics-12v-mini-ups-for-wifi-router",
+  "sku": "TT-NET-003",
+  "brand": "DSB Electronics",
+  "category": "Networking",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 17,
+  "shortDescription": "12V mini UPS power bank that keeps your WiFi router running during load shedding.",
+  "description": "A 12-volt mini UPS from DSB Electronics that backs up your WiFi router during power outages. The packaging advertises long battery life, overcharge protection and 9–12 hours of backup.",
+  "highlights": [
+    "Advertised 9–12 hours router backup",
+    "Overcharge protection",
+    "12V output for routers",
+    "60-day warranty as stated on packaging"
+  ],
+  "specifications": [
+    {
+      "label": "Output",
+      "value": "12V DC"
+    },
+    {
+      "label": "Backup time",
+      "value": "9–12 hours (as advertised on packaging; depends on router)"
+    },
+    {
+      "label": "Protection",
+      "value": "Overcharge protection"
+    },
+    {
+      "label": "Warranty",
+      "value": "60 days (as stated on packaging)"
+    },
+    {
+      "label": "Battery capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Compatibility",
+      "value": "12V WiFi routers"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

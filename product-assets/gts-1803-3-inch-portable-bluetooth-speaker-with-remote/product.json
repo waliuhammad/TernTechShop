@@ -1,0 +1,48 @@
+{
+  "name": "GTS-1803 3-Inch Portable Bluetooth Speaker with Remote",
+  "slug": "gts-1803-3-inch-portable-bluetooth-speaker-with-remote",
+  "sku": "TT-PER-079",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1399,
+  "compareAtPrice": 2399,
+  "stock": 12,
+  "shortDescription": "3-inch portable Bluetooth speaker with light effects and remote control.",
+  "description": "The GTS-1803 is a portable 3-inch Bluetooth speaker with a light-up grille and a handy remote control. A compact speaker for music at home, in the office or outdoors.",
+  "highlights": [
+    "3-inch speaker driver",
+    "Bluetooth wireless",
+    "Remote control included",
+    "Light-up grille"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "GTS-1803"
+    },
+    {
+      "label": "Driver",
+      "value": "3-inch"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Included",
+      "value": "Remote control"
+    },
+    {
+      "label": "Battery",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

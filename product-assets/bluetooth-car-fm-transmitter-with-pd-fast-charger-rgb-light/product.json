@@ -1,0 +1,49 @@
+{
+  "name": "Bluetooth Car FM Transmitter with PD Fast Charger & RGB Light",
+  "slug": "bluetooth-car-fm-transmitter-with-pd-fast-charger-rgb-light",
+  "sku": "TT-PER-030",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1199,
+  "compareAtPrice": 3399,
+  "stock": 19,
+  "shortDescription": "Play music and take hands-free calls in any car while fast-charging your phone.",
+  "description": "A car charger that streams your phone's music to the car radio over FM and lets you take hands-free calls with its built-in microphone. USB 3.1A and USB-C ports fast-charge your devices, and a microSD slot plays music directly.",
+  "highlights": [
+    "Bluetooth music to car FM radio",
+    "Hands-free calling with built-in mic",
+    "USB 3.1A and USB-C charging",
+    "microSD playback up to 32GB",
+    "RGB ambient light ring"
+  ],
+  "specifications": [
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Charging ports",
+      "value": "USB-A 3.1A, USB-C"
+    },
+    {
+      "label": "Media",
+      "value": "microSD (TF) card up to 32GB"
+    },
+    {
+      "label": "Calling",
+      "value": "Built-in microphone with CVC noise cancellation (as advertised)"
+    },
+    {
+      "label": "Power",
+      "value": "12–24V car socket (typical — not specified)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black with RGB ring"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Slim Fast-Charging Power Bank with Free Data Cable",
+  "slug": "slim-fast-charging-power-bank-with-free-data-cable",
+  "sku": "TT-PER-009",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "Slim colour-accent power bank that comes with a free charging cable.",
+  "description": "A slim rectangular power bank with a colour-accent finish and a free data cable in the box. Easy to carry and ready to charge your phone wherever you are.",
+  "highlights": [
+    "Slim, easy-to-carry body",
+    "Free data cable included",
+    "Two-tone colour options",
+    "Single USB output"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Output",
+      "value": "USB-A"
+    },
+    {
+      "label": "Included",
+      "value": "Data cable"
+    },
+    {
+      "label": "Colours",
+      "value": "Pink, grey, blue, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

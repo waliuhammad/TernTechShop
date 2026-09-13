@@ -1,0 +1,44 @@
+{
+  "name": "USB Wired Optical Mouse (Black)",
+  "slug": "usb-wired-optical-mouse-black",
+  "sku": "TT-PER-034",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 920,
+  "compareAtPrice": null,
+  "stock": 25,
+  "shortDescription": "Comfortable wired USB optical mouse for everyday use.",
+  "description": "A simple, comfortable wired optical mouse with a scroll wheel for office and home computers. Plug in and start working, no drivers required.",
+  "highlights": [
+    "Precise optical tracking",
+    "Plug-and-play USB",
+    "Ambidextrous shape",
+    "Scroll wheel"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "Wired USB"
+    },
+    {
+      "label": "Sensor",
+      "value": "Optical"
+    },
+    {
+      "label": "Buttons",
+      "value": "3 (left, right, wheel)"
+    },
+    {
+      "label": "DPI",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

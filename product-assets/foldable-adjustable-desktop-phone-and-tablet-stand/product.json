@@ -1,0 +1,40 @@
+{
+  "name": "Foldable Adjustable Desktop Phone and Tablet Stand",
+  "slug": "foldable-adjustable-desktop-phone-and-tablet-stand",
+  "sku": "TT-PER-108",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 384,
+  "compareAtPrice": 548,
+  "stock": 18,
+  "shortDescription": "Foldable desk stand with adjustable height and angle for phones and tablets.",
+  "description": "A foldable desktop stand with adjustable height and viewing angle for phones and small tablets. Folds flat for travel and keeps your device at eye level on the desk.",
+  "highlights": [
+    "Adjustable height and angle",
+    "Folds flat for travel",
+    "Non-slip pads",
+    "Fits phones and small tablets"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Aluminium / ABS (not specified)"
+    },
+    {
+      "label": "Adjustment",
+      "value": "Height and angle"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Phones and tablets"
+    },
+    {
+      "label": "Colour",
+      "value": "White"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

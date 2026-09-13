@@ -1,0 +1,36 @@
+{
+  "name": "Mobile Gaming L1 R1 Shooter Triggers (Black Pair)",
+  "slug": "mobile-gaming-l1-r1-shooter-triggers-black-pair",
+  "sku": "TT-PER-120",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 849,
+  "compareAtPrice": 1399,
+  "stock": 24,
+  "shortDescription": "Black clip-on shooter triggers for faster aim and fire on mobile.",
+  "description": "Low-profile black clip-on triggers for mobile shooter games that let you aim and fire with your index fingers. Fits most phones without any apps or pairing.",
+  "highlights": [
+    "Pair of clip-on triggers",
+    "Faster aim and fire",
+    "No app or pairing",
+    "Fits most phones"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Clip-on triggers"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most smartphones"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 610
+stock: 25
+compare at price: 
+name: ESP32 38-Pin Expansion Breakout Board
+brand: Unbranded
+category: Processors
+featured: yes
+notes: digilog.pk — "Pre Order ESP32 38PIN Expansion Board" — Rs. 610 — listed as out of stock — checked 13 Sep 2026 | https://digilog.pk/products/purple-esp32-38pin-expansion-board

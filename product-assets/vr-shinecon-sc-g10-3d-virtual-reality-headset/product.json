@@ -1,0 +1,44 @@
+{
+  "name": "VR Shinecon SC-G10 3D Virtual Reality Headset",
+  "slug": "vr-shinecon-sc-g10-3d-virtual-reality-headset",
+  "sku": "TT-PER-074",
+  "brand": "VR Shinecon",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 2880,
+  "compareAtPrice": 5000,
+  "stock": 14,
+  "shortDescription": "Lightweight smartphone VR box with anti-blue-ray aspherical lenses.",
+  "description": "The Shinecon SC-G10 is a comfortable smartphone VR headset for 3D movies, 360° videos and mobile VR games. Aspherical optical lenses deliver a clearer image and are advertised as anti-radiation and anti-blue-ray for eye comfort.",
+  "highlights": [
+    "Aspherical optical lenses",
+    "Anti-blue-ray eye protection (as advertised)",
+    "Adjustable head strap",
+    "Works with Android and iPhone"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "SC-G10"
+    },
+    {
+      "label": "Lenses",
+      "value": "Aspherical optical, anti-blue-ray (as advertised)"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Android and iPhone smartphones"
+    },
+    {
+      "label": "Phone size",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black with blue accent"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

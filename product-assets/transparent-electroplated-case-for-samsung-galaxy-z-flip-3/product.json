@@ -1,0 +1,36 @@
+{
+  "name": "Transparent Electroplated Case for Samsung Galaxy Z Flip 3",
+  "slug": "transparent-electroplated-case-for-samsung-galaxy-z-flip-3",
+  "sku": "TT-PER-095",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1110,
+  "compareAtPrice": 1800,
+  "stock": 24,
+  "shortDescription": "Clear case with chrome-plated edges for the Galaxy Z Flip 3.",
+  "description": "A slim transparent case with electroplated chrome edges made for the Samsung Galaxy Z Flip 3. Protects both halves of the phone while showing off its colour.",
+  "highlights": [
+    "Made for Galaxy Z Flip 3",
+    "Electroplated chrome edges",
+    "Clear back shows phone colour",
+    "Two-piece fit for the hinge"
+  ],
+  "specifications": [
+    {
+      "label": "Compatibility",
+      "value": "Samsung Galaxy Z Flip 3 5G"
+    },
+    {
+      "label": "Material",
+      "value": "Clear PC with electroplated frame"
+    },
+    {
+      "label": "Colour",
+      "value": "Transparent / silver edge"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

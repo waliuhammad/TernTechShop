@@ -1,0 +1,48 @@
+{
+  "name": "VR Shinecon SC-G06EB 3D VR Headset with Headphones",
+  "slug": "vr-shinecon-sc-g06eb-3d-vr-headset-with-headphones",
+  "sku": "TT-PER-073",
+  "brand": "VR Shinecon",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 9299,
+  "compareAtPrice": 18000,
+  "stock": 25,
+  "shortDescription": "Smartphone VR headset with built-in over-ear headphones for immersive 3D movies and games.",
+  "description": "The VR Shinecon G06EB turns your smartphone into an immersive 3D viewer, with built-in headphones for full audio immersion. Adjustable straps and lenses make it comfortable for movies, 360° videos and mobile VR games.",
+  "highlights": [
+    "Built-in over-ear headphones",
+    "Fits 4.7–6.1 inch smartphones (per listing)",
+    "Adjustable head strap",
+    "3D movies, 360° video and VR games"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "SC-G06EB"
+    },
+    {
+      "label": "Phone size",
+      "value": "4.7–6.1 inch (per retailer listing)"
+    },
+    {
+      "label": "Audio",
+      "value": "Built-in headphones"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Android and iPhone"
+    },
+    {
+      "label": "Controller",
+      "value": "Not included"
+    },
+    {
+      "label": "Colour",
+      "value": "Black and white"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

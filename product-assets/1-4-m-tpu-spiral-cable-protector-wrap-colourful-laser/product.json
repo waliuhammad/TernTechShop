@@ -1,0 +1,40 @@
+{
+  "name": "1.4 m TPU Spiral Cable Protector Wrap (Colourful Laser)",
+  "slug": "1-4-m-tpu-spiral-cable-protector-wrap-colourful-laser",
+  "sku": "TT-PER-124",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 184,
+  "compareAtPrice": 449,
+  "stock": 14,
+  "shortDescription": "Full-length spiral wrap that protects charging and earphone cables.",
+  "description": "A 1.4 m TPU spiral wrap that coils around an entire charging or earphone cable to prevent tangles, kinks and fraying. Eye-catching laser colours.",
+  "highlights": [
+    "Protects the full cable length",
+    "Stops tangles and kinks",
+    "Flexible TPU spiral",
+    "Colourful laser finish"
+  ],
+  "specifications": [
+    {
+      "label": "Length",
+      "value": "1.4 m"
+    },
+    {
+      "label": "Material",
+      "value": "TPU"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Charging and earphone cables"
+    },
+    {
+      "label": "Colours",
+      "value": "Assorted laser colours"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

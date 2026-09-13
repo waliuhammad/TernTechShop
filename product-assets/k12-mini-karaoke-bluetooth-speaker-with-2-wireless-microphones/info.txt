@@ -1,0 +1,8 @@
+price: 3000
+stock: 17
+compare at price: 
+name: K12 Mini Karaoke Bluetooth Speaker with 2 Wireless Microphones
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "K12 Portable Bluetooth Karaoke Speaker with 2 Wireless Microphones for Home an…" — Rs. 3,000 — in stock, 11 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/k12-2-i885311648.html

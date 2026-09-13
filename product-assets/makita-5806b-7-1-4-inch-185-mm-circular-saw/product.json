@@ -1,0 +1,44 @@
+{
+  "name": "Makita 5806B 7-1/4 inch (185 mm) Circular Saw",
+  "slug": "makita-5806b-7-1-4-inch-185-mm-circular-saw",
+  "sku": "TT-PER-147",
+  "brand": "Makita",
+  "category": "Peripherals",
+  "tier": "Enterprise",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 14,
+  "shortDescription": "1,050W Makita circular saw for fast, straight cuts in wood.",
+  "description": "The Makita 5806B is a 185 mm (7-1/4 inch) circular saw with a 1,050W motor for fast, accurate cuts in timber and boards. A durable workhorse for carpenters, builders and serious DIY users.",
+  "highlights": [
+    "1,050W motor",
+    "185 mm (7-1/4 inch) blade",
+    "5,200 RPM no-load speed",
+    "Bevel and depth adjustment"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "5806B"
+    },
+    {
+      "label": "Blade diameter",
+      "value": "185 mm (7-1/4 in)"
+    },
+    {
+      "label": "Power",
+      "value": "1,050W"
+    },
+    {
+      "label": "No-load speed",
+      "value": "5,200 RPM"
+    },
+    {
+      "label": "Included",
+      "value": "Guide rule (as shown)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Finger Strap Phone Holder with Slide Base",
+  "slug": "finger-strap-phone-holder-with-slide-base",
+  "sku": "TT-PER-102",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 734,
+  "compareAtPrice": 1468,
+  "stock": 24,
+  "shortDescription": "Elastic finger strap that sticks to your phone for one-handed use.",
+  "description": "An elastic finger strap on a slim sliding base that sticks to your phone or case for a secure one-handed grip. Also works as a stand for watching videos.",
+  "highlights": [
+    "Secure one-handed grip",
+    "Slides flat when not in use",
+    "Doubles as a stand",
+    "Adhesive base"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Elastic strap with plastic base"
+    },
+    {
+      "label": "Mounting",
+      "value": "Adhesive"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most phones and cases"
+    },
+    {
+      "label": "Colours",
+      "value": "Pink, red, purple"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

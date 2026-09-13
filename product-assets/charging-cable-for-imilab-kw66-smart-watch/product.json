@@ -1,0 +1,39 @@
+{
+  "name": "Charging Cable for IMILAB KW66 Smart Watch",
+  "slug": "charging-cable-for-imilab-kw66-smart-watch",
+  "sku": "TT-PER-023",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 250,
+  "compareAtPrice": null,
+  "stock": 12,
+  "shortDescription": "Replacement magnetic USB charging cable for the IMILAB KW66 smart watch.",
+  "description": "A replacement 2-pin magnetic USB charging cable made to fit the IMILAB KW66 smart watch. Keep a spare at the office or replace a lost original.",
+  "highlights": [
+    "Fits IMILAB KW66",
+    "Magnetic 2-pin connector",
+    "USB-A plug"
+  ],
+  "specifications": [
+    {
+      "label": "Compatibility",
+      "value": "IMILAB KW66 smart watch"
+    },
+    {
+      "label": "Connector",
+      "value": "Magnetic 2-pin"
+    },
+    {
+      "label": "Plug",
+      "value": "USB-A"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,44 @@
+{
+  "name": "VR Shinecon G06 Headset with Headphones and Game Controllers",
+  "slug": "vr-shinecon-g06-headset-with-headphones-and-game-controllers",
+  "sku": "TT-PER-076",
+  "brand": "VR Shinecon",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 11,
+  "shortDescription": "VR Shinecon G06 headset with headphones, shown with Bluetooth controller options.",
+  "description": "The VR Shinecon G06 headset with built-in headphones, shown with a choice of Bluetooth remote and gamepad controllers. Confirm which controller comes in your bundle before ordering.",
+  "highlights": [
+    "Built-in headphones",
+    "Bluetooth controller options",
+    "Adjustable strap",
+    "For smartphone VR games and 3D movies"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "VR Shinecon G06"
+    },
+    {
+      "label": "Audio",
+      "value": "Built-in headphones"
+    },
+    {
+      "label": "Controllers",
+      "value": "Remote / gamepad options shown — bundle to confirm"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Android and iPhone"
+    },
+    {
+      "label": "Colour",
+      "value": "Black and white"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

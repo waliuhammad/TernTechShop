@@ -1,0 +1,44 @@
+{
+  "name": "Octopus Tripod with 360° Rotating Ball Head",
+  "slug": "octopus-tripod-with-360-rotating-ball-head",
+  "sku": "TT-PER-111",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 589,
+  "compareAtPrice": 1699,
+  "stock": 10,
+  "shortDescription": "Flexible tripod with a 360° ball head for phones, cameras and tablets.",
+  "description": "A flexible octopus tripod topped with a 360° rotating ball head for precise angles in portrait or landscape. Holds phones, action cameras and small tablets.",
+  "highlights": [
+    "360° rotating ball head",
+    "Flexible wrap-around legs",
+    "Portrait and landscape shooting",
+    "Standard 1/4-inch mount"
+  ],
+  "specifications": [
+    {
+      "label": "Head",
+      "value": "360° ball head"
+    },
+    {
+      "label": "Legs",
+      "value": "Flexible"
+    },
+    {
+      "label": "Mount",
+      "value": "1/4-inch"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Phones, action cameras, small tablets"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

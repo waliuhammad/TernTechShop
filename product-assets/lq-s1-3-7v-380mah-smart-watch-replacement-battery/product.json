@@ -1,0 +1,43 @@
+{
+  "name": "LQ-S1 3.7V 380mAh Smart Watch Replacement Battery",
+  "slug": "lq-s1-3-7v-380mah-smart-watch-replacement-battery",
+  "sku": "TT-PER-025",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 280,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "LQ-S1 3.7V lithium replacement battery for smart watches.",
+  "description": "A 3.7V LQ-S1 rechargeable lithium battery used in many budget smart watches such as the DZ09 and A1. Restore battery life to an older watch without replacing it.",
+  "highlights": [
+    "LQ-S1 replacement battery",
+    "3.7V rechargeable lithium",
+    "Fits DZ09 / A1-style smart watches"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "LQ-S1"
+    },
+    {
+      "label": "Voltage",
+      "value": "3.7V"
+    },
+    {
+      "label": "Capacity",
+      "value": "380mAh"
+    },
+    {
+      "label": "Type",
+      "value": "Rechargeable lithium"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Smart watches using the LQ-S1 battery (e.g. DZ09, A1)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

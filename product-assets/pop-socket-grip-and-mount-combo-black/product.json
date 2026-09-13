@@ -1,0 +1,35 @@
+{
+  "name": "Pop Socket Grip and Mount Combo (Black)",
+  "slug": "pop-socket-grip-and-mount-combo-black",
+  "sku": "TT-PER-101",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 170,
+  "compareAtPrice": null,
+  "stock": 22,
+  "shortDescription": "Expanding phone grip with a matching adhesive mount.",
+  "description": "A black expanding phone grip packed with a matching adhesive mount, so you can clip your phone to a car dash, desk or wall. Grip, stand and mount in one small combo.",
+  "highlights": [
+    "Grip, stand and mount in one",
+    "Adhesive mount included",
+    "Collapses flat when not in use"
+  ],
+  "specifications": [
+    {
+      "label": "Includes",
+      "value": "Phone grip, adhesive mount"
+    },
+    {
+      "label": "Mounting",
+      "value": "Adhesive"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

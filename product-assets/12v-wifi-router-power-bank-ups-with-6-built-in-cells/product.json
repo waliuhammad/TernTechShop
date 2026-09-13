@@ -1,0 +1,52 @@
+{
+  "name": "12V WiFi Router Power Bank UPS with 6 Built-in Cells",
+  "slug": "12v-wifi-router-power-bank-ups-with-6-built-in-cells",
+  "sku": "TT-NET-001",
+  "brand": "Unbranded",
+  "category": "Networking",
+  "tier": "Essential",
+  "price": 1850,
+  "compareAtPrice": 2999,
+  "stock": 13,
+  "shortDescription": "Plug-and-play 12V mini UPS that keeps your WiFi router online during load shedding.",
+  "description": "A compact router power bank with six built-in rechargeable cells that takes over automatically when mains power cuts out. Keeps 12V fiber routers, ONTs and modems running so your internet stays on through outages.",
+  "highlights": [
+    "Automatic switch-over during power cuts",
+    "12V DC output for fiber routers and ONTs",
+    "Six built-in rechargeable cells",
+    "Silent, compact plug-and-play design"
+  ],
+  "specifications": [
+    {
+      "label": "Output",
+      "value": "12V DC"
+    },
+    {
+      "label": "Battery",
+      "value": "6 built-in rechargeable cells (total capacity not specified)"
+    },
+    {
+      "label": "Compatibility",
+      "value": "12V WiFi routers, fiber ONTs and modems"
+    },
+    {
+      "label": "Connector",
+      "value": "DC barrel plug (size not specified)"
+    },
+    {
+      "label": "Backup time",
+      "value": "Not specified (depends on router power draw)"
+    },
+    {
+      "label": "Colour",
+      "value": "White"
+    },
+    {
+      "label": "Material",
+      "value": "Plastic housing"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

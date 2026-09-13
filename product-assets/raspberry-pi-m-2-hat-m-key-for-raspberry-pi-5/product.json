@@ -1,0 +1,44 @@
+{
+  "name": "Raspberry Pi M.2 HAT+ (M Key) for Raspberry Pi 5",
+  "slug": "raspberry-pi-m-2-hat-m-key-for-raspberry-pi-5",
+  "sku": "TT-MBD-049",
+  "brand": "Raspberry Pi",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 8070,
+  "compareAtPrice": null,
+  "stock": 16,
+  "shortDescription": "Official Raspberry Pi add-on board for NVMe SSDs and M.2 devices on Pi 5.",
+  "description": "The official Raspberry Pi M.2 HAT+ connects an M.2 M-key NVMe SSD or AI accelerator to the Raspberry Pi 5 PCIe interface. Boot faster and add fast storage to your Pi projects.",
+  "highlights": [
+    "Official Raspberry Pi accessory",
+    "M.2 M-key slot",
+    "Connects via Pi 5 PCIe interface",
+    "For NVMe SSDs and AI accelerators"
+  ],
+  "specifications": [
+    {
+      "label": "Compatibility",
+      "value": "Raspberry Pi 5"
+    },
+    {
+      "label": "Slot",
+      "value": "M.2 M key (2230 / 2242)"
+    },
+    {
+      "label": "Interface",
+      "value": "PCIe 2.0 x1"
+    },
+    {
+      "label": "Use",
+      "value": "NVMe SSD boot and storage, M.2 accelerators"
+    },
+    {
+      "label": "Brand",
+      "value": "Raspberry Pi (official)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

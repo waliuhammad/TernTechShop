@@ -1,0 +1,8 @@
+price: 
+stock: 11
+compare at price: 
+name: VR Shinecon G06 Headset with Headphones and Game Controllers
+brand: VR Shinecon
+category: Peripherals
+featured: yes
+notes: Needs price verification — the exact bundle (which controllers are included) could not be confirmed. The G06EB headset alone lists at about Rs. 8,350–9,300 on Daraz.

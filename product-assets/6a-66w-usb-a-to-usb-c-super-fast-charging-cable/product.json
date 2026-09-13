@@ -1,0 +1,44 @@
+{
+  "name": "6A 66W USB-A to USB-C Super Fast Charging Cable",
+  "slug": "6a-66w-usb-a-to-usb-c-super-fast-charging-cable",
+  "sku": "TT-PER-019",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 250,
+  "compareAtPrice": 450,
+  "stock": 25,
+  "shortDescription": "6A USB-A to USB-C cable rated for 66W super fast charging.",
+  "description": "A high-current 6A cable with an orange USB-A plug rated for up to 66W super fast charging and data transfer. A dependable replacement cable for fast-charging Android phones.",
+  "highlights": [
+    "Rated 6A / 66W",
+    "USB-A to USB-C",
+    "Charging and data sync",
+    "Durable white TPE jacket"
+  ],
+  "specifications": [
+    {
+      "label": "Current",
+      "value": "6A"
+    },
+    {
+      "label": "Power",
+      "value": "Up to 66W"
+    },
+    {
+      "label": "Connectors",
+      "value": "USB-A to USB-C"
+    },
+    {
+      "label": "Length",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "White with orange USB-A tip"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

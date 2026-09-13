@@ -1,0 +1,44 @@
+{
+  "name": "MQ-8 Hydrogen Gas Sensor Module",
+  "slug": "mq-8-hydrogen-gas-sensor-module",
+  "sku": "TT-MBD-059",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 260,
+  "compareAtPrice": null,
+  "stock": 20,
+  "shortDescription": "Detects hydrogen gas with analog and digital outputs.",
+  "description": "The MQ-8 module detects hydrogen (H2) gas and outputs both an analog level and an adjustable digital alarm signal. Use it for gas leak alarms and safety monitoring projects.",
+  "highlights": [
+    "Hydrogen (H2) detection",
+    "Analog and digital outputs",
+    "Adjustable alarm threshold",
+    "Arduino compatible"
+  ],
+  "specifications": [
+    {
+      "label": "Sensor",
+      "value": "MQ-8"
+    },
+    {
+      "label": "Target gas",
+      "value": "Hydrogen (H2)"
+    },
+    {
+      "label": "Outputs",
+      "value": "Analog (AO) and digital (DO)"
+    },
+    {
+      "label": "Supply",
+      "value": "5V"
+    },
+    {
+      "label": "Board colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

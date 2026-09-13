@@ -1,0 +1,39 @@
+{
+  "name": "P5 Lite Portable Power Bank",
+  "slug": "p5-lite-portable-power-bank",
+  "sku": "TT-PER-011",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 16,
+  "shortDescription": "P5 Lite compact power bank for charging phones and earbuds on the go.",
+  "description": "The P5 Lite is a compact power bank for keeping your phone and earbuds charged throughout the day. Its pocket-friendly shape makes it easy to carry to work, college or travel.",
+  "highlights": [
+    "Compact everyday power bank",
+    "Charges phones and earbuds",
+    "Pocket-friendly design"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "P5 Lite"
+    },
+    {
+      "label": "Capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Ports",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

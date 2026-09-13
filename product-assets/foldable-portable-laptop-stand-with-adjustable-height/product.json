@@ -1,0 +1,44 @@
+{
+  "name": "Foldable Portable Laptop Stand with Adjustable Height",
+  "slug": "foldable-portable-laptop-stand-with-adjustable-height",
+  "sku": "TT-PER-127",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 599,
+  "compareAtPrice": 1699,
+  "stock": 10,
+  "shortDescription": "Lightweight folding laptop stand that raises your screen to a comfortable height.",
+  "description": "A foldable, ventilated laptop stand with multiple height settings that lifts your laptop for better posture and airflow. Folds flat into a pouch for work, study or travel.",
+  "highlights": [
+    "Multiple height settings",
+    "Folds flat for travel",
+    "Ventilated for cooler running",
+    "Carry pouch included"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "ABS plastic"
+    },
+    {
+      "label": "Adjustment",
+      "value": "Multi-level height"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Laptops and tablets (size not specified)"
+    },
+    {
+      "label": "Included",
+      "value": "Storage pouch"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, white"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

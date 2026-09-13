@@ -1,0 +1,40 @@
+{
+  "name": "Apple Watch Case with Built-in Tempered Glass (Electroplated)",
+  "slug": "apple-watch-case-with-built-in-tempered-glass-electroplated",
+  "sku": "TT-PER-089",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1117,
+  "compareAtPrice": 2234,
+  "stock": 12,
+  "shortDescription": "Hard case with built-in tempered glass screen protector for Apple Watch.",
+  "description": "A slim electroplated hard case with a built-in tempered-glass screen protector that covers the whole face. Guards against scratches and bumps while adding a polished colour accent.",
+  "highlights": [
+    "Built-in tempered glass",
+    "Full-face protection",
+    "Electroplated colour frame",
+    "Easy snap-on fit"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "PC frame with tempered glass"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Apple Watch (size to choose)"
+    },
+    {
+      "label": "Finish",
+      "value": "Electroplated"
+    },
+    {
+      "label": "Colours",
+      "value": "Rose gold, gold, silver, green, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

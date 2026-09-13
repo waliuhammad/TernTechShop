@@ -1,0 +1,40 @@
+{
+  "name": "Flexible Octopus Tripod with Phone Holder",
+  "slug": "flexible-octopus-tripod-with-phone-holder",
+  "sku": "TT-PER-110",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 263,
+  "compareAtPrice": 349,
+  "stock": 18,
+  "shortDescription": "Bendable foam-leg tripod that wraps around poles and sits on any surface.",
+  "description": "A mini tripod with bendable foam-covered legs that stand on uneven ground or wrap around poles and branches. Includes a phone holder and fits cameras and small lights with a 1/4-inch screw.",
+  "highlights": [
+    "Bendable wrap-around legs",
+    "Phone holder included",
+    "1/4-inch screw for cameras and lights",
+    "Blue and red options"
+  ],
+  "specifications": [
+    {
+      "label": "Legs",
+      "value": "Flexible foam-covered"
+    },
+    {
+      "label": "Mount",
+      "value": "1/4-inch screw"
+    },
+    {
+      "label": "Included",
+      "value": "Phone clamp"
+    },
+    {
+      "label": "Colours",
+      "value": "Blue, red"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

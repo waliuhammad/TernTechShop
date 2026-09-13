@@ -1,0 +1,8 @@
+price: 410
+stock: 18
+compare at price: 
+name: Magnetic 2-Pin USB Charging Cable for Smart Watches
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: digilog.pk — "Magnetic Wireless Smartwatch Charging Cable" — Rs. 410 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/magnetic-wireless-smartwatch-charging-cable

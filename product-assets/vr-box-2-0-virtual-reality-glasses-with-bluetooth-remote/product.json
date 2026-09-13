@@ -1,0 +1,40 @@
+{
+  "name": "VR Box 2.0 Virtual Reality Glasses with Bluetooth Remote",
+  "slug": "vr-box-2-0-virtual-reality-glasses-with-bluetooth-remote",
+  "sku": "TT-PER-075",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 3250,
+  "compareAtPrice": 4799,
+  "stock": 20,
+  "shortDescription": "Classic VR Box headset bundled with a Bluetooth remote controller.",
+  "description": "A classic VR Box 2.0 headset for smartphone VR, bundled with a handheld Bluetooth remote for controlling games and videos. An affordable way to try virtual reality at home.",
+  "highlights": [
+    "VR Box 2.0 headset",
+    "Bluetooth remote controller included",
+    "Adjustable head strap",
+    "For Android and iPhone"
+  ],
+  "specifications": [
+    {
+      "label": "Includes",
+      "value": "VR headset, Bluetooth remote"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Android and iPhone smartphones"
+    },
+    {
+      "label": "Phone size",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "White and black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

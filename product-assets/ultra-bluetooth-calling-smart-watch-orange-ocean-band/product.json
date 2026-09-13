@@ -1,0 +1,44 @@
+{
+  "name": "Ultra Bluetooth Calling Smart Watch (Orange Ocean Band)",
+  "slug": "ultra-bluetooth-calling-smart-watch-orange-ocean-band",
+  "sku": "TT-PER-084",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1349,
+  "compareAtPrice": 3500,
+  "stock": 14,
+  "shortDescription": "Ultra-style smart watch with Bluetooth calling and fitness tracking.",
+  "description": "A rugged Ultra-style smart watch with a large touch screen, Bluetooth calling, multiple sport modes and health tracking. Comes on a bright orange ocean band.",
+  "highlights": [
+    "Bluetooth calling",
+    "Large IPS touch screen",
+    "Multiple sport modes",
+    "Health management features"
+  ],
+  "specifications": [
+    {
+      "label": "Display",
+      "value": "IPS touch screen (size not specified)"
+    },
+    {
+      "label": "Calling",
+      "value": "Bluetooth call"
+    },
+    {
+      "label": "Features",
+      "value": "Sport modes, heart rate, notifications"
+    },
+    {
+      "label": "Band",
+      "value": "Orange ocean band"
+    },
+    {
+      "label": "Model",
+      "value": "Not specified (Ultra series)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

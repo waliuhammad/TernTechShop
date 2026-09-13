@@ -1,0 +1,40 @@
+{
+  "name": "Universal Waterproof Mobile Phone Pouch",
+  "slug": "universal-waterproof-mobile-phone-pouch",
+  "sku": "TT-PER-122",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 219,
+  "compareAtPrice": 349,
+  "stock": 16,
+  "shortDescription": "Sealed transparent pouch that keeps your phone dry at the beach or pool.",
+  "description": "A transparent, sealable PVC pouch with a lanyard that keeps your phone safe from water, sand and dust. The touch-sensitive window lets you use the screen inside.",
+  "highlights": [
+    "Keeps phone dry and sand-free",
+    "Touch-sensitive clear window",
+    "Lanyard included",
+    "Fits most smartphones"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "PVC"
+    },
+    {
+      "label": "Seal",
+      "value": "Snap lock"
+    },
+    {
+      "label": "Included",
+      "value": "Lanyard"
+    },
+    {
+      "label": "Colours",
+      "value": "Assorted neon edges"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

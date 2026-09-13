@@ -1,0 +1,40 @@
+{
+  "name": "Silicone Replacement Strap for Mi Band",
+  "slug": "silicone-replacement-strap-for-mi-band",
+  "sku": "TT-PER-087",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 249,
+  "compareAtPrice": null,
+  "stock": 19,
+  "shortDescription": "Soft silicone replacement wristband for Xiaomi Mi Band trackers.",
+  "description": "A soft, adjustable silicone replacement band for Mi Band fitness trackers, fitting wrists from 5.5 to 8.7 inches. Refresh a worn strap or switch colours.",
+  "highlights": [
+    "Fits 5.5–8.7 inch wrists",
+    "Soft skin-friendly silicone",
+    "Easy capsule fit",
+    "Replacement for worn straps"
+  ],
+  "specifications": [
+    {
+      "label": "Wrist size",
+      "value": "5.5–8.7 in (140–220 mm)"
+    },
+    {
+      "label": "Material",
+      "value": "Silicone"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Xiaomi Mi Band (generation to confirm)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

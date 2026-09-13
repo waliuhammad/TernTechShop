@@ -1,0 +1,40 @@
+{
+  "name": "iTag Bluetooth Anti-Lost Key Finder",
+  "slug": "itag-bluetooth-anti-lost-key-finder",
+  "sku": "TT-PER-126",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 902,
+  "compareAtPrice": 1918,
+  "stock": 10,
+  "shortDescription": "Bluetooth tracker tag that helps you find keys, bags and pets with your phone.",
+  "description": "A teardrop-shaped Bluetooth tag that rings when you tap it in the phone app, and alerts you when it moves out of range. Attach it to keys, wallets, bags or pet collars.",
+  "highlights": [
+    "Find items with your phone",
+    "Out-of-range alarm",
+    "Two-way find (press to ring phone)",
+    "Replaceable coin battery"
+  ],
+  "specifications": [
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "App",
+      "value": "iTag / compatible app"
+    },
+    {
+      "label": "Battery",
+      "value": "CR2032 coin cell (typical)"
+    },
+    {
+      "label": "Colours",
+      "value": "White, green"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 600
+stock: 15
+compare at price: 
+name: LJ12A3-4-Z/BX Inductive Proximity Sensor (M12, NPN NO)
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: electrobes.com — "LJ12A3-4-Z/BX NPN NO Inductive Proximity Sensor Switch DC 6V-36V" — Rs. 600 — in stock — checked 13 Sep 2026 | https://electrobes.com/product/lj12a3-4-z-bx-npn-no-inductive-proximity-sensor-switch-dc-6v-36v/

@@ -1,0 +1,44 @@
+{
+  "name": "WS-858 Wireless Bluetooth Karaoke Microphone with Speaker",
+  "slug": "ws-858-wireless-bluetooth-karaoke-microphone-with-speaker",
+  "sku": "TT-PER-078",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 899,
+  "compareAtPrice": 1099,
+  "stock": 21,
+  "shortDescription": "Handheld Bluetooth karaoke mic with a built-in speaker.",
+  "description": "The WS-858 is a rechargeable handheld karaoke microphone with a built-in speaker that plays music from your phone over Bluetooth. Sing along anywhere, no separate speaker needed.",
+  "highlights": [
+    "Built-in speaker",
+    "Bluetooth music playback",
+    "Rechargeable battery",
+    "Echo and volume controls"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "WS-858"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Speaker",
+      "value": "Built-in"
+    },
+    {
+      "label": "Battery",
+      "value": "Rechargeable (capacity not specified)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

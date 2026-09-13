@@ -1,0 +1,8 @@
+price: 260
+stock: 20
+compare at price: 
+name: MQ-8 Hydrogen Gas Sensor Module
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "MQ8 Hydrogen Gas Sensor Module" — Rs. 260 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/mq8-mq-8-mq-8-hydrogen-gas-sensor-module-h2-alarm-detection-mq-8-sensor

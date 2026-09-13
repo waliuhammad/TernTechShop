@@ -1,0 +1,8 @@
+price: 660
+stock: 16
+compare at price: 
+name: 4-Port USB 3.0 Hub (5 Gbps)
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: digilog.pk — "4 Port USB Hub Hi-speed USB 3.0" — Rs. 660 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/4-port-usb-hub-hi-speed-usb-2-0-with-power-leds-in-pakistan

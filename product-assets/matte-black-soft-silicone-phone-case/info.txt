@@ -1,0 +1,8 @@
+price: 
+stock: 13
+compare at price: 
+name: Matte Black Soft Silicone Phone Case
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: Needs price verification — the phone model cannot be confirmed from the photo. Matte silicone cases sell for about Rs. 350–360.

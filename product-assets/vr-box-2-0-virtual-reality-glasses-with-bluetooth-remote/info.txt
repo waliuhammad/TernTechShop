@@ -1,0 +1,8 @@
+price: 3250
+stock: 20
+compare at price: 4799
+name: VR Box 2.0 Virtual Reality Glasses with Bluetooth Remote
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "Pack Of 2 - Vr Box 2.0 & Remote Controller - White & Black" — Rs. 3,250 (was Rs. 4,799) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/2-vr-20-i100117808.html

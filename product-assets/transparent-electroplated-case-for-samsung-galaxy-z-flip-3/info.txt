@@ -1,0 +1,8 @@
+price: 1110
+stock: 24
+compare at price: 1800
+name: Transparent Electroplated Case for Samsung Galaxy Z Flip 3
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "Samsung Galaxy Z Flip 3 5G Transparent Protective Hybrid Case Premium Quality…" — Rs. 1,110 (was Rs. 1,800) — in stock, 20 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/z-3-5g-i308766286.html

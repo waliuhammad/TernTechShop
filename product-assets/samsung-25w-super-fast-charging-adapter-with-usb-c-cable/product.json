@@ -1,0 +1,44 @@
+{
+  "name": "Samsung 25W Super Fast Charging Adapter with USB-C Cable",
+  "slug": "samsung-25w-super-fast-charging-adapter-with-usb-c-cable",
+  "sku": "TT-PER-017",
+  "brand": "Samsung",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 2650,
+  "compareAtPrice": 4700,
+  "stock": 14,
+  "shortDescription": "Samsung 25W USB-C wall charger for Super Fast Charging.",
+  "description": "Samsung's 25W USB-C travel adapter delivers Super Fast Charging to compatible Galaxy phones and USB-C PD devices. Shown with a USB-C to USB-C cable for a complete charging kit.",
+  "highlights": [
+    "25W Super Fast Charging",
+    "USB-C Power Delivery output",
+    "Compact 2-pin wall plug",
+    "Works with USB-C PD phones"
+  ],
+  "specifications": [
+    {
+      "label": "Output",
+      "value": "25W USB-C (PD)"
+    },
+    {
+      "label": "Plug",
+      "value": "2-pin (EU type)"
+    },
+    {
+      "label": "Cable",
+      "value": "USB-C to USB-C (as shown)"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Samsung Galaxy Super Fast Charging and USB-C PD devices"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

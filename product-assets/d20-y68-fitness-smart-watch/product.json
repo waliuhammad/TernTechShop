@@ -1,0 +1,48 @@
+{
+  "name": "D20 (Y68) Fitness Smart Watch",
+  "slug": "d20-y68-fitness-smart-watch",
+  "sku": "TT-PER-082",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1618,
+  "compareAtPrice": 3236,
+  "stock": 19,
+  "shortDescription": "Budget fitness smart watch with heart-rate, step and notification tracking.",
+  "description": "The D20 is a popular budget fitness watch that tracks steps, heart rate, calories and sleep, and shows phone notifications. A simple, affordable first smart watch in multiple colours.",
+  "highlights": [
+    "Heart-rate and blood-pressure display (as advertised)",
+    "Step, calorie and sleep tracking",
+    "Call and message reminders",
+    "USB charging"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "D20 / Y68"
+    },
+    {
+      "label": "Display",
+      "value": "Colour screen (size not specified)"
+    },
+    {
+      "label": "Features",
+      "value": "Heart rate, pedometer, calories, sleep, notifications"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Charging",
+      "value": "USB"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, pink, white, blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

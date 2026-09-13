@@ -1,0 +1,39 @@
+{
+  "name": "Compact Power Bank with Protective Cap (Yellow)",
+  "slug": "compact-power-bank-with-protective-cap-yellow",
+  "sku": "TT-PER-012",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 14,
+  "shortDescription": "Bright yellow portable power bank with a protective cap.",
+  "description": "A compact yellow power bank with a snap-on protective cap that keeps the port clean in your bag. A cheerful, easy-to-find backup charger for phones.",
+  "highlights": [
+    "Protective cap keeps ports clean",
+    "Bright, easy-to-find colour",
+    "Compact portable body"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Output",
+      "value": "USB-A"
+    },
+    {
+      "label": "Colour",
+      "value": "Yellow and black"
+    },
+    {
+      "label": "Material",
+      "value": "Plastic"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Lazy Gooseneck Phone Holder with Clamp",
+  "slug": "lazy-gooseneck-phone-holder-with-clamp",
+  "sku": "TT-PER-106",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 499,
+  "compareAtPrice": 1299,
+  "stock": 10,
+  "shortDescription": "Flexible gooseneck arm that clamps to beds and desks to hold your phone.",
+  "description": "A flexible gooseneck arm with a strong clamp that attaches to bed frames, desks and shelves to hold your phone hands-free. Bend it to any angle for videos, calls and recipes.",
+  "highlights": [
+    "Flexible gooseneck arm",
+    "Strong clamp for beds and desks",
+    "Hands-free viewing",
+    "360° adjustable phone clip"
+  ],
+  "specifications": [
+    {
+      "label": "Mount",
+      "value": "Clamp"
+    },
+    {
+      "label": "Arm",
+      "value": "Flexible gooseneck (length not specified)"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most smartphones"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

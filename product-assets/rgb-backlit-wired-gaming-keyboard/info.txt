@@ -1,0 +1,8 @@
+price: 1678
+stock: 25
+compare at price: 2238
+name: RGB Backlit Wired Gaming Keyboard
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "【TOP-RATED】 Gaming Keyboard RGB with Mechanical Feeling - Wired Waterproof Key…" — Rs. 1,678 (was Rs. 2,238) — in stock, 135 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/112-i1961902044.html

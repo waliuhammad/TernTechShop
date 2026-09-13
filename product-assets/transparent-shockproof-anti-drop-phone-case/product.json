@@ -1,0 +1,39 @@
+{
+  "name": "Transparent Shockproof Anti-Drop Phone Case",
+  "slug": "transparent-shockproof-anti-drop-phone-case",
+  "sku": "TT-PER-094",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Clear shockproof case with reinforced air-cushion corners.",
+  "description": "A clear TPU case with reinforced air-cushion corners that absorb drops while showing the phone's colour. Raised edges help protect the screen and camera.",
+  "highlights": [
+    "Air-cushion shockproof corners",
+    "Crystal-clear TPU",
+    "Raised camera and screen edges"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Transparent TPU"
+    },
+    {
+      "label": "Protection",
+      "value": "Reinforced corners"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Phone model to confirm"
+    },
+    {
+      "label": "Colour",
+      "value": "Transparent"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

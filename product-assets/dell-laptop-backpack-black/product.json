@@ -1,0 +1,40 @@
+{
+  "name": "Dell Laptop Backpack (Black)",
+  "slug": "dell-laptop-backpack-black",
+  "sku": "TT-PER-138",
+  "brand": "Dell",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 3899,
+  "compareAtPrice": 4499,
+  "stock": 16,
+  "shortDescription": "Slim Dell-branded laptop backpack for work and study.",
+  "description": "A slim, professional Dell laptop backpack with a padded laptop compartment and a clean black design with a red accent. Lightweight for daily commuting and business travel.",
+  "highlights": [
+    "Dell branded",
+    "Padded laptop compartment",
+    "Slim professional design",
+    "Lightweight for daily use"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "Dell"
+    },
+    {
+      "label": "Model",
+      "value": "Not confirmed from photo"
+    },
+    {
+      "label": "Laptop size",
+      "value": "Up to 15.6 in (typical)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black with red accent"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

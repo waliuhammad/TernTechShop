@@ -1,0 +1,44 @@
+{
+  "name": "5V 1A Lithium Battery Charging & Step-Up Boost Module (USB Output)",
+  "slug": "5v-1a-lithium-battery-charging-step-up-boost-module-usb-output",
+  "sku": "TT-MBD-015",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 150,
+  "compareAtPrice": null,
+  "stock": 25,
+  "shortDescription": "Tiny board that charges a 3.7V lithium cell and boosts it to 5V USB output.",
+  "description": "A compact charger-and-booster board that safely charges a single 3.7V lithium cell and steps it up to 5V on a USB port. The quickest way to build a DIY power bank or power 5V projects from an 18650 battery.",
+  "highlights": [
+    "Charges 3.7V lithium cells",
+    "Boosts to 5V USB output",
+    "Over-charge and over-discharge protection",
+    "Ideal for DIY power banks"
+  ],
+  "specifications": [
+    {
+      "label": "Input",
+      "value": "Micro-USB 5V"
+    },
+    {
+      "label": "Output",
+      "value": "5V 1A via USB-A"
+    },
+    {
+      "label": "Battery",
+      "value": "Single 3.7V lithium cell (e.g. 18650)"
+    },
+    {
+      "label": "Protection",
+      "value": "Over-charge / over-discharge protection"
+    },
+    {
+      "label": "Board colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 1850
+stock: 13
+compare at price: 2999
+name: 12V WiFi Router Power Bank UPS with 6 Built-in Cells
+brand: Unbranded
+category: Networking
+featured: yes
+notes: daraz.pk — "Router Power Bank 12V | 6 Cell Backup Battery | Compatible with Wi-Fi Routers…" — Rs. 1,850 (was Rs. 2,999) — in stock, 75 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/12-6-wifi-20000-amh-i930933478.html

@@ -1,0 +1,52 @@
+{
+  "name": "ASUS Micro-ATX Intel Desktop Motherboard (Model to Confirm)",
+  "slug": "asus-micro-atx-intel-desktop-motherboard-model-to-confirm",
+  "sku": "TT-MBD-044",
+  "brand": "ASUS",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 19,
+  "shortDescription": "ASUS Micro-ATX motherboard for Intel desktop builds.",
+  "description": "An ASUS Micro-ATX desktop motherboard for Intel processors, featuring ASUS EPU power saving, Fan Xpert and USB 3.0 Boost as printed on the board. A dependable base for office and home PC builds; confirm the exact model and socket before listing.",
+  "highlights": [
+    "ASUS Micro-ATX board",
+    "EPU, Fan Xpert and USB 3.0 Boost (printed on board)",
+    "Intel desktop socket",
+    "Gold-accent heatsinks"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "ASUS"
+    },
+    {
+      "label": "Form factor",
+      "value": "Micro-ATX"
+    },
+    {
+      "label": "Socket",
+      "value": "Intel LGA (exact socket not confirmed)"
+    },
+    {
+      "label": "Chipset",
+      "value": "Not specified"
+    },
+    {
+      "label": "Memory slots",
+      "value": "Not specified"
+    },
+    {
+      "label": "Features",
+      "value": "EPU, Fan Xpert, USB 3.0 Boost (as printed)"
+    },
+    {
+      "label": "Condition",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

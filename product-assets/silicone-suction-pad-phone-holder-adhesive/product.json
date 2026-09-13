@@ -1,0 +1,40 @@
+{
+  "name": "Silicone Suction Pad Phone Holder (Adhesive)",
+  "slug": "silicone-suction-pad-phone-holder-adhesive",
+  "sku": "TT-PER-098",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 99,
+  "compareAtPrice": 349,
+  "stock": 10,
+  "shortDescription": "Sticky silicone suction pad that holds your phone to mirrors, tiles and glass.",
+  "description": "A reusable silicone suction pad that sticks to the back of your phone or case and grips smooth surfaces. Film selfies on a mirror, watch videos on tiles, or keep your phone steady on a desk.",
+  "highlights": [
+    "Grips mirrors, glass and tiles",
+    "Self-adhesive back",
+    "Reusable, washable silicone",
+    "Many colours"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Silicone"
+    },
+    {
+      "label": "Mounting",
+      "value": "Adhesive back, suction cups front"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most phones and cases"
+    },
+    {
+      "label": "Colours",
+      "value": "Orange, brown, blue, pink, yellow, red, black, green and more"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

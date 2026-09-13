@@ -1,0 +1,8 @@
+price: 799
+stock: 11
+compare at price: 1499
+name: Aluminium Lipstick Mini Power Bank
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "Battery 2600mAh Emergency Mini Cylindrical Power Bank" — Rs. 799 (was Rs. 1,499) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/2600mah-i1947633520.html

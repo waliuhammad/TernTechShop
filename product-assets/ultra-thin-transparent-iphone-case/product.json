@@ -1,0 +1,40 @@
+{
+  "name": "Ultra-Thin Transparent iPhone Case",
+  "slug": "ultra-thin-transparent-iphone-case",
+  "sku": "TT-PER-093",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 10,
+  "shortDescription": "Crystal-clear ultra-thin case that shows off your iPhone.",
+  "description": "An ultra-thin, lightweight transparent case that protects against scratches while keeping your iPhone's design visible. Precise cut-outs for buttons, ports and cameras.",
+  "highlights": [
+    "Ultra-thin and lightweight",
+    "Crystal-clear finish",
+    "Precise camera cut-outs",
+    "Scratch protection"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Clear TPU/PC (not specified)"
+    },
+    {
+      "label": "Compatibility",
+      "value": "iPhone — model to confirm"
+    },
+    {
+      "label": "Thickness",
+      "value": "Ultra thin (not specified)"
+    },
+    {
+      "label": "Colour",
+      "value": "Transparent"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

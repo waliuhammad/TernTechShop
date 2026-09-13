@@ -1,0 +1,8 @@
+price: 1520
+stock: 22
+compare at price: 
+name: Sharp GP2Y1010AU0F Optical Dust Sensor
+brand: Sharp
+category: Motherboards
+featured: yes
+notes: digilog.pk — "Dust Sensor Module GP2Y1010AU0F Compact Optical Dust Sensor" — Rs. 1,520 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/dust-sensor-module-gp2y1010au0f-compact-optical-dust-sensor-in-pakistan

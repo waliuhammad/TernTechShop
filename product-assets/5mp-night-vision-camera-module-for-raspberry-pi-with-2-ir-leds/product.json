@@ -1,0 +1,44 @@
+{
+  "name": "5MP Night Vision Camera Module for Raspberry Pi with 2 IR LEDs",
+  "slug": "5mp-night-vision-camera-module-for-raspberry-pi-with-2-ir-leds",
+  "sku": "TT-MBD-050",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 3940,
+  "compareAtPrice": null,
+  "stock": 14,
+  "shortDescription": "Raspberry Pi camera with infrared LEDs for day and night vision.",
+  "description": "A 5MP camera module for Raspberry Pi with two infrared LED lamps for clear images in low light and darkness. Ideal for security cameras, wildlife monitoring and robotics.",
+  "highlights": [
+    "5MP camera",
+    "Two infrared LEDs for night vision",
+    "Ribbon cable included",
+    "For Raspberry Pi CSI camera port"
+  ],
+  "specifications": [
+    {
+      "label": "Resolution",
+      "value": "5MP"
+    },
+    {
+      "label": "Night vision",
+      "value": "2 × IR LED boards"
+    },
+    {
+      "label": "Interface",
+      "value": "CSI ribbon cable"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Raspberry Pi with CSI camera port"
+    },
+    {
+      "label": "Sensor",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

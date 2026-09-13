@@ -1,0 +1,48 @@
+{
+  "name": "Xiaomi Mi Power Bank 2C 20000mAh",
+  "slug": "xiaomi-mi-power-bank-2c-20000mah",
+  "sku": "TT-PER-005",
+  "brand": "Xiaomi",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 2499,
+  "compareAtPrice": null,
+  "stock": 22,
+  "shortDescription": "20000mAh Xiaomi power bank with dual USB output and two-way Quick Charge 3.0.",
+  "description": "A high-capacity 20000mAh lithium-polymer power bank that charges two devices at once and recharges quickly with 18W input. Enough capacity for several phone charges, ideal for travel, commuting and load shedding.",
+  "highlights": [
+    "20000mAh lithium-polymer capacity",
+    "Charge two devices simultaneously",
+    "Two-way Quick Charge 3.0",
+    "Multiple safety protections"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "20000mAh (Li-polymer)"
+    },
+    {
+      "label": "Input",
+      "value": "Micro-USB 5V 2A / 9V 2A"
+    },
+    {
+      "label": "Output",
+      "value": "Dual USB-A: 5.1V 2.4A / 9V 2A / 12V 1.5A"
+    },
+    {
+      "label": "Weight",
+      "value": "358 g"
+    },
+    {
+      "label": "Dimensions",
+      "value": "149.5 × 69.6 × 23.9 mm"
+    },
+    {
+      "label": "Colour",
+      "value": "White"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

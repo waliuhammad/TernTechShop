@@ -1,0 +1,8 @@
+price: 1499
+stock: 22
+compare at price: 3500
+name: 65W Super Fast Charger Adapter with Red USB-C Cable
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "65W Type C Super Fast Charger Adapter With Red Cable For All Smartphones…" — Rs. 1,499 (was Rs. 3,500) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/65w-i1958943607.html | Wattage taken from the matching listing; confirm on the charger label.

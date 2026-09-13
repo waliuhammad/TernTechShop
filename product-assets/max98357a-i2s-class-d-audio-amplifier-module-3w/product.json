@@ -1,0 +1,44 @@
+{
+  "name": "MAX98357A I2S Class-D Audio Amplifier Module (3W)",
+  "slug": "max98357a-i2s-class-d-audio-amplifier-module-3w",
+  "sku": "TT-MBD-056",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 600,
+  "compareAtPrice": 700,
+  "stock": 18,
+  "shortDescription": "I2S digital audio amplifier board for ESP32 and Raspberry Pi.",
+  "description": "The MAX98357A converts I2S digital audio straight into up to 3W of speaker output, with no separate DAC needed. A compact way to add sound to ESP32, Raspberry Pi and other I2S projects.",
+  "highlights": [
+    "I2S digital audio input",
+    "Up to 3W Class-D output",
+    "No external DAC needed",
+    "Screw terminal for speaker"
+  ],
+  "specifications": [
+    {
+      "label": "Chip",
+      "value": "MAX98357A"
+    },
+    {
+      "label": "Input",
+      "value": "I2S (BCLK, LRC, DIN)"
+    },
+    {
+      "label": "Output",
+      "value": "Up to 3W mono Class-D"
+    },
+    {
+      "label": "Speaker terminal",
+      "value": "Screw terminal"
+    },
+    {
+      "label": "Board colour",
+      "value": "Purple"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 
+stock: 24
+compare at price: 
+name: SPI TFT LCD Colour Display Module (Red PCB)
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: Needs price verification — screen size and touch option cannot be confirmed from the photo. 2.4-inch SPI modules list at about Rs. 2,000 and 2.8-inch at about Rs. 3,530.

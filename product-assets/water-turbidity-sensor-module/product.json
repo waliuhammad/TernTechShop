@@ -1,0 +1,40 @@
+{
+  "name": "Water Turbidity Sensor Module",
+  "slug": "water-turbidity-sensor-module",
+  "sku": "TT-MBD-067",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 2220,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Measures water cloudiness with analog and digital outputs.",
+  "description": "A turbidity sensor that measures how cloudy water is by detecting suspended particles, with a conditioning board for analog and digital outputs. Useful for water-quality monitoring, washing machines and aquariums.",
+  "highlights": [
+    "Measures water turbidity",
+    "Analog and digital outputs",
+    "Adjustable threshold",
+    "Arduino compatible"
+  ],
+  "specifications": [
+    {
+      "label": "Outputs",
+      "value": "Analog and digital"
+    },
+    {
+      "label": "Supply",
+      "value": "5V DC"
+    },
+    {
+      "label": "Included",
+      "value": "Sensor probe, cable, conditioning board"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Arduino, ESP32"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

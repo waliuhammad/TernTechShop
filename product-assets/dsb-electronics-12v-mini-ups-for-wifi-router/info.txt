@@ -1,0 +1,8 @@
+price: 
+stock: 17
+compare at price: 
+name: DSB Electronics 12V Mini UPS for WiFi Router
+brand: DSB Electronics
+category: Networking
+featured: yes
+notes: Needs price verification — no listing found for the DSB Electronics model. Comparable 12V router UPS units sell for about Rs. 2,000–3,000 on Daraz.

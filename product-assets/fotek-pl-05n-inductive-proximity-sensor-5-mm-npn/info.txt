@@ -1,0 +1,8 @@
+price: 518
+stock: 10
+compare at price: 610
+name: FOTEK PL-05N Inductive Proximity Sensor (5 mm, NPN)
+brand: FOTEK
+category: Motherboards
+featured: yes
+notes: digilog.pk — "Fotek Proximity Sensor PL-05N 5mm NPN Out DC10-30V IP67" — Rs. 518 (was Rs. 610) — in stock — checked 13 Sep 2026 | https://digilog.pk/products/fotek-proximity-sensor-pl-05n-5mm-npn-out-dc10-30v-ip67

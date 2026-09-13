@@ -1,0 +1,40 @@
+{
+  "name": "Matte Hard PC Bumper Case for Apple Watch",
+  "slug": "matte-hard-pc-bumper-case-for-apple-watch",
+  "sku": "TT-PER-091",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 729,
+  "compareAtPrice": 1458,
+  "stock": 16,
+  "shortDescription": "Slim matte hard case that shields the Apple Watch frame.",
+  "description": "A slim matte-finish hard PC bumper that protects the sides of your Apple Watch without adding bulk. A clean look that complements most straps.",
+  "highlights": [
+    "Slim matte finish",
+    "Protects the frame from knocks",
+    "Lightweight hard PC",
+    "Snap-on fit"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Hard PC"
+    },
+    {
+      "label": "Finish",
+      "value": "Matte"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Apple Watch (size to choose)"
+    },
+    {
+      "label": "Colour",
+      "value": "Grey / white"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

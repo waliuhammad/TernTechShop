@@ -1,0 +1,8 @@
+price: 
+stock: 19
+compare at price: 
+name: Magnetic Charging Dock for Square Smart Watches
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: Needs price verification — the compatible watch model could not be identified from the photo.

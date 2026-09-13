@@ -1,0 +1,8 @@
+price: 
+stock: 21
+compare at price: 
+name: Projectile Speed Chronograph with LED Display
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: Needs price verification — no matching sky-screen chronograph listing was found (a different WiFi chronograph lists at Rs. 17,500).

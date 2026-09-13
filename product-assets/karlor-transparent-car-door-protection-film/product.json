@@ -1,0 +1,40 @@
+{
+  "name": "KARLOR Transparent Car Door Protection Film",
+  "slug": "karlor-transparent-car-door-protection-film",
+  "sku": "TT-PER-150",
+  "brand": "KARLOR",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 725,
+  "compareAtPrice": 1618,
+  "stock": 19,
+  "shortDescription": "Clear protective film that guards car door sills and edges from scratches.",
+  "description": "A clear protective film roll for car door sills, edges and trunk lips that shields paint from scuffs and scratches. Nearly invisible once applied.",
+  "highlights": [
+    "Nearly invisible protection",
+    "For door sills, edges and trunk",
+    "Cut to size",
+    "Scratch and scuff resistant"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "KARLOR"
+    },
+    {
+      "label": "Material",
+      "value": "Transparent film (TPU/PVC not specified)"
+    },
+    {
+      "label": "Size",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Transparent"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

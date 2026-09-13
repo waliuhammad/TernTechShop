@@ -1,0 +1,48 @@
+{
+  "name": "ASUS ATX Intel Desktop Motherboard with 4 DIMM Slots (Model to Confirm)",
+  "slug": "asus-atx-intel-desktop-motherboard-with-4-dimm-slots-model-to-confirm",
+  "sku": "TT-MBD-045",
+  "brand": "ASUS",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 21,
+  "shortDescription": "ASUS Intel desktop motherboard with four memory slots.",
+  "description": "An ASUS desktop motherboard for Intel processors with four DDR memory slots and multiple PCIe expansion slots. Suited to office and gaming builds; confirm the exact model and socket before listing.",
+  "highlights": [
+    "ASUS desktop board",
+    "Four memory slots",
+    "Multiple PCIe slots",
+    "Rear I/O with USB and display outputs"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "ASUS"
+    },
+    {
+      "label": "Socket",
+      "value": "Intel LGA (exact socket not confirmed)"
+    },
+    {
+      "label": "Memory slots",
+      "value": "4"
+    },
+    {
+      "label": "Chipset",
+      "value": "Not specified"
+    },
+    {
+      "label": "Form factor",
+      "value": "Not specified"
+    },
+    {
+      "label": "Condition",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

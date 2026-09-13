@@ -1,0 +1,44 @@
+{
+  "name": "Magnetic Folding Buckle Silicone Watch Strap (20/22 mm)",
+  "slug": "magnetic-folding-buckle-silicone-watch-strap-20-22-mm",
+  "sku": "TT-PER-085",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 982,
+  "compareAtPrice": 1964,
+  "stock": 22,
+  "shortDescription": "Soft silicone watch band with a magnetic folding clasp.",
+  "description": "A soft, sweat-proof silicone strap with a magnetic folding buckle that snaps shut securely and adjusts easily. Available in many colours for 20 mm and 22 mm watches.",
+  "highlights": [
+    "Magnetic folding buckle",
+    "Soft sweat-proof silicone",
+    "Quick-release pins",
+    "Many colour options"
+  ],
+  "specifications": [
+    {
+      "label": "Width",
+      "value": "20 mm or 22 mm"
+    },
+    {
+      "label": "Material",
+      "value": "Silicone"
+    },
+    {
+      "label": "Clasp",
+      "value": "Magnetic folding buckle"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Watches with 20/22 mm lugs"
+    },
+    {
+      "label": "Colours",
+      "value": "Grey, black, green, pink, blue and more"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

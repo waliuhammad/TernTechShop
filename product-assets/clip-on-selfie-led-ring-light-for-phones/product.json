@@ -1,0 +1,40 @@
+{
+  "name": "Clip-On Selfie LED Ring Light for Phones",
+  "slug": "clip-on-selfie-led-ring-light-for-phones",
+  "sku": "TT-PER-114",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 349,
+  "compareAtPrice": 399,
+  "stock": 13,
+  "shortDescription": "Clip-on ring light for brighter selfies and video calls.",
+  "description": "A small clip-on LED ring light that attaches to your phone for bright, even lighting on selfies and video calls. Pocket-sized and ideal for low-light shots.",
+  "highlights": [
+    "Clips onto any phone",
+    "Even LED ring lighting",
+    "Brighter selfies and video calls",
+    "Pocket-sized"
+  ],
+  "specifications": [
+    {
+      "label": "Mount",
+      "value": "Clip-on"
+    },
+    {
+      "label": "Light",
+      "value": "LED ring"
+    },
+    {
+      "label": "Power",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "White"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 710
+stock: 11
+compare at price: 
+name: 22.5W PD QC Power Bank Module with LED Display
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "SW6206 SW6208 QC4 PD3.0 22.5W Power Bank Module front indicators Versi…" — Rs. 710 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/sw6206-sw6208-qc4-pd3-0-22-5w-power-bank-module-version-a-fast-charging-digilog-pk | Price is for a comparable 22.5W power bank module; exact board in photo not confirmed.

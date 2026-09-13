@@ -1,0 +1,40 @@
+{
+  "name": "RGB Gaming Mouse with Stitched-Edge Mouse Pad Combo",
+  "slug": "rgb-gaming-mouse-with-stitched-edge-mouse-pad-combo",
+  "sku": "TT-PER-039",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 549,
+  "compareAtPrice": 961,
+  "stock": 15,
+  "shortDescription": "7-colour RGB gaming mouse bundled with a stitched-edge mouse pad.",
+  "description": "A gaming starter bundle: a wired RGB mouse with 7 lighting colours and a black mouse pad with stitched edges that won't fray. Smooth tracking and a clean desk look for gaming or work.",
+  "highlights": [
+    "7 RGB lighting colours",
+    "Stitched-edge mouse pad included",
+    "Wired USB gaming mouse",
+    "Smooth glide surface"
+  ],
+  "specifications": [
+    {
+      "label": "Mouse connection",
+      "value": "Wired USB"
+    },
+    {
+      "label": "Lighting",
+      "value": "7-colour RGB"
+    },
+    {
+      "label": "Mouse pad",
+      "value": "Black, stitched edges"
+    },
+    {
+      "label": "DPI",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

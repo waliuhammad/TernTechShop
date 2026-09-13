@@ -1,0 +1,8 @@
+price: 
+stock: 21
+compare at price: 
+name: Slim Fast-Charging Power Bank with Free Data Cable
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: Needs price verification — capacity is not visible in the photo, so no exact listing could be matched.

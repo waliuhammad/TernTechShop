@@ -1,0 +1,44 @@
+{
+  "name": "22.5W PD QC Power Bank Module with LED Display",
+  "slug": "22-5w-pd-qc-power-bank-module-with-led-display",
+  "sku": "TT-MBD-014",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 710,
+  "compareAtPrice": null,
+  "stock": 11,
+  "shortDescription": "DIY 22.5W fast-charging power bank board with USB-C PD and LED display.",
+  "description": "A 22.5W fast-charge power bank board with USB-C and USB-A ports and a digital LED percentage display. Pair it with 3.7V lithium cells to build a high-output power bank for phones and tablets.",
+  "highlights": [
+    "22.5W fast charging",
+    "USB-C PD and USB-A outputs",
+    "LED battery display",
+    "For 3.7V lithium cells"
+  ],
+  "specifications": [
+    {
+      "label": "Max output",
+      "value": "22.5W"
+    },
+    {
+      "label": "Ports",
+      "value": "USB-C, USB-A, Micro-USB"
+    },
+    {
+      "label": "Display",
+      "value": "LED percentage display"
+    },
+    {
+      "label": "Battery",
+      "value": "3.7V lithium cells"
+    },
+    {
+      "label": "Chipset",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

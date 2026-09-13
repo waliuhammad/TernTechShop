@@ -1,0 +1,40 @@
+{
+  "name": "Universal Phone Clip Holder for Tripods (1/4-inch Mount)",
+  "slug": "universal-phone-clip-holder-for-tripods-1-4-inch-mount",
+  "sku": "TT-PER-109",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 117,
+  "compareAtPrice": 400,
+  "stock": 11,
+  "shortDescription": "Spring-loaded phone clamp that mounts any phone on a tripod.",
+  "description": "A spring-loaded universal phone clamp with a standard 1/4-inch screw hole for tripods, selfie sticks and stands. Holds most smartphones securely for photos and video.",
+  "highlights": [
+    "Standard 1/4-inch tripod thread",
+    "Spring-loaded clamp",
+    "Fits most smartphones",
+    "Compact and lightweight"
+  ],
+  "specifications": [
+    {
+      "label": "Mount",
+      "value": "1/4-inch screw hole"
+    },
+    {
+      "label": "Clamp",
+      "value": "Spring-loaded (width range not specified)"
+    },
+    {
+      "label": "Material",
+      "value": "Plastic and metal spring"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

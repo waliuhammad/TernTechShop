@@ -1,0 +1,40 @@
+{
+  "name": "Laptop Backpack with USB Charging Port (Navy Blue)",
+  "slug": "laptop-backpack-with-usb-charging-port-navy-blue",
+  "sku": "TT-PER-137",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1170,
+  "compareAtPrice": 2536,
+  "stock": 11,
+  "shortDescription": "Everyday laptop backpack with a built-in USB charging port.",
+  "description": "A clean-lined laptop backpack with a side USB port so you can charge your phone from a power bank inside the bag. Multiple pockets keep chargers, notebooks and accessories organised.",
+  "highlights": [
+    "Built-in USB charging port",
+    "Padded laptop compartment",
+    "Multiple organiser pockets",
+    "Water-resistant fabric (to confirm)"
+  ],
+  "specifications": [
+    {
+      "label": "Laptop size",
+      "value": "Not specified (up to 15.6 in typical)"
+    },
+    {
+      "label": "Material",
+      "value": "Polyester (not specified)"
+    },
+    {
+      "label": "Features",
+      "value": "USB charging port"
+    },
+    {
+      "label": "Colour",
+      "value": "Navy blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

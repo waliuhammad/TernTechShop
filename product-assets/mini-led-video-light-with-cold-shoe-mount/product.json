@@ -1,0 +1,44 @@
+{
+  "name": "Mini LED Video Light with Cold Shoe Mount",
+  "slug": "mini-led-video-light-with-cold-shoe-mount",
+  "sku": "TT-PER-116",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1682,
+  "compareAtPrice": 1899,
+  "stock": 15,
+  "shortDescription": "Pocket LED panel light for phones and cameras.",
+  "description": "A compact LED panel light with a cold-shoe mount that brightens video calls, vlogs and product photos. Mounts on cameras, phone rigs and tripods.",
+  "highlights": [
+    "Compact LED panel",
+    "Cold-shoe mount",
+    "Brightens vlogs and video calls",
+    "Fits cameras, rigs and tripods"
+  ],
+  "specifications": [
+    {
+      "label": "Mount",
+      "value": "Cold shoe"
+    },
+    {
+      "label": "LEDs",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour temperature",
+      "value": "Not specified"
+    },
+    {
+      "label": "Power",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black body"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

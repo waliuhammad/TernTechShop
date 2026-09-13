@@ -1,0 +1,44 @@
+{
+  "name": "E18-D80NK Adjustable Infrared Obstacle Avoidance Sensor",
+  "slug": "e18-d80nk-adjustable-infrared-obstacle-avoidance-sensor",
+  "sku": "TT-MBD-062",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 1030,
+  "compareAtPrice": null,
+  "stock": 14,
+  "shortDescription": "Adjustable-range infrared proximity switch for robots and counters.",
+  "description": "The E18-D80NK is a cylindrical infrared proximity switch with an adjustable detection distance and a simple digital output. Popular for obstacle avoidance robots, conveyor counters and automatic doors.",
+  "highlights": [
+    "Adjustable detection distance",
+    "Digital NPN output",
+    "Rugged cylindrical housing",
+    "Easy 3-wire connection"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "E18-D80NK"
+    },
+    {
+      "label": "Detection range",
+      "value": "Adjustable (typically 3–80 cm)"
+    },
+    {
+      "label": "Output",
+      "value": "Digital (NPN)"
+    },
+    {
+      "label": "Supply",
+      "value": "5V DC"
+    },
+    {
+      "label": "Wires",
+      "value": "3 (brown, blue, black)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

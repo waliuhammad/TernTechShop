@@ -1,0 +1,44 @@
+{
+  "name": "Magnetic 2-Pin USB Charging Cable for Smart Watches",
+  "slug": "magnetic-2-pin-usb-charging-cable-for-smart-watches",
+  "sku": "TT-PER-022",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 410,
+  "compareAtPrice": null,
+  "stock": 18,
+  "shortDescription": "Magnetic 2-pin USB charger cable for smart watches and fitness bands.",
+  "description": "A replacement USB charging cable with a magnetic 2-pin connector that snaps onto compatible smart watches. Check the pin spacing on your watch before ordering.",
+  "highlights": [
+    "Magnetic snap-on connector",
+    "2-pin charging contacts",
+    "Standard USB-A plug",
+    "Replacement for lost or damaged chargers"
+  ],
+  "specifications": [
+    {
+      "label": "Connector",
+      "value": "Magnetic 2-pin"
+    },
+    {
+      "label": "Plug",
+      "value": "USB-A"
+    },
+    {
+      "label": "Pin spacing",
+      "value": "Not specified — confirm against your watch"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Smart watches with 2-pin magnetic charging"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

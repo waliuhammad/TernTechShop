@@ -1,0 +1,40 @@
+{
+  "name": "3D Mobile Screen Magnifier (Foldable)",
+  "slug": "3d-mobile-screen-magnifier-foldable",
+  "sku": "TT-PER-118",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 417,
+  "compareAtPrice": 900,
+  "stock": 13,
+  "shortDescription": "Enlarges your phone screen for comfortable movie watching.",
+  "description": "A foldable screen magnifier stand that enlarges your phone's picture for more comfortable movies and videos. Folds into a compact box for travel.",
+  "highlights": [
+    "Enlarged, easier-to-see picture",
+    "Folds into a compact box",
+    "Doubles as a phone stand",
+    "Black, white and red options"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Screen magnifier stand"
+    },
+    {
+      "label": "Magnification",
+      "value": "Not specified"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most smartphones"
+    },
+    {
+      "label": "Colours",
+      "value": "White, black, red"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 
+stock: 21
+compare at price: 
+name: ASUS ATX Intel Desktop Motherboard with 4 DIMM Slots (Model to Confirm)
+brand: ASUS
+category: Motherboards
+featured: yes
+notes: Needs price verification — the exact model is not readable in the photo; send the model name to price it.

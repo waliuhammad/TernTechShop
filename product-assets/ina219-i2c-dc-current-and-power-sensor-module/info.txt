@@ -1,0 +1,8 @@
+price: 380
+stock: 15
+compare at price: 
+name: INA219 I2C DC Current and Power Sensor Module
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "INA219 Bi-direction DC Current Power Supply Sensor Module Gy-219 Modul…" — Rs. 380 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/ina219-bi-direction-dc-current-power-supply-sensor-module-gy-219-module-in-pakistan

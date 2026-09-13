@@ -1,0 +1,8 @@
+price: 550
+stock: 11
+compare at price: 1000
+name: Aluminium 4-Port USB Hub (USB-C or USB-A)
+brand: Spot
+category: Peripherals
+featured: yes
+notes: daraz.pk — "TYPE-C Hub 4 Ports 3.0/2.0, USB Splitter Aluminum Alloy Lightweight, Compact,…" — Rs. 550 (was Rs. 1,000) — in stock, 86 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/c-4-usb-30-i612677843.html | Price is for a comparable listing of the same product type; the exact unit in the photo is not confirmed.

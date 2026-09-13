@@ -1,0 +1,48 @@
+{
+  "name": "18W PD Fast Charging Power Bank Module with Digital Display",
+  "slug": "18w-pd-fast-charging-power-bank-module-with-digital-display",
+  "sku": "TT-MBD-013",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 550,
+  "compareAtPrice": null,
+  "stock": 15,
+  "shortDescription": "DIY power bank circuit with 18W PD fast charging, 4 outputs and 2 inputs.",
+  "description": "A ready-made power bank control board for building your own fast-charging power bank from lithium cells. It supports 18W PD fast charging with a digital battery display, four output ports and two input ports.",
+  "highlights": [
+    "18W fast charging with PD",
+    "4 output ports and 2 input ports",
+    "Digital battery percentage display",
+    "Compact 47 × 28 mm board"
+  ],
+  "specifications": [
+    {
+      "label": "Charging",
+      "value": "18W fast charging with PD indication"
+    },
+    {
+      "label": "Ports",
+      "value": "4 outputs, 2 inputs (USB-A, USB-C, Micro-USB)"
+    },
+    {
+      "label": "Display",
+      "value": "Digital battery percentage"
+    },
+    {
+      "label": "Board size",
+      "value": "47 × 28 mm"
+    },
+    {
+      "label": "Battery",
+      "value": "For 3.7V lithium cells (18650 / Li-polymer)"
+    },
+    {
+      "label": "Chipset",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

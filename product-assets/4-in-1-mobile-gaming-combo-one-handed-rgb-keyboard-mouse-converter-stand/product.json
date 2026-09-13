@@ -1,0 +1,44 @@
+{
+  "name": "4-in-1 Mobile Gaming Combo: One-Handed RGB Keyboard, Mouse, Converter & Stand",
+  "slug": "4-in-1-mobile-gaming-combo-one-handed-rgb-keyboard-mouse-converter-stand",
+  "sku": "TT-PER-042",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 5999,
+  "compareAtPrice": 6999,
+  "stock": 24,
+  "shortDescription": "Play PUBG and other mobile shooters with a keyboard and mouse.",
+  "description": "A complete mobile gaming kit with a one-handed RGB keyboard, gaming mouse, Bluetooth converter and phone stand. Connect to Android or iOS and aim with a mouse instead of your thumbs.",
+  "highlights": [
+    "One-handed RGB gaming keyboard",
+    "Gaming mouse included",
+    "Converter for Android and iOS",
+    "Adjustable phone stand"
+  ],
+  "specifications": [
+    {
+      "label": "Includes",
+      "value": "Keyboard, mouse, converter, phone stand"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Android and iOS (as advertised)"
+    },
+    {
+      "label": "Connection",
+      "value": "Bluetooth converter; wired keyboard and mouse"
+    },
+    {
+      "label": "Lighting",
+      "value": "RGB"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

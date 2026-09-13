@@ -1,0 +1,8 @@
+price: 899
+stock: 16
+compare at price: 1599
+name: BM10 3.7V 350mAh Spare Battery for Mini Phones
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "BM10 Battery BM10 Mini Battery BM10 Mini Mobile battery" — Rs. 899 (was Rs. 1,599) — in stock, 18 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/bm10-bm10-350mah-i277136711.html

@@ -1,0 +1,44 @@
+{
+  "name": "Sharp GP2Y1010AU0F Optical Dust Sensor",
+  "slug": "sharp-gp2y1010au0f-optical-dust-sensor",
+  "sku": "TT-MBD-061",
+  "brand": "Sharp",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": 1520,
+  "compareAtPrice": null,
+  "stock": 22,
+  "shortDescription": "Optical dust sensor for air-quality and PM monitoring projects.",
+  "description": "The Sharp GP2Y1010AU0F detects dust particles in the air using an infrared LED and phototransistor. A proven sensor for air purifiers and DIY air-quality monitors.",
+  "highlights": [
+    "Optical infrared dust detection",
+    "Analog voltage output",
+    "Low power consumption",
+    "Compact housing with cable"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "GP2Y1010AU0F"
+    },
+    {
+      "label": "Detection",
+      "value": "Optical (IR LED + phototransistor)"
+    },
+    {
+      "label": "Output",
+      "value": "Analog voltage"
+    },
+    {
+      "label": "Supply",
+      "value": "5V"
+    },
+    {
+      "label": "Cable",
+      "value": "6-wire connector"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

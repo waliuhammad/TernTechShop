@@ -1,0 +1,8 @@
+price: 2220
+stock: 23
+compare at price: 
+name: Water Turbidity Sensor Module
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "Water Turbidity Sensor" — Rs. 2,220 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/water-turbidity-sensor-in-pakistan

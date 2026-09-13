@@ -1,0 +1,44 @@
+{
+  "name": "Ultra-Slim Portable Power Bank (Black)",
+  "slug": "ultra-slim-portable-power-bank-black",
+  "sku": "TT-PER-006",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Pocket-thin power bank with dual USB output for charging on the go.",
+  "description": "A slim, lightweight power bank that slips into a pocket or bag and tops up your phone anywhere. Dual USB outputs let you charge two devices, making it a handy everyday backup.",
+  "highlights": [
+    "Ultra-slim, pocket-friendly design",
+    "Dual USB outputs",
+    "LED charge indicator",
+    "Lightweight for daily carry"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Outputs",
+      "value": "2 × USB-A (rating not specified)"
+    },
+    {
+      "label": "Input",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    },
+    {
+      "label": "Material",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Aluminium 4-Port USB Hub (USB-C or USB-A)",
+  "slug": "aluminium-4-port-usb-hub-usb-c-or-usb-a",
+  "sku": "TT-PER-029",
+  "brand": "Spot",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 550,
+  "compareAtPrice": 1000,
+  "stock": 11,
+  "shortDescription": "Slim aluminium 4-port hub, available with a USB-C or USB-A plug.",
+  "description": "A stylish mini hub in a brushed-aluminium shell that adds extra USB ports to laptops and tablets. Choose the USB-C version for modern laptops or USB-A for older machines.",
+  "highlights": [
+    "Brushed aluminium shell",
+    "Choose USB-C or USB-A connector",
+    "Four USB ports",
+    "Compact, travel-friendly"
+  ],
+  "specifications": [
+    {
+      "label": "Ports",
+      "value": "4 × USB-A (1 × USB 3.0 + 3 × USB 2.0 typical — confirm with supplier)"
+    },
+    {
+      "label": "Connector",
+      "value": "USB-C or USB-A (variant)"
+    },
+    {
+      "label": "Material",
+      "value": "Aluminium alloy"
+    },
+    {
+      "label": "Colour",
+      "value": "Space grey"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

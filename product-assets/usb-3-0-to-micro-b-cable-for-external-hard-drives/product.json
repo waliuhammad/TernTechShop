@@ -1,0 +1,44 @@
+{
+  "name": "USB 3.0 to Micro-B Cable for External Hard Drives",
+  "slug": "usb-3-0-to-micro-b-cable-for-external-hard-drives",
+  "sku": "TT-STR-021",
+  "brand": "Unbranded",
+  "category": "Storage",
+  "tier": "Essential",
+  "price": 449,
+  "compareAtPrice": 599,
+  "stock": 13,
+  "shortDescription": "USB 3.0 Micro-B cable for external hard drives and enclosures.",
+  "description": "A USB 3.0 Type-A to Micro-B cable for connecting external hard drives, SSD enclosures and cameras. Supports fast data transfer and bus power for portable drives.",
+  "highlights": [
+    "USB 3.0 high-speed data",
+    "Micro-B plug for external HDDs",
+    "Fast charging and PTC protection (as advertised)",
+    "Red and black connector design"
+  ],
+  "specifications": [
+    {
+      "label": "Connectors",
+      "value": "USB 3.0 Type-A to USB 3.0 Micro-B"
+    },
+    {
+      "label": "Speed",
+      "value": "Up to 5 Gbps (USB 3.0)"
+    },
+    {
+      "label": "Length",
+      "value": "Not specified"
+    },
+    {
+      "label": "Compatibility",
+      "value": "External hard drives, enclosures, some cameras"
+    },
+    {
+      "label": "Colour",
+      "value": "Black with red connectors"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

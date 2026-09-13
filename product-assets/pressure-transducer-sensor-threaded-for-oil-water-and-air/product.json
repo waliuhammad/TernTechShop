@@ -1,0 +1,40 @@
+{
+  "name": "Pressure Transducer Sensor (Threaded, for Oil, Water and Air)",
+  "slug": "pressure-transducer-sensor-threaded-for-oil-water-and-air",
+  "sku": "TT-MBD-065",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 10,
+  "shortDescription": "Stainless threaded pressure transducer with analog output.",
+  "description": "A stainless-steel threaded pressure transducer for measuring oil, fuel, water or air pressure with an analog voltage output. Use with Arduino or controllers for pumps, compressors and hydraulic systems.",
+  "highlights": [
+    "Stainless steel threaded body",
+    "Analog voltage output",
+    "For oil, water and air",
+    "3-wire sealed connector"
+  ],
+  "specifications": [
+    {
+      "label": "Thread",
+      "value": "Not specified (typically G1/4)"
+    },
+    {
+      "label": "Pressure range",
+      "value": "Not specified"
+    },
+    {
+      "label": "Output",
+      "value": "Analog (typically 0.5–4.5V)"
+    },
+    {
+      "label": "Supply",
+      "value": "Not specified (typically 5V)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

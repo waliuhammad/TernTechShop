@@ -1,0 +1,40 @@
+{
+  "name": "Fullmark Correction Tape",
+  "slug": "fullmark-correction-tape",
+  "sku": "TT-PER-146",
+  "brand": "Fullmark",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 24,
+  "shortDescription": "Clean, instant white-out correction tape for school and office.",
+  "description": "Fullmark correction tape covers mistakes instantly with a clean white film you can write over right away. Smooth, mess-free and ideal for students and offices.",
+  "highlights": [
+    "Write over instantly",
+    "Mess-free, no drying",
+    "Smooth tape glide",
+    "Compact dispenser"
+  ],
+  "specifications": [
+    {
+      "label": "Brand",
+      "value": "Fullmark"
+    },
+    {
+      "label": "Tape width",
+      "value": "Not specified"
+    },
+    {
+      "label": "Tape length",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Blue dispenser"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

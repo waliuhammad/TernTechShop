@@ -1,0 +1,44 @@
+{
+  "name": "10-Inch LED Ring Light with 3 Phone Holders",
+  "slug": "10-inch-led-ring-light-with-3-phone-holders",
+  "sku": "TT-PER-115",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1429,
+  "compareAtPrice": 1500,
+  "stock": 17,
+  "shortDescription": "26 cm dimmable ring light with three phone holders for streaming and content creation.",
+  "description": "A 10-inch (26 cm) USB LED ring light with three phone holders and 360° adjustment for live streaming, makeup and video. Choose between colour modes and brightness levels with the inline controller.",
+  "highlights": [
+    "10-inch / 26 cm ring",
+    "Three phone holders",
+    "360° adjustable",
+    "Dimmable with colour modes"
+  ],
+  "specifications": [
+    {
+      "label": "Diameter",
+      "value": "10 in (26 cm)"
+    },
+    {
+      "label": "Power",
+      "value": "USB"
+    },
+    {
+      "label": "Holders",
+      "value": "3 phone clamps"
+    },
+    {
+      "label": "Adjustment",
+      "value": "360°"
+    },
+    {
+      "label": "Stand",
+      "value": "Not specified (tripod sold separately unless stated)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 999
+stock: 22
+compare at price: 1999
+name: 1500mAh Keychain Mini Power Bank (Type-C / Lightning)
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: trendhub.com.pk — "Keychain Power Bank - 1500mAh - Type C" — Rs. 999 (was Rs. 1,999) — listed as out of stock — checked 13 Sep 2026 | https://trendhub.com.pk/products/keychain-power-bank-1500mah

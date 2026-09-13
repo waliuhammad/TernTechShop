@@ -1,0 +1,44 @@
+{
+  "name": "4-Port USB 3.0 Hub (5 Gbps)",
+  "slug": "4-port-usb-3-0-hub-5-gbps",
+  "sku": "TT-PER-028",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 660,
+  "compareAtPrice": null,
+  "stock": 16,
+  "shortDescription": "Add four high-speed USB 3.0 ports to your laptop or PC.",
+  "description": "A slim 4-port USB 3.0 hub that expands one USB port into four, with transfer speeds up to 5 Gbps. Plug-and-play on Windows, macOS and Linux for drives, keyboards and more.",
+  "highlights": [
+    "4 × USB 3.0 ports",
+    "Up to 5 Gbps data transfer",
+    "Plug-and-play, no drivers",
+    "Slim black design with LED"
+  ],
+  "specifications": [
+    {
+      "label": "Ports",
+      "value": "4 × USB-A 3.0"
+    },
+    {
+      "label": "Host connector",
+      "value": "USB-A"
+    },
+    {
+      "label": "Speed",
+      "value": "Up to 5 Gbps"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Windows, macOS, Linux"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,44 @@
+{
+  "name": "PLOKAMA CX-10 Chest Mount Phone & Action Camera Holder",
+  "slug": "plokama-cx-10-chest-mount-phone-action-camera-holder",
+  "sku": "TT-PER-112",
+  "brand": "PLOKAMA",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 3269,
+  "compareAtPrice": 3500,
+  "stock": 13,
+  "shortDescription": "Adjustable chest harness for first-person video with a phone or action camera.",
+  "description": "The PLOKAMA CX-10 chest mount straps a smartphone or action camera to your chest for hands-free, first-person footage. Perfect for riding, hiking, vlogging and sports.",
+  "highlights": [
+    "Hands-free first-person video",
+    "Adjustable chest harness",
+    "Holds phones and action cameras",
+    "Comfortable for riding and hiking"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "CX-10"
+    },
+    {
+      "label": "Mount",
+      "value": "Chest harness"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Smartphones and action cameras"
+    },
+    {
+      "label": "Strap",
+      "value": "Adjustable"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

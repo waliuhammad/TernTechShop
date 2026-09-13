@@ -1,0 +1,8 @@
+price: 
+stock: 16
+compare at price: 
+name: GSM Rubber Antenna with SMA Connector (Pack of 3)
+brand: Unbranded
+category: Networking
+featured: yes
+notes: Needs price verification — frequency and gain are not visible, so no exact listing matched.

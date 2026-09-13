@@ -1,0 +1,8 @@
+price: 250
+stock: 12
+compare at price: 
+name: Charging Cable for IMILAB KW66 Smart Watch
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "Magnetic Charging Cable for I M I L A B KW 66 Smart Watch" — Rs. 250 — in stock, 611 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/i-m-i-l-a-b-kw-66-i266656365.html

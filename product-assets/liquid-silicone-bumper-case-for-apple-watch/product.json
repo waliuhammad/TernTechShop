@@ -1,0 +1,40 @@
+{
+  "name": "Liquid Silicone Bumper Case for Apple Watch",
+  "slug": "liquid-silicone-bumper-case-for-apple-watch",
+  "sku": "TT-PER-088",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 768,
+  "compareAtPrice": 1536,
+  "stock": 18,
+  "shortDescription": "Soft liquid-silicone bumper that protects your Apple Watch from knocks.",
+  "description": "A soft liquid-silicone bumper case that wraps the edges of your Apple Watch to absorb bumps and scratches. Available in many colours to match your strap.",
+  "highlights": [
+    "Soft liquid silicone",
+    "Protects edges from knocks",
+    "Precise button cut-outs",
+    "Many colour options"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "Liquid silicone"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Apple Watch (size to choose)"
+    },
+    {
+      "label": "Coverage",
+      "value": "Bumper (screen open)"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, red, pink, mint, yellow, white, navy, purple"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

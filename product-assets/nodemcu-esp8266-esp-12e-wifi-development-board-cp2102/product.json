@@ -1,0 +1,44 @@
+{
+  "name": "NodeMCU ESP8266 ESP-12E WiFi Development Board (CP2102)",
+  "slug": "nodemcu-esp8266-esp-12e-wifi-development-board-cp2102",
+  "sku": "TT-CPU-052",
+  "brand": "Unbranded",
+  "category": "Processors",
+  "tier": "Essential",
+  "price": 690,
+  "compareAtPrice": null,
+  "stock": 15,
+  "shortDescription": "WiFi IoT development board with ESP8266 and CP2102 USB-to-serial.",
+  "description": "The NodeMCU is an ESP8266 (ESP-12E) WiFi development board with a CP2102 USB interface, programmable with the Arduino IDE or Lua. A favourite for IoT, home automation and sensor projects.",
+  "highlights": [
+    "ESP8266 ESP-12E WiFi module",
+    "CP2102 USB-to-serial chip",
+    "Arduino IDE and Lua compatible",
+    "Breadboard-friendly pinout"
+  ],
+  "specifications": [
+    {
+      "label": "Module",
+      "value": "ESP-12E (ESP8266)"
+    },
+    {
+      "label": "USB chip",
+      "value": "CP2102"
+    },
+    {
+      "label": "Connector",
+      "value": "Micro-USB"
+    },
+    {
+      "label": "WiFi",
+      "value": "2.4 GHz 802.11 b/g/n"
+    },
+    {
+      "label": "Programming",
+      "value": "Arduino IDE, NodeMCU Lua"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

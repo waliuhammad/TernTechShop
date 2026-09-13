@@ -1,0 +1,44 @@
+{
+  "name": "LJ12A3-4-Z/BX Inductive Proximity Sensor (M12, NPN NO)",
+  "slug": "lj12a3-4-z-bx-inductive-proximity-sensor-m12-npn-no",
+  "sku": "TT-MBD-064",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 600,
+  "compareAtPrice": null,
+  "stock": 15,
+  "shortDescription": "M12 cylindrical inductive sensor for metal detection and CNC homing.",
+  "description": "The LJ12A3-4-Z/BX is an M12 cylindrical inductive proximity switch that detects metal up to 4 mm away. A popular end-stop and auto-levelling sensor for 3D printers and CNC machines.",
+  "highlights": [
+    "M12 threaded body",
+    "4 mm sensing distance",
+    "NPN normally-open output",
+    "Wide 6–36V supply"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "LJ12A3-4-Z/BX"
+    },
+    {
+      "label": "Body",
+      "value": "M12 cylinder"
+    },
+    {
+      "label": "Sensing distance",
+      "value": "4 mm"
+    },
+    {
+      "label": "Output",
+      "value": "NPN, normally open"
+    },
+    {
+      "label": "Supply",
+      "value": "6–36V DC"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

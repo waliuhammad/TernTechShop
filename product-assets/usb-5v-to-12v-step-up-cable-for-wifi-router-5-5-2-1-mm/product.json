@@ -1,0 +1,44 @@
+{
+  "name": "USB 5V to 12V Step-Up Cable for WiFi Router (5.5 × 2.1 mm)",
+  "slug": "usb-5v-to-12v-step-up-cable-for-wifi-router-5-5-2-1-mm",
+  "sku": "TT-NET-016",
+  "brand": "Unbranded",
+  "category": "Networking",
+  "tier": "Essential",
+  "price": 360,
+  "compareAtPrice": null,
+  "stock": 25,
+  "shortDescription": "Power your 12V WiFi router from any power bank with this USB boost cable.",
+  "description": "A USB step-up cable that converts 5V from a power bank or USB adapter into 12V for routers, modems and small devices. A simple, low-cost way to keep your internet running during power cuts.",
+  "highlights": [
+    "Converts USB 5V to 12V DC",
+    "Runs routers from any power bank",
+    "Standard 5.5 × 2.1 mm DC plug",
+    "Plug-and-play, no setup"
+  ],
+  "specifications": [
+    {
+      "label": "Input",
+      "value": "USB-A 5V"
+    },
+    {
+      "label": "Output",
+      "value": "12V DC"
+    },
+    {
+      "label": "Connector",
+      "value": "5.5 × 2.1 mm DC barrel"
+    },
+    {
+      "label": "Compatibility",
+      "value": "12V routers, modems, LED lamps, small fans"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

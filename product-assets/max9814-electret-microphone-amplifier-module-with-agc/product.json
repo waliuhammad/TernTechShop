@@ -1,0 +1,44 @@
+{
+  "name": "MAX9814 Electret Microphone Amplifier Module with AGC",
+  "slug": "max9814-electret-microphone-amplifier-module-with-agc",
+  "sku": "TT-MBD-055",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 610,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Microphone amplifier board with automatic gain control.",
+  "description": "The MAX9814 module combines an electret microphone with an amplifier and automatic gain control, so quiet and loud sounds stay balanced. Great for voice detection, sound-reactive projects and audio sampling.",
+  "highlights": [
+    "Automatic gain control (AGC)",
+    "Selectable 40/50/60 dB gain",
+    "Electret microphone included",
+    "Header pins included"
+  ],
+  "specifications": [
+    {
+      "label": "Chip",
+      "value": "MAX9814"
+    },
+    {
+      "label": "Gain",
+      "value": "40 / 50 / 60 dB selectable"
+    },
+    {
+      "label": "Output",
+      "value": "Analog, 2 Vpp max on 1.25V bias"
+    },
+    {
+      "label": "Pins",
+      "value": "AR, Out, Gain, Vdd, GND"
+    },
+    {
+      "label": "Board colour",
+      "value": "Purple"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Kangaroo Emboss Slim Long Wallet (PU Leather)",
+  "slug": "kangaroo-emboss-slim-long-wallet-pu-leather",
+  "sku": "TT-PER-139",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 570,
+  "compareAtPrice": 1299,
+  "stock": 17,
+  "shortDescription": "Slim long wallet with kangaroo emboss for cards, cash and phone.",
+  "description": "A slim long wallet with an embossed kangaroo logo that holds cards, cash and even a phone. Classic look in black or brown.",
+  "highlights": [
+    "Slim long design",
+    "Holds cards, cash and phone",
+    "Embossed kangaroo logo",
+    "Black and brown options"
+  ],
+  "specifications": [
+    {
+      "label": "Material",
+      "value": "PU leather"
+    },
+    {
+      "label": "Card slots",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, brown"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

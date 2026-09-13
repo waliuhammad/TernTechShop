@@ -1,0 +1,43 @@
+{
+  "name": "BM10 3.7V 350mAh Spare Battery for Mini Phones",
+  "slug": "bm10-3-7v-350mah-spare-battery-for-mini-phones",
+  "sku": "TT-PER-026",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 899,
+  "compareAtPrice": 1599,
+  "stock": 16,
+  "shortDescription": "BM10 3.7V 350mAh replacement battery for BM10 mini phones.",
+  "description": "A spare BM10 lithium-ion battery for the popular BM10 mini phone. Keep a charged spare so your mini phone never runs out.",
+  "highlights": [
+    "Direct replacement for BM10 mini phones",
+    "3.7V lithium-ion",
+    "350mAh capacity"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "BM10"
+    },
+    {
+      "label": "Nominal voltage",
+      "value": "3.7V"
+    },
+    {
+      "label": "Capacity",
+      "value": "350mAh"
+    },
+    {
+      "label": "Type",
+      "value": "Li-ion"
+    },
+    {
+      "label": "Standard",
+      "value": "GB/T 18287-2013"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

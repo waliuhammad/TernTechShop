@@ -1,0 +1,40 @@
+{
+  "name": "Magnetic Vacuum Suction Cup Phone Holder (360° Rotating)",
+  "slug": "magnetic-vacuum-suction-cup-phone-holder-360-rotating",
+  "sku": "TT-PER-103",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1299,
+  "compareAtPrice": 3000,
+  "stock": 13,
+  "shortDescription": "Double-sided holder: magnetic on metal, vacuum suction on glass and tiles.",
+  "description": "A 360° rotating phone holder with a magnetic face for MagSafe phones and a vacuum suction cup that grips glass, tiles and car surfaces. Swap between desk, mirror, car and gym use in seconds.",
+  "highlights": [
+    "Magnetic plus vacuum suction",
+    "360° rotating head",
+    "Sticks to glass, tiles and metal",
+    "Foldable swivel stand"
+  ],
+  "specifications": [
+    {
+      "label": "Mounting",
+      "value": "Magnetic (one side), vacuum suction (other side)"
+    },
+    {
+      "label": "Rotation",
+      "value": "360°"
+    },
+    {
+      "label": "Compatibility",
+      "value": "MagSafe phones or phones with a metal plate"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, white, pink"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

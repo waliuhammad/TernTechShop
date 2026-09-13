@@ -1,0 +1,44 @@
+{
+  "name": "Micro-ATX Intel Desktop Motherboard (Model to Confirm)",
+  "slug": "micro-atx-intel-desktop-motherboard-model-to-confirm",
+  "sku": "TT-MBD-046",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Professional",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 23,
+  "shortDescription": "Micro-ATX motherboard for Intel desktop builds.",
+  "description": "A Micro-ATX desktop motherboard for Intel processors with dual memory slots and PCIe expansion. Confirm the brand, model and socket from the board before listing.",
+  "highlights": [
+    "Micro-ATX form factor",
+    "Intel desktop socket",
+    "PCIe expansion",
+    "Rear I/O with USB and display outputs"
+  ],
+  "specifications": [
+    {
+      "label": "Form factor",
+      "value": "Micro-ATX"
+    },
+    {
+      "label": "Socket",
+      "value": "Intel LGA (not confirmed)"
+    },
+    {
+      "label": "Memory slots",
+      "value": "2 (as shown)"
+    },
+    {
+      "label": "Brand/model",
+      "value": "Not confirmed from photo"
+    },
+    {
+      "label": "Condition",
+      "value": "Not specified"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

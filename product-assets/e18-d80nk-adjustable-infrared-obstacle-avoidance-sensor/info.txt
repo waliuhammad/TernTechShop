@@ -1,0 +1,8 @@
+price: 1030
+stock: 14
+compare at price: 
+name: E18-D80NK Adjustable Infrared Obstacle Avoidance Sensor
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: daraz.pk — "E18-D80NK IR infrared 5V Proximity Switch 3-80cm Obstacle Avoidance Smart Car…" — Rs. 1,030 — in stock, 7 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/e18-d80nk-ir-5-3-80-i454304895.html

@@ -1,0 +1,40 @@
+{
+  "name": "Ultra Smart Watch Gift Set with TWS Earbuds and Extra Straps",
+  "slug": "ultra-smart-watch-gift-set-with-tws-earbuds-and-extra-straps",
+  "sku": "TT-PER-083",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 3000,
+  "compareAtPrice": null,
+  "stock": 20,
+  "shortDescription": "Ultra-style smart watch bundled with wireless earbuds and interchangeable straps.",
+  "description": "A complete gift set with an Ultra-style smart watch, wireless earbuds, a protective case and several interchangeable straps. Swap straps to match any outfit and enjoy calls, fitness tracking and music.",
+  "highlights": [
+    "Ultra-style smart watch",
+    "TWS wireless earbuds included",
+    "Multiple interchangeable straps",
+    "Protective watch case"
+  ],
+  "specifications": [
+    {
+      "label": "Includes",
+      "value": "Smart watch, TWS earbuds, straps, case, charger"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Display",
+      "value": "Not specified"
+    },
+    {
+      "label": "Straps",
+      "value": "Silicone, nylon loop and metal (as shown)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

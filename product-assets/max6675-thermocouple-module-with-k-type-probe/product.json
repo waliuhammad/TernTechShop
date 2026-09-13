@@ -1,0 +1,44 @@
+{
+  "name": "MAX6675 Thermocouple Module with K-Type Probe",
+  "slug": "max6675-thermocouple-module-with-k-type-probe",
+  "sku": "TT-MBD-058",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 860,
+  "compareAtPrice": 1020,
+  "stock": 10,
+  "shortDescription": "K-type thermocouple temperature sensor kit with SPI output.",
+  "description": "A MAX6675 converter board paired with a braided K-type thermocouple probe for measuring high temperatures with Arduino or ESP32. Useful for ovens, 3D printers and industrial monitoring.",
+  "highlights": [
+    "K-type thermocouple probe included",
+    "Digital SPI output",
+    "High-temperature measurement",
+    "Screw terminals for the probe"
+  ],
+  "specifications": [
+    {
+      "label": "Chip",
+      "value": "MAX6675"
+    },
+    {
+      "label": "Sensor",
+      "value": "K-type thermocouple (braided probe)"
+    },
+    {
+      "label": "Range",
+      "value": "0–1024 °C (MAX6675)"
+    },
+    {
+      "label": "Resolution",
+      "value": "0.25 °C"
+    },
+    {
+      "label": "Interface",
+      "value": "SPI"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,44 @@
+{
+  "name": "GSM Rubber Antenna with SMA Connector (Pack of 3)",
+  "slug": "gsm-rubber-antenna-with-sma-connector-pack-of-3",
+  "sku": "TT-NET-048",
+  "brand": "Unbranded",
+  "category": "Networking",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 16,
+  "shortDescription": "Stubby GSM antennas with gold-plated SMA connectors for GSM modules.",
+  "description": "Compact rubber-duck antennas with gold-plated SMA connectors for SIM800, SIM900 and other GSM/GPRS modules and routers. Improve signal for IoT and communication projects.",
+  "highlights": [
+    "Gold-plated SMA connectors",
+    "Compact stubby design",
+    "For GSM modules and routers",
+    "Pack of three"
+  ],
+  "specifications": [
+    {
+      "label": "Connector",
+      "value": "SMA (gender not specified)"
+    },
+    {
+      "label": "Frequency",
+      "value": "Not specified (GSM bands)"
+    },
+    {
+      "label": "Gain",
+      "value": "Not specified"
+    },
+    {
+      "label": "Pack",
+      "value": "3 pieces"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Multi-Function Data Cable Adapter Kit with Storage Case",
+  "slug": "multi-function-data-cable-adapter-kit-with-storage-case",
+  "sku": "TT-PER-125",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 449,
+  "compareAtPrice": 1499,
+  "stock": 24,
+  "shortDescription": "Pocket case with a short cable and USB-C, Micro-USB and Lightning adapters.",
+  "description": "A round travel case holding a short fast-charging cable plus swappable USB-C, Micro-USB and Lightning adapter tips. One tidy kit charges and syncs almost any phone or gadget.",
+  "highlights": [
+    "Cable plus swappable adapter tips",
+    "USB-C, Micro-USB and Lightning",
+    "Compact round storage case",
+    "Fast charging (up to 60W as advertised)"
+  ],
+  "specifications": [
+    {
+      "label": "Includes",
+      "value": "Short cable, multiple adapters, storage case"
+    },
+    {
+      "label": "Connectors",
+      "value": "USB-A, USB-C, Micro-USB, Lightning"
+    },
+    {
+      "label": "Charging",
+      "value": "Up to 60W (as advertised)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

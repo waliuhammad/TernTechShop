@@ -1,0 +1,44 @@
+{
+  "name": "Dual-Mode Bluetooth + 2.4G Rechargeable RGB Wireless Mouse",
+  "slug": "dual-mode-bluetooth-2-4g-rechargeable-rgb-wireless-mouse",
+  "sku": "TT-PER-041",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1450,
+  "compareAtPrice": 1500,
+  "stock": 10,
+  "shortDescription": "Slim rechargeable wireless mouse with Bluetooth, 2.4G and RGB edge light.",
+  "description": "A slim, silent wireless mouse that connects by Bluetooth or a 2.4G receiver, so it works with laptops, tablets and phones. Recharges over USB and features a colourful RGB edge light.",
+  "highlights": [
+    "Bluetooth + 2.4G dual mode",
+    "Built-in rechargeable battery",
+    "RGB edge lighting",
+    "Slim, quiet design"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "Bluetooth 5.2 + 2.4G (as advertised)"
+    },
+    {
+      "label": "Battery",
+      "value": "Built-in rechargeable"
+    },
+    {
+      "label": "Lighting",
+      "value": "RGB edge light"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Windows, macOS, Android, iPadOS"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

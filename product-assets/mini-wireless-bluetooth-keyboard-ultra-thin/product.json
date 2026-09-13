@@ -1,0 +1,40 @@
+{
+  "name": "Mini Wireless Bluetooth Keyboard (Ultra-Thin)",
+  "slug": "mini-wireless-bluetooth-keyboard-ultra-thin",
+  "sku": "TT-PER-036",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1499,
+  "compareAtPrice": 1999,
+  "stock": 20,
+  "shortDescription": "Ultra-thin, light Bluetooth keyboard for tablets, phones and laptops.",
+  "description": "A compact, ultra-thin Bluetooth keyboard that pairs with iPads, Android tablets, phones and laptops. Light enough to carry everywhere, with broad compatibility across devices.",
+  "highlights": [
+    "Ultra-thin and lightweight",
+    "Bluetooth wireless",
+    "Broad device compatibility",
+    "Available in white and black"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Compatibility",
+      "value": "iOS, Android, Windows"
+    },
+    {
+      "label": "Power",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colours",
+      "value": "White, black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

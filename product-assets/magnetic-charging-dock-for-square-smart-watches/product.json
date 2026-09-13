@@ -1,0 +1,39 @@
+{
+  "name": "Magnetic Charging Dock for Square Smart Watches",
+  "slug": "magnetic-charging-dock-for-square-smart-watches",
+  "sku": "TT-PER-024",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 19,
+  "shortDescription": "Magnetic USB charging cradle for square-face smart watches.",
+  "description": "A replacement magnetic charging dock that holds a square-face smart watch while it charges over USB. Confirm your watch model matches the dock before ordering.",
+  "highlights": [
+    "Magnetic cradle holds the watch",
+    "USB-A powered",
+    "Replacement for lost docks"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Magnetic charging dock"
+    },
+    {
+      "label": "Plug",
+      "value": "USB-A"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Not specified — model to be confirmed"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

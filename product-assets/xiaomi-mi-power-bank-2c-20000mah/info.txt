@@ -1,0 +1,8 @@
+price: 2499
+stock: 22
+compare at price: 
+name: Xiaomi Mi Power Bank 2C 20000mAh
+brand: Xiaomi
+category: Peripherals
+featured: yes
+notes: starcity.pk — "Xiaomi Mi Powerbank 2C | 20000mAh" — Rs. 2,499 — listed as out of stock — checked 13 Sep 2026 | https://starcity.pk/product/xiaomi-mi-powerbank-2c-20000mah/ | Daraz listings of "Mi Power Bank 2C" range Rs. 1,449–2,300; very low prices are often not genuine.

@@ -1,0 +1,8 @@
+price: 1300
+stock: 21
+compare at price: 2500
+name: Rechargeable Handheld Fan with LED Display (1800mAh, 5 Speeds)
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "1800mAh Portable Rechargeable Mini Fan with LED Digital Display | 90° Foldable…" — Rs. 1,300 (was Rs. 2,500) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/1800mah-portable-rechargeable-mini-fan-with-led-digital-display-90-foldable-usb-handheld-cooling-fan-with-lanyard-stand-i1952055394.html

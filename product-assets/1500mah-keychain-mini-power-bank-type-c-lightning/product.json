@@ -1,0 +1,48 @@
+{
+  "name": "1500mAh Keychain Mini Power Bank (Type-C / Lightning)",
+  "slug": "1500mah-keychain-mini-power-bank-type-c-lightning",
+  "sku": "TT-PER-010",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 999,
+  "compareAtPrice": 1999,
+  "stock": 22,
+  "shortDescription": "Keychain-sized 1500mAh emergency power bank that plugs straight into your phone.",
+  "description": "A tiny 1500mAh power bank with a built-in connector that hangs on your keys, ready for an emergency top-up. Available in Type-C and Lightning versions for Android phones and iPhones.",
+  "highlights": [
+    "Clips onto your keychain",
+    "Built-in Type-C or Lightning plug",
+    "LED charging indicator",
+    "Over-charge, over-discharge and short-circuit protection"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "1500mAh"
+    },
+    {
+      "label": "Connector",
+      "value": "Built-in USB-C or Lightning (choose version)"
+    },
+    {
+      "label": "Dimensions",
+      "value": "70 × 40 × 18 mm (2.75 × 1.57 × 0.70 in)"
+    },
+    {
+      "label": "Weight",
+      "value": "About 40 g (1.4 oz)"
+    },
+    {
+      "label": "Protection",
+      "value": "Over-charge, over-discharge, short-circuit, overload"
+    },
+    {
+      "label": "Colours",
+      "value": "Black, pink"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

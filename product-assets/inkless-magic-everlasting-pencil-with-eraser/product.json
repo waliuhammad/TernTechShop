@@ -1,0 +1,40 @@
+{
+  "name": "Inkless Magic Everlasting Pencil with Eraser",
+  "slug": "inkless-magic-everlasting-pencil-with-eraser",
+  "sku": "TT-PER-145",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 129,
+  "compareAtPrice": 499,
+  "stock": 15,
+  "shortDescription": "Everlasting inkless pencil that never needs sharpening.",
+  "description": "An inkless \"forever\" pencil with a metal-alloy tip that writes and sketches without sharpening, with an eraser on top. Great for students, artists and everyday notes.",
+  "highlights": [
+    "No sharpening needed",
+    "Replaceable writing tip",
+    "Built-in eraser",
+    "Assorted colours"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Inkless everlasting pencil"
+    },
+    {
+      "label": "Tip",
+      "value": "Replaceable"
+    },
+    {
+      "label": "Eraser",
+      "value": "Yes"
+    },
+    {
+      "label": "Colours",
+      "value": "Assorted"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

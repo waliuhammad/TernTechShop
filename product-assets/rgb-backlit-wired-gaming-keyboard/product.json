@@ -1,0 +1,44 @@
+{
+  "name": "RGB Backlit Wired Gaming Keyboard",
+  "slug": "rgb-backlit-wired-gaming-keyboard",
+  "sku": "TT-PER-035",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 1678,
+  "compareAtPrice": 2238,
+  "stock": 25,
+  "shortDescription": "Wired gaming keyboard with rainbow RGB backlight and mechanical feel.",
+  "description": "A full-size gaming keyboard with vivid rainbow RGB backlighting and a mechanical-feel keypress. Great for gaming and late-night typing, with a durable, splash-resistant build.",
+  "highlights": [
+    "Rainbow RGB backlighting",
+    "Mechanical-feel keys",
+    "Full-size layout",
+    "Wired USB, plug-and-play"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "Wired USB"
+    },
+    {
+      "label": "Backlight",
+      "value": "RGB"
+    },
+    {
+      "label": "Switch type",
+      "value": "Membrane with mechanical feel"
+    },
+    {
+      "label": "Layout",
+      "value": "Full-size"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,44 @@
+{
+  "name": "Full-Size USB Wired Office Keyboard",
+  "slug": "full-size-usb-wired-office-keyboard",
+  "sku": "TT-PER-033",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 24,
+  "shortDescription": "Full-size wired USB keyboard for office and home computers.",
+  "description": "A full-size USB keyboard with a numeric keypad and quiet, low-profile keys for everyday typing. Plug-and-play on desktop PCs and laptops. Listed by the supplier as a genuine HP/Dell office keyboard.",
+  "highlights": [
+    "Full-size layout with numpad",
+    "Plug-and-play USB",
+    "Quiet low-profile keys",
+    "Spill-resistant office design (to confirm)"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "Wired USB"
+    },
+    {
+      "label": "Layout",
+      "value": "Full-size with numeric keypad"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Windows PCs and laptops"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    },
+    {
+      "label": "Brand/model",
+      "value": "Not confirmed from photo (supplier lists HP/Dell)"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Wireless Rechargeable RGB Gaming Mouse (7 Buttons)",
+  "slug": "wireless-rechargeable-rgb-gaming-mouse-7-buttons",
+  "sku": "TT-PER-040",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Professional",
+  "price": 960,
+  "compareAtPrice": null,
+  "stock": 18,
+  "shortDescription": "Rechargeable 2.4G wireless gaming mouse with RGB lighting and 7 buttons.",
+  "description": "A 2.4G wireless gaming mouse with a built-in rechargeable battery, 7 programmable-style buttons and striking RGB lighting. No batteries to buy, and the supplier advertises up to 15 days of use per charge.",
+  "highlights": [
+    "2.4G wireless with USB receiver",
+    "Built-in rechargeable battery",
+    "7 buttons",
+    "RGB lighting",
+    "Up to 15 days per charge (as advertised)"
+  ],
+  "specifications": [
+    {
+      "label": "Connection",
+      "value": "2.4G wireless (USB nano receiver)"
+    },
+    {
+      "label": "Buttons",
+      "value": "7"
+    },
+    {
+      "label": "Battery",
+      "value": "Built-in rechargeable"
+    },
+    {
+      "label": "Battery life",
+      "value": "Up to 15 days (as advertised)"
+    },
+    {
+      "label": "Lighting",
+      "value": "RGB"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

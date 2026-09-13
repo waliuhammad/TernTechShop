@@ -1,0 +1,8 @@
+price: 360
+stock: 25
+compare at price: 
+name: USB 5V to 12V Step-Up Cable for WiFi Router (5.5 × 2.1 mm)
+brand: Unbranded
+category: Networking
+featured: yes
+notes: digilog.pk — "5V DC To 12V DC USB Power Cable Data Adapter Charger Plug Boost Conver…" — Rs. 360 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/5v-dc-to-12v-dc-usb-power-cable-data-adapter-charger-plug-boost-converter

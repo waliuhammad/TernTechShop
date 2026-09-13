@@ -1,0 +1,8 @@
+price: 3899
+stock: 16
+compare at price: 4499
+name: Dell Laptop Backpack (Black)
+brand: Dell
+category: Peripherals
+featured: yes
+notes: daraz.pk — "BAGCITY | Dell Essential / Dell Ecoloop Business Pro Laptop Backpack Original…" — Rs. 3,899 (was Rs. 4,499) — in stock, 152 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/15-i270325959.html | Priced as the Dell Essential / EcoLoop backpack; confirm the exact model.

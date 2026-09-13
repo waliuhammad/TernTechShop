@@ -1,0 +1,8 @@
+price: 1399
+stock: 12
+compare at price: 2399
+name: GTS-1803 3-Inch Portable Bluetooth Speaker with Remote
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: daraz.pk — "GTS-1803 Wireless Bluetooth Speaker" — Rs. 1,399 (was Rs. 2,399) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/gts-1803-i1961592165.html

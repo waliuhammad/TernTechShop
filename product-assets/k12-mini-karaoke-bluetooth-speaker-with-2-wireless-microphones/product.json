@@ -1,0 +1,48 @@
+{
+  "name": "K12 Mini Karaoke Bluetooth Speaker with 2 Wireless Microphones",
+  "slug": "k12-mini-karaoke-bluetooth-speaker-with-2-wireless-microphones",
+  "sku": "TT-PER-077",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 3000,
+  "compareAtPrice": null,
+  "stock": 17,
+  "shortDescription": "Portable RGB karaoke speaker with two wireless microphones.",
+  "description": "The K12 is a compact Bluetooth karaoke speaker with gradient RGB lighting and two wireless microphones for duets. A fun party speaker for home, birthdays and family gatherings.",
+  "highlights": [
+    "Two wireless microphones",
+    "Gradient RGB lighting",
+    "Bluetooth speaker",
+    "Portable with carry handle"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "K12"
+    },
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Microphones",
+      "value": "2 wireless"
+    },
+    {
+      "label": "Lighting",
+      "value": "Gradient RGB"
+    },
+    {
+      "label": "Battery",
+      "value": "Built-in rechargeable (capacity not specified)"
+    },
+    {
+      "label": "Colours",
+      "value": "White / pink / blue options"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

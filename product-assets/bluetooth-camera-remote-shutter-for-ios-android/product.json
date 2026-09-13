@@ -1,0 +1,40 @@
+{
+  "name": "Bluetooth Camera Remote Shutter for iOS & Android",
+  "slug": "bluetooth-camera-remote-shutter-for-ios-android",
+  "sku": "TT-PER-117",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 298,
+  "compareAtPrice": 500,
+  "stock": 10,
+  "shortDescription": "Wireless Bluetooth button that takes photos on your phone from a distance.",
+  "description": "A small Bluetooth remote that triggers your phone camera from up to several metres away for group photos and selfies. Works with iPhone and Android.",
+  "highlights": [
+    "Take photos wirelessly",
+    "iOS and Android buttons",
+    "Keychain-sized",
+    "Replaceable coin battery"
+  ],
+  "specifications": [
+    {
+      "label": "Connectivity",
+      "value": "Bluetooth"
+    },
+    {
+      "label": "Compatibility",
+      "value": "iOS and Android"
+    },
+    {
+      "label": "Battery",
+      "value": "Coin cell (type not specified)"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

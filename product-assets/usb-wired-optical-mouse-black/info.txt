@@ -1,0 +1,8 @@
+price: 920
+stock: 25
+compare at price: 
+name: USB Wired Optical Mouse (Black)
+brand: Unbranded
+category: Peripherals
+featured: yes
+notes: digilog.pk — "Hp Mouse Wired M10 Black" — Rs. 920 — in stock — checked 13 Sep 2026 | https://digilog.pk/products/hp-mouse-wired-m10-black-price-in-pakistan | Price is for a comparable basic wired optical mouse; the brand in the photo is not confirmed.

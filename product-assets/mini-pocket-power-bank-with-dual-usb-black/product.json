@@ -1,0 +1,40 @@
+{
+  "name": "Mini Pocket Power Bank with Dual USB (Black)",
+  "slug": "mini-pocket-power-bank-with-dual-usb-black",
+  "sku": "TT-PER-007",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 20,
+  "shortDescription": "Compact soft-touch power bank with two USB outputs.",
+  "description": "A compact, rounded power bank with a soft-touch finish that charges two phones at the same time. Small enough for everyday carry while giving a reliable top-up during the day.",
+  "highlights": [
+    "Compact rounded design",
+    "Two USB outputs",
+    "LED battery indicator",
+    "Soft-touch finish"
+  ],
+  "specifications": [
+    {
+      "label": "Capacity",
+      "value": "Not specified"
+    },
+    {
+      "label": "Outputs",
+      "value": "2 × USB-A"
+    },
+    {
+      "label": "Indicator",
+      "value": "LED dots"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Mobile Gaming Grip Handle with Built-in Triggers",
+  "slug": "mobile-gaming-grip-handle-with-built-in-triggers",
+  "sku": "TT-PER-121",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 600,
+  "compareAtPrice": null,
+  "stock": 22,
+  "shortDescription": "Ergonomic phone gamepad grip with shoulder triggers.",
+  "description": "An ergonomic handle that clamps onto your phone and adds shoulder triggers for comfortable, long gaming sessions. Built for PUBG, Free Fire and COD Mobile.",
+  "highlights": [
+    "Ergonomic two-hand grip",
+    "Built-in shoulder triggers",
+    "Adjustable phone clamp",
+    "For PUBG, Free Fire and COD"
+  ],
+  "specifications": [
+    {
+      "label": "Type",
+      "value": "Grip handle with triggers"
+    },
+    {
+      "label": "Compatibility",
+      "value": "Most smartphones"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

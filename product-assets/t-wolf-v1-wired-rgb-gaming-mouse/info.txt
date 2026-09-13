@@ -1,0 +1,8 @@
+price: 562
+stock: 11
+compare at price: 907
+name: T-WOLF V1 Wired RGB Gaming Mouse
+brand: T-WOLF
+category: Peripherals
+featured: yes
+notes: daraz.pk — "T-WOLF V1 White RGB Gaming Mouse with FREE Mouse Pad | 7 Color LED Backlit Wir…" — Rs. 562 (was Rs. 907) — in stock — checked 13 Sep 2026 | https://www.daraz.pk/products/pubg-cod-1-rgb-7-led-i1968478694.html | Listing is the white V1 bundled with a mouse pad; the black version is shown in the photos.

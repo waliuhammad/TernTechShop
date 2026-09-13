@@ -1,0 +1,40 @@
+{
+  "name": "Micro SD Card Reader Module for Arduino (SPI)",
+  "slug": "micro-sd-card-reader-module-for-arduino-spi",
+  "sku": "TT-MBD-054",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 55,
+  "compareAtPrice": null,
+  "stock": 24,
+  "shortDescription": "Read and write Micro SD cards from Arduino over SPI.",
+  "description": "A Micro SD card module with an onboard level shifter and regulator that lets Arduino and ESP boards log data to a Micro SD card over SPI. Perfect for data loggers and audio playback projects.",
+  "highlights": [
+    "Micro SD card slot",
+    "SPI interface",
+    "Onboard level shifter and regulator",
+    "For data logging projects"
+  ],
+  "specifications": [
+    {
+      "label": "Card type",
+      "value": "Micro SD / Micro SDHC"
+    },
+    {
+      "label": "Interface",
+      "value": "SPI (CS, SCK, MOSI, MISO)"
+    },
+    {
+      "label": "Supply",
+      "value": "4.5–5.5V (typical)"
+    },
+    {
+      "label": "Board colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

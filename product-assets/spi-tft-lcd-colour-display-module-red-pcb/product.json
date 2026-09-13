@@ -1,0 +1,47 @@
+{
+  "name": "SPI TFT LCD Colour Display Module (Red PCB)",
+  "slug": "spi-tft-lcd-colour-display-module-red-pcb",
+  "sku": "TT-MBD-053",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 24,
+  "shortDescription": "Colour TFT screen module with SPI interface for Arduino and ESP32.",
+  "description": "A colour TFT LCD module on a red PCB with an SPI interface for Arduino, ESP32 and Raspberry Pi projects. Show graphics, sensor readings and menus in full colour.",
+  "highlights": [
+    "Full-colour TFT display",
+    "SPI interface",
+    "For Arduino, ESP32 and Raspberry Pi"
+  ],
+  "specifications": [
+    {
+      "label": "Interface",
+      "value": "SPI"
+    },
+    {
+      "label": "Screen size",
+      "value": "Not specified (2.4 in or 2.8 in to confirm)"
+    },
+    {
+      "label": "Driver IC",
+      "value": "Not specified"
+    },
+    {
+      "label": "SD card slot",
+      "value": "Not specified"
+    },
+    {
+      "label": "Touch",
+      "value": "Not specified"
+    },
+    {
+      "label": "PCB colour",
+      "value": "Red"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

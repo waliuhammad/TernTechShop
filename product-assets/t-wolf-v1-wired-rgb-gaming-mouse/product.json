@@ -1,0 +1,48 @@
+{
+  "name": "T-WOLF V1 Wired RGB Gaming Mouse",
+  "slug": "t-wolf-v1-wired-rgb-gaming-mouse",
+  "sku": "TT-PER-037",
+  "brand": "T-WOLF",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 562,
+  "compareAtPrice": 907,
+  "stock": 11,
+  "shortDescription": "Budget wired gaming mouse with 7-colour backlight.",
+  "description": "The T-WOLF V1 is a wired gaming mouse with a 7-colour breathing backlight and an ergonomic, grippy shape. An affordable pick for casual gaming and everyday use.",
+  "highlights": [
+    "7-colour backlight",
+    "Ergonomic gaming shape",
+    "Wired USB, plug-and-play",
+    "1.35 m cable (as advertised)"
+  ],
+  "specifications": [
+    {
+      "label": "Model",
+      "value": "T-WOLF V1"
+    },
+    {
+      "label": "Connection",
+      "value": "Wired USB"
+    },
+    {
+      "label": "Backlight",
+      "value": "7 colours"
+    },
+    {
+      "label": "Cable length",
+      "value": "1.35 m (as advertised)"
+    },
+    {
+      "label": "DPI",
+      "value": "Not specified"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

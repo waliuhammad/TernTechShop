@@ -1,0 +1,8 @@
+price: 300
+stock: 23
+compare at price: 
+name: Infinix Micro USB Fast Charging Data Cable (White)
+brand: Infinix
+category: Peripherals
+featured: yes
+notes: daraz.pk — "100% Original Infinix Micro USB Cable - White- Fast Charging Cable For Android…" — Rs. 300 — in stock, 762 sold — checked 13 Sep 2026 | https://www.daraz.pk/products/100-original-infinix-micro-usb-cable-white-fast-charging-cable-for-android-mobile-phones-best-android-phones-cable-designed-for-infinix-smartphones-infinix-data-cable-i208580116.html

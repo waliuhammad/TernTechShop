@@ -1,0 +1,40 @@
+{
+  "name": "Liquid Silicone Case for iPhone 11",
+  "slug": "liquid-silicone-case-for-iphone-11",
+  "sku": "TT-PER-092",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": null,
+  "compareAtPrice": null,
+  "stock": 13,
+  "shortDescription": "Soft-touch liquid silicone case for iPhone 11 in pastel colours.",
+  "description": "A liquid silicone case with a soft-touch outer finish and microfibre lining that fits the iPhone 11 snugly. Comfortable grip and everyday drop protection in a range of pastel shades.",
+  "highlights": [
+    "Soft-touch liquid silicone",
+    "Microfibre inner lining",
+    "Snug iPhone 11 fit",
+    "Pastel colour options"
+  ],
+  "specifications": [
+    {
+      "label": "Compatibility",
+      "value": "iPhone 11"
+    },
+    {
+      "label": "Material",
+      "value": "Liquid silicone"
+    },
+    {
+      "label": "Lining",
+      "value": "Microfibre (typical — not confirmed)"
+    },
+    {
+      "label": "Colours",
+      "value": "Sky blue, pink, light blue and more"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

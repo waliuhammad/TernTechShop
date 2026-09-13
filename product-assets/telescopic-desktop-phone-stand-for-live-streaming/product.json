@@ -1,0 +1,40 @@
+{
+  "name": "Telescopic Desktop Phone Stand for Live Streaming",
+  "slug": "telescopic-desktop-phone-stand-for-live-streaming",
+  "sku": "TT-PER-107",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 399,
+  "compareAtPrice": null,
+  "stock": 19,
+  "shortDescription": "Height-adjustable desk phone stand for live classes, calls and streaming.",
+  "description": "A weighted round-base desktop stand with a telescopic pole and rotating phone clamp for live streaming, online classes and video calls. Adjust height and angle for the perfect shot.",
+  "highlights": [
+    "Telescopic height adjustment",
+    "Rotating phone clamp",
+    "Stable weighted round base",
+    "For live streams and online classes"
+  ],
+  "specifications": [
+    {
+      "label": "Base",
+      "value": "Round weighted base"
+    },
+    {
+      "label": "Height",
+      "value": "Telescopic (range not specified)"
+    },
+    {
+      "label": "Rotation",
+      "value": "Adjustable clamp"
+    },
+    {
+      "label": "Colour",
+      "value": "Black"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

@@ -1,0 +1,8 @@
+price: 550
+stock: 15
+compare at price: 
+name: 18W PD Fast Charging Power Bank Module with Digital Display
+brand: Unbranded
+category: Motherboards
+featured: yes
+notes: digilog.pk — "IP5328P 18W Fast Charging Power Bank Module Dual USB Type-C" — Rs. 550 — listed as out of stock — checked 13 Sep 2026 | https://digilog.pk/products/ip5328p-18w-fast-charging-power-bank-module-dual-usb-type-c | Price is for a comparable 18W 4-output power bank module; exact chipset in photo not confirmed.

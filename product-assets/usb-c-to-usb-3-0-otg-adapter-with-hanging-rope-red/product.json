@@ -1,0 +1,44 @@
+{
+  "name": "USB-C to USB 3.0 OTG Adapter with Hanging Rope (Red)",
+  "slug": "usb-c-to-usb-3-0-otg-adapter-with-hanging-rope-red",
+  "sku": "TT-PER-027",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 178,
+  "compareAtPrice": 699,
+  "stock": 24,
+  "shortDescription": "Connect USB drives, keyboards and mice to your USB-C phone.",
+  "description": "A compact USB-C male to USB-A female OTG adapter with a lanyard so it never gets lost. Plug USB flash drives, keyboards or mice straight into your phone, tablet or laptop.",
+  "highlights": [
+    "USB-C to USB-A OTG",
+    "Connect flash drives, keyboards and mice",
+    "Hanging rope included",
+    "Metal and red alloy shell"
+  ],
+  "specifications": [
+    {
+      "label": "Connectors",
+      "value": "USB-C male to USB-A female"
+    },
+    {
+      "label": "USB version",
+      "value": "USB 3.0 (as advertised)"
+    },
+    {
+      "label": "Function",
+      "value": "OTG data transfer"
+    },
+    {
+      "label": "Included",
+      "value": "Hanging rope"
+    },
+    {
+      "label": "Colour",
+      "value": "Red"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

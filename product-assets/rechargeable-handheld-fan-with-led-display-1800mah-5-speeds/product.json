@@ -1,0 +1,44 @@
+{
+  "name": "Rechargeable Handheld Fan with LED Display (1800mAh, 5 Speeds)",
+  "slug": "rechargeable-handheld-fan-with-led-display-1800mah-5-speeds",
+  "sku": "TT-PER-143",
+  "brand": "Unbranded",
+  "category": "Peripherals",
+  "tier": "Essential",
+  "price": 1300,
+  "compareAtPrice": 2500,
+  "stock": 21,
+  "shortDescription": "Portable 1800mAh fan with digital battery display and 5 speeds.",
+  "description": "A rechargeable handheld fan with a 1800mAh battery, LED digital display and five intelligent speed levels. Keeps you cool during commutes, load shedding and summer days.",
+  "highlights": [
+    "1800mAh rechargeable battery",
+    "LED digital display",
+    "5 speed levels",
+    "Handheld or desktop base"
+  ],
+  "specifications": [
+    {
+      "label": "Battery",
+      "value": "1800mAh rechargeable"
+    },
+    {
+      "label": "Speeds",
+      "value": "5"
+    },
+    {
+      "label": "Display",
+      "value": "LED digital"
+    },
+    {
+      "label": "Charging",
+      "value": "USB"
+    },
+    {
+      "label": "Colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}

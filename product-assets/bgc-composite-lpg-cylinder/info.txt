@@ -1,0 +1,8 @@
+price: 
+stock: 10
+compare at price: 
+name: BGC Composite LPG Cylinder
+brand: BGC (Burhan Gas Company)
+category: Peripherals
+featured: yes
+notes: Needs price verification — the cylinder size is not shown. Daraz lists BGC composite cylinders from about Rs. 14,000 (5/10 kg) to Rs. 18,000 (13 kg) with regulator.

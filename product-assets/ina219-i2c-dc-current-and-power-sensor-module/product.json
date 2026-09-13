@@ -1,0 +1,44 @@
+{
+  "name": "INA219 I2C DC Current and Power Sensor Module",
+  "slug": "ina219-i2c-dc-current-and-power-sensor-module",
+  "sku": "TT-MBD-057",
+  "brand": "Unbranded",
+  "category": "Motherboards",
+  "tier": "Essential",
+  "price": 380,
+  "compareAtPrice": null,
+  "stock": 15,
+  "shortDescription": "Measure DC voltage, current and power over I2C.",
+  "description": "The INA219 module measures bus voltage, current and power on DC circuits and reports them over I2C to Arduino, ESP32 or Raspberry Pi. Ideal for battery monitors and solar projects.",
+  "highlights": [
+    "Measures voltage, current and power",
+    "I2C interface with selectable address",
+    "High-side current sensing",
+    "Terminal block and headers included"
+  ],
+  "specifications": [
+    {
+      "label": "Chip",
+      "value": "INA219"
+    },
+    {
+      "label": "Interface",
+      "value": "I2C"
+    },
+    {
+      "label": "Shunt resistor",
+      "value": "R100 (0.1 Ω)"
+    },
+    {
+      "label": "Bus voltage",
+      "value": "Up to 26V"
+    },
+    {
+      "label": "Board colour",
+      "value": "Blue"
+    }
+  ],
+  "isFeatured": true,
+  "isNew": false,
+  "isActive": true
+}
