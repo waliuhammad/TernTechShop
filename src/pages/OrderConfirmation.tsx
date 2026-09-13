@@ -1,36 +1,41 @@
-import { CheckCircle2, Package } from 'lucide-react';
+import { CheckCircle2, Clock, Package } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { PaymentPanel } from '@/components/payment/PaymentPanel';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { Seo } from '@/components/ui/Seo';
 import { useAuth } from '@/context/AuthContext';
 import { formatPrice } from '@/lib/money';
-import { fetchOrderByManifest, type OrderDoc } from '@/services/orders';
+import { watchOrderByManifest, type OrderDoc } from '@/services/orders';
+import { PAYMENT_METHOD_LABELS } from '@/services/payments';
 import { formatDateTime } from '@/lib/utils';
 
 export default function OrderConfirmation() {
   const { manifestId } = useParams<{ manifestId: string }>();
   const { user, loading: authLoading } = useAuth();
+  const location = useLocation();
+  // Set by checkout when the order was placed but the wallet payment couldn't start.
+  const paymentError = (location.state as { paymentError?: string } | null)?.paymentError ?? '';
 
   const [order, setOrder] = useState<OrderDoc | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Live: a wallet payment moves from "approve on your phone" to paid while
+  // the customer watches.
   useEffect(() => {
     if (authLoading || !user || !manifestId) return undefined;
-
-    let active = true;
-    fetchOrderByManifest(user.uid, manifestId)
-      .then((result) => {
-        if (active) setOrder(result);
-      })
-      .catch((error) => console.error('Order fetch error:', error))
-      .finally(() => {
-        if (active) setLoading(false);
-      });
-
-    return () => {
-      active = false;
-    };
+    return watchOrderByManifest(
+      user.uid,
+      manifestId,
+      (result) => {
+        setOrder(result);
+        setLoading(false);
+      },
+      (error) => {
+        console.error('Order fetch error:', error);
+        setLoading(false);
+      },
+    );
   }, [user, manifestId, authLoading]);
 
   if (authLoading || (user && manifestId && loading)) {
@@ -58,23 +63,42 @@ export default function OrderConfirmation() {
     );
   }
 
+  const online = order.paymentMethod !== 'COD';
+  const awaitingPayment = online && order.paymentStatus !== 'PAID' && order.status !== 'CANCELLED';
+  const headline = order.status === 'CANCELLED'
+    ? 'Order Cancelled'
+    : awaitingPayment
+      ? 'Order Placed — Payment Pending'
+      : online
+        ? 'Order Confirmed & Paid!'
+        : 'Order Confirmed!';
+
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo noindex title="Order Confirmed" description="Your hardware manifest has been registered." />
+      <Seo noindex title={headline} description="Your hardware manifest has been registered." />
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-20">
         <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-xl md:p-12">
-          <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 text-emerald-500">
-            <CheckCircle2 size={44} />
+          <div
+            className={
+              awaitingPayment || order.status === 'CANCELLED'
+                ? 'mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-amber-50 text-amber-500'
+                : 'mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 text-emerald-500'
+            }
+          >
+            {awaitingPayment || order.status === 'CANCELLED' ? <Clock size={44} /> : <CheckCircle2 size={44} />}
           </div>
 
           <div className="space-y-3">
             <h1 className="text-3xl font-black tracking-tighter text-slate-900 uppercase italic md:text-4xl">
-              Order Confirmed!
+              {headline}
             </h1>
             <p className="font-medium text-slate-500">
-              Your hardware manifest is now in our logistics pipeline. Our engineers will contact
-              you on {order.phone} to confirm the deployment.
+              {awaitingPayment
+                ? `Your items are reserved. Complete the ${PAYMENT_METHOD_LABELS[order.paymentMethod] ?? ''} payment below to confirm the order.`
+                : order.status === 'CANCELLED'
+                  ? 'This order has been cancelled.'
+                  : `Your hardware manifest is now in our logistics pipeline. Our engineers will contact you on ${order.phone} to confirm the deployment.`}
             </p>
           </div>
 
@@ -88,9 +112,15 @@ export default function OrderConfirmation() {
           </div>
 
           <p className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">
-            Placed {formatDateTime(order.createdAt)} // {order.paymentMethod} // {order.status}
+            Placed {formatDateTime(order.createdAt)} // {PAYMENT_METHOD_LABELS[order.paymentMethod] ?? order.paymentMethod} // {order.status}
           </p>
         </div>
+
+        {online && (
+          <div className="mt-8">
+            <PaymentPanel order={order} initialError={paymentError} />
+          </div>
+        )}
 
         {/* Manifest detail */}
         <div className="mt-8 space-y-6 rounded-3xl border border-slate-200 bg-white p-6 md:p-10">

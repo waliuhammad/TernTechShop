@@ -1,6 +1,7 @@
-import { ArrowLeft, ArrowRight, Banknote, Check, Lock, ShieldCheck, TriangleAlert } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Banknote, Check, Lock, ShieldCheck, Smartphone, TriangleAlert } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { validateWallet, WalletFields, type WalletDetails, type WalletErrors } from '@/components/payment/WalletFields';
 import { Seo } from '@/components/ui/Seo';
 import { useAuth, type UserProfile } from '@/context/AuthContext';
 import { useCart } from '@/context/CartContext';
@@ -13,6 +14,15 @@ import { evaluateCoupon, fetchCoupon } from '@/lib/coupons';
 import { formatPrice } from '@/lib/money';
 import { cn } from '@/lib/utils';
 import { MAX_ORDER_LINES, OrderRejectedError, OutOfStockError, placeOrder } from '@/services/orders';
+import {
+  fetchWalletConfig,
+  PAYMENT_METHOD_LABELS,
+  PaymentStartError,
+  startWalletPayment,
+  WALLET_LABELS,
+  type PaymentMethod,
+  type WalletProvider,
+} from '@/services/payments';
 import type { Coupon, ShippingDetails } from '@/types';
 
 const STEPS = ['Shipping', 'Payment', 'Review'] as const;
@@ -134,6 +144,24 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [submitError, setSubmitError] = useState('');
 
+  // Payment. Wallets appear only when the payment server says they're enabled.
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('COD');
+  const [wallets, setWallets] = useState<WalletProvider[]>([]);
+  const [wallet, setWallet] = useState<WalletDetails>({ mobileNumber: profile?.phone ?? '', cnicLast6: '' });
+  const [walletErrors, setWalletErrors] = useState<WalletErrors>({});
+
+  useEffect(() => {
+    let active = true;
+    void fetchWalletConfig().then((config) => {
+      if (active) setWallets(config.providers);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const walletProvider: WalletProvider | null = paymentMethod === 'COD' ? null : paymentMethod;
+
   const [details, setDetails] = useState<ShippingDetails>(() => ({
     fullName: profile?.name ?? '',
     email: profile?.email ?? '',
@@ -226,16 +254,29 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
     setStep(1);
   };
 
+  const goToReview = () => {
+    if (walletProvider) {
+      const found = validateWallet(walletProvider, wallet);
+      setWalletErrors(found);
+      if (Object.keys(found).length > 0) {
+        notify('Check your wallet details before continuing.', 'error');
+        return;
+      }
+    }
+    setStep(2);
+  };
+
   const submitOrder = async () => {
     setSubmitting(true);
     setSubmitError('');
 
     try {
-      const manifestId = await placeOrder({
+      const { orderId, manifestId } = await placeOrder({
         userId,
         lines,
         totals,
         shipping: details,
+        paymentMethod,
         ...(couponCode && discount > 0 ? { couponCode } : {}),
       });
 
@@ -245,7 +286,23 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
       await clear();
       // Stock just changed; don't show the old counts on the next page.
       void refreshCatalog();
-      navigate(`/order-confirmation/${manifestId}`, { replace: true });
+
+      // The order exists and its stock is reserved. If the payment can't even
+      // start, the order page offers "Pay" again rather than losing the order.
+      let paymentError = '';
+      if (walletProvider) {
+        try {
+          await startWalletPayment({
+            orderId,
+            provider: walletProvider,
+            mobileNumber: wallet.mobileNumber,
+            ...(walletProvider === 'JAZZCASH' ? { cnicLast6: wallet.cnicLast6.trim() } : {}),
+          });
+        } catch (error) {
+          paymentError = error instanceof PaymentStartError ? error.message : 'Could not start the payment. Please try again.';
+        }
+      }
+      navigate(`/order-confirmation/${manifestId}`, { replace: true, state: { paymentError } });
     } catch (error) {
       const message =
         error instanceof OrderRejectedError || error instanceof OutOfStockError
@@ -474,23 +531,53 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
                   </p>
                 </div>
 
-                <div className="flex items-start gap-4 rounded-2xl border-2 border-primary bg-primary/5 p-6">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white">
-                    <Banknote size={22} />
-                  </span>
-                  <div className="space-y-1">
-                    <p className="font-black text-slate-900">Cash on Delivery</p>
-                    <p className="text-sm font-medium text-slate-500">
-                      Pay when your hardware assets arrive at your destination.
-                    </p>
-                  </div>
-                  <Check size={20} className="ml-auto shrink-0 text-primary" />
+                <div role="radiogroup" aria-label="Payment method" className="space-y-3">
+                  <PaymentOption
+                    selected={paymentMethod === 'COD'}
+                    onSelect={() => setPaymentMethod('COD')}
+                    icon={Banknote}
+                    title="Cash on Delivery"
+                    description="Pay when your hardware assets arrive at your destination."
+                  />
+                  {wallets.map((provider) => (
+                    <PaymentOption
+                      key={provider}
+                      selected={paymentMethod === provider}
+                      onSelect={() => {
+                        setPaymentMethod(provider);
+                        setWalletErrors({});
+                      }}
+                      icon={Smartphone}
+                      title={WALLET_LABELS[provider]}
+                      description={`Pay now from your ${WALLET_LABELS[provider]} mobile account — approve the payment on your phone.`}
+                    />
+                  ))}
                 </div>
 
-                <p className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed font-medium text-slate-500">
-                  Card and bank transfer are handled directly by our team — select Cash on Delivery
-                  here and mention your preference when we confirm the manifest.
-                </p>
+                {walletProvider && (
+                  <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                    <WalletFields
+                      provider={walletProvider}
+                      value={wallet}
+                      errors={walletErrors}
+                      onChange={(next) => {
+                        setWallet(next);
+                        setWalletErrors({});
+                      }}
+                    />
+                    <p className="text-xs leading-relaxed text-slate-500">
+                      After you authorize, {WALLET_LABELS[walletProvider]} sends a payment prompt to this number. Your
+                      items stay reserved while you approve it.
+                    </p>
+                  </div>
+                )}
+
+                {wallets.length === 0 && (
+                  <p className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-xs leading-relaxed font-medium text-slate-500">
+                    Card and bank transfer are handled directly by our team — select Cash on Delivery
+                    here and mention your preference when we confirm the manifest.
+                  </p>
+                )}
 
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <button
@@ -503,7 +590,7 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setStep(2)}
+                    onClick={goToReview}
                     className="primary-btn flex flex-grow items-center justify-center gap-2 py-4"
                   >
                     Final Scan &amp; Review
@@ -538,6 +625,23 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
                     className="cursor-pointer text-[10px] font-black tracking-widest text-primary uppercase"
                   >
                     Edit Destination
+                  </button>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-6">
+                  <div>
+                    <h3 className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Payment</h3>
+                    <p className="font-black text-slate-900">
+                      {PAYMENT_METHOD_LABELS[paymentMethod]}
+                      {walletProvider && <span className="ml-2 font-mono text-sm font-bold text-slate-500">{wallet.mobileNumber}</span>}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setStep(1)}
+                    className="cursor-pointer text-[10px] font-black tracking-widest text-primary uppercase"
+                  >
+                    Change
                   </button>
                 </div>
 
@@ -595,7 +699,9 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
 
                 <p className="flex items-center justify-center gap-2 text-center text-[10px] font-bold tracking-widest text-slate-400 uppercase">
                   <ShieldCheck size={14} />
-                  Pricing re-verified server-side on authorization
+                  {walletProvider
+                    ? `Pricing re-verified server-side, then ${WALLET_LABELS[walletProvider]} asks you to approve`
+                    : 'Pricing re-verified server-side on authorization'}
                 </p>
               </section>
             )}
@@ -687,5 +793,46 @@ function Field({
       />
       {error && <p className="text-xs font-bold text-rose-500">{error}</p>}
     </div>
+  );
+}
+
+function PaymentOption({
+  selected,
+  onSelect,
+  icon: Icon,
+  title,
+  description,
+}: {
+  selected: boolean;
+  onSelect: () => void;
+  icon: typeof Banknote;
+  title: string;
+  description: string;
+}) {
+  return (
+    <button
+      type="button"
+      role="radio"
+      aria-checked={selected}
+      onClick={onSelect}
+      className={cn(
+        'flex w-full cursor-pointer items-start gap-4 rounded-2xl border-2 p-5 text-left transition-colors',
+        selected ? 'border-primary bg-primary/5' : 'border-slate-200 bg-white hover:border-primary/40',
+      )}
+    >
+      <span
+        className={cn(
+          'flex h-12 w-12 shrink-0 items-center justify-center rounded-xl',
+          selected ? 'bg-primary text-white' : 'bg-slate-100 text-slate-500',
+        )}
+      >
+        <Icon size={22} />
+      </span>
+      <span className="space-y-1">
+        <span className="block font-black text-slate-900">{title}</span>
+        <span className="block text-sm font-medium text-slate-500">{description}</span>
+      </span>
+      {selected && <Check size={20} className="ml-auto shrink-0 text-primary" />}
+    </button>
   );
 }

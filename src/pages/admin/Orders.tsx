@@ -1,6 +1,7 @@
 import { RotateCw, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PaymentBadge } from '@/components/payment/PaymentBadge';
 import {
   AdminError,
   AdminPageHeader,
@@ -111,6 +112,7 @@ export default function AdminOrders() {
                 <th className={thClass}>City</th>
                 <th className={thClass}>Lines</th>
                 <th className={cn(thClass, 'text-right')}>Total</th>
+                <th className={thClass}>Payment</th>
                 <th className={thClass}>Status</th>
               </tr>
             </thead>
@@ -133,6 +135,9 @@ export default function AdminOrders() {
                   <td className={cn(tdClass, 'text-slate-600')}>{order.items.length}</td>
                   <td className={cn(tdClass, 'text-right font-black whitespace-nowrap')}>
                     {formatPrice(order.total)}
+                  </td>
+                  <td className={tdClass}>
+                    <PaymentBadge method={order.paymentMethod} status={order.paymentStatus} />
                   </td>
                   <td className={tdClass}>
                     <StatusBadge status={order.status} />

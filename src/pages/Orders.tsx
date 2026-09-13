@@ -1,6 +1,7 @@
 import { Package, TriangleAlert } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { PaymentBadge } from '@/components/payment/PaymentBadge';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { Seo } from '@/components/ui/Seo';
 import { useAuth } from '@/context/AuthContext';
@@ -140,6 +141,9 @@ export default function Orders() {
                     >
                       {order.status}
                     </span>
+                    {order.paymentMethod !== 'COD' && (
+                      <PaymentBadge method={order.paymentMethod} status={order.paymentStatus} className="mt-2 ml-2" />
+                    )}
                   </div>
                 </div>
 

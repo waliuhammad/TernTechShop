@@ -5,6 +5,7 @@ import {
   getDocs,
   increment,
   limit,
+  onSnapshot,
   orderBy,
   query,
   serverTimestamp,
@@ -13,6 +14,7 @@ import {
   type Timestamp,
 } from 'firebase/firestore';
 import { getDbOrThrow } from '@/lib/firebase';
+import type { PaymentMethod, PaymentStatus } from '@/services/payments';
 import type { OrderTotals, ResolvedCartLine, ShippingDetails } from '@/types';
 
 /**
@@ -78,6 +80,13 @@ export interface OrderDoc {
   createdAt: string;
   stockDeducted?: boolean;
   adminNote?: string;
+  /** Online orders only; written by the payment server. */
+  paymentStatus?: PaymentStatus;
+  paymentMessage?: string;
+  paymentWallet?: string;
+  paymentRef?: string | null;
+  paymentAttempts?: number;
+  paidAt?: string;
 }
 
 /** A product that no longer has enough stock for the cart. */
@@ -117,10 +126,16 @@ export interface PlaceOrderInput {
   totals: OrderTotals;
   shipping: ShippingDetails;
   couponCode?: string;
+  paymentMethod: PaymentMethod;
 }
 
-export async function placeOrder(input: PlaceOrderInput): Promise<string> {
-  const { userId, lines, totals, shipping, couponCode } = input;
+export interface PlacedOrder {
+  orderId: string;
+  manifestId: string;
+}
+
+export async function placeOrder(input: PlaceOrderInput): Promise<PlacedOrder> {
+  const { userId, lines, totals, shipping, couponCode, paymentMethod } = input;
 
   if (lines.length === 0) {
     throw new OrderRejectedError('Your manifest is empty.');
@@ -149,7 +164,9 @@ export async function placeOrder(input: PlaceOrderInput): Promise<string> {
     manifestId,
     userId,
     status: 'PENDING',
-    paymentMethod: 'COD',
+    paymentMethod,
+    // Wallet orders start unpaid; only the payment server can mark them paid.
+    ...(paymentMethod === 'COD' ? {} : { paymentStatus: 'UNPAID' }),
     items: lines.map((line) => ({
       productId: line.product.id,
       name: line.product.name,
@@ -198,7 +215,16 @@ export async function placeOrder(input: PlaceOrderInput): Promise<string> {
     throw error;
   }
 
-  return manifestId;
+  return { orderId: orderRef.id, manifestId };
+}
+
+function toOrderDoc(id: string, data: Record<string, unknown>): OrderDoc {
+  return {
+    id,
+    ...data,
+    createdAt: toIso(data.createdAt),
+    ...(data.paidAt ? { paidAt: toIso(data.paidAt) } : {}),
+  } as OrderDoc;
 }
 
 export async function fetchUserOrders(userId: string): Promise<OrderDoc[]> {
@@ -211,10 +237,7 @@ export async function fetchUserOrders(userId: string): Promise<OrderDoc[]> {
     ),
   );
 
-  return snapshot.docs.map((snap) => {
-    const data = snap.data();
-    return { id: snap.id, ...data, createdAt: toIso(data.createdAt) } as OrderDoc;
-  });
+  return snapshot.docs.map((snap) => toOrderDoc(snap.id, snap.data()));
 }
 
 /** Looks an order up by its human-facing manifest id. */
@@ -232,8 +255,31 @@ export async function fetchOrderByManifest(
   );
 
   const snap = snapshot.docs[0];
-  if (!snap) return null;
+  return snap ? toOrderDoc(snap.id, snap.data()) : null;
+}
 
-  const data = snap.data();
-  return { id: snap.id, ...data, createdAt: toIso(data.createdAt) } as OrderDoc;
+/**
+ * Live version of fetchOrderByManifest, so the order page shows a wallet
+ * payment change from "approve on your phone" to "paid" without a reload.
+ * `onChange(null)` means not found. Returns the unsubscribe function.
+ */
+export function watchOrderByManifest(
+  userId: string,
+  manifestId: string,
+  onChange: (order: OrderDoc | null) => void,
+  onError: (error: Error) => void,
+): () => void {
+  return onSnapshot(
+    query(
+      collection(getDbOrThrow(), 'orders'),
+      where('userId', '==', userId),
+      where('manifestId', '==', manifestId),
+      limit(1),
+    ),
+    (snapshot) => {
+      const snap = snapshot.docs[0];
+      onChange(snap ? toOrderDoc(snap.id, snap.data()) : null);
+    },
+    onError,
+  );
 }

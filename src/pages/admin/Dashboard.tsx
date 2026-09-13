@@ -1,4 +1,4 @@
-import { ArrowRight, Inbox, MessageSquareText, PackageX, ShieldCheck, Truck } from 'lucide-react';
+import { ArrowRight, CreditCard, Inbox, MessageSquareText, PackageX, ShieldCheck, Truck } from 'lucide-react';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -45,6 +45,7 @@ export default function Dashboard() {
     const live = orders.filter((order) => order.status !== 'CANCELLED');
     const revenue = live.reduce((sum, order) => sum + order.total, 0);
     const pending = orders.filter((order) => order.status === 'PENDING');
+    const paymentsToCheck = orders.filter((order) => order.paymentStatus === 'REVIEW');
 
     // Last seven days, oldest first, bucketed by local calendar day.
     const today = new Date();
@@ -69,6 +70,7 @@ export default function Dashboard() {
       revenue,
       orderCount: orders.length,
       pending,
+      paymentsToCheck,
       // Whole rupees — an average to the paisa is noise on a dashboard.
       average: live.length ? Math.round(revenue / live.length / 100) * 100 : 0,
       week,
@@ -91,6 +93,7 @@ export default function Dashboard() {
           <AttentionPanel
             items={[
               { to: '/admin/orders', icon: Truck, label: 'Orders to confirm', count: stats.pending.length },
+              { to: '/admin/orders', icon: CreditCard, label: 'Payments to check', count: stats.paymentsToCheck.length },
               { to: '/admin/reviews', icon: MessageSquareText, label: 'Reviews to approve', count: attention.data?.reviews ?? 0 },
               { to: '/admin/inbox', icon: Inbox, label: 'New messages', count: attention.data?.messages ?? 0 },
               { to: '/admin/inbox', icon: ShieldCheck, label: 'Warranty registrations', count: attention.data?.warranties ?? 0 },

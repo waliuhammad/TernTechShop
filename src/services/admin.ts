@@ -57,7 +57,12 @@ export const NEXT_STATUSES: Record<OrderStatus, OrderStatus[]> = {
 };
 
 function toOrder(id: string, data: Record<string, unknown>): OrderDoc {
-  return { id, ...data, createdAt: toIso(data.createdAt) } as OrderDoc;
+  return {
+    id,
+    ...data,
+    createdAt: toIso(data.createdAt),
+    ...(data.paidAt ? { paidAt: toIso(data.paidAt) } : {}),
+  } as OrderDoc;
 }
 
 export async function fetchAllOrders(max = 500): Promise<OrderDoc[]> {

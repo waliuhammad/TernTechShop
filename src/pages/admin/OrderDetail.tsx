@@ -1,7 +1,8 @@
-import { ArrowLeft, MessageCircle, PackageCheck, PackageOpen, Phone } from 'lucide-react';
+import { ArrowLeft, MessageCircle, PackageCheck, PackageOpen, Phone, TriangleAlert } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AdminError, AdminSpinner, StatusBadge } from '@/components/admin/AdminUI';
+import { PaymentBadge } from '@/components/payment/PaymentBadge';
 import { useToast } from '@/context/ToastContext';
 import { adminErrorMessage, useAsync } from '@/hooks/useAsync';
 import { formatPrice } from '@/lib/money';
@@ -14,6 +15,7 @@ import {
   updateOrderStatus,
   type OrderStatus,
 } from '@/services/admin';
+import { fetchPaymentAttempts, PAYMENT_METHOD_LABELS, WALLET_LABELS } from '@/services/payments';
 
 /** 0316 4587553 -> 923164587553, for a wa.me link. */
 function whatsappNumber(phone: string): string {
@@ -35,6 +37,7 @@ export default function AdminOrderDetail() {
   const { orderId = '' } = useParams<{ orderId: string }>();
   const { notify } = useToast();
   const { data: order, error, loading, reload } = useAsync(() => fetchOrder(orderId), `order-${orderId}`);
+  const attempts = useAsync(() => fetchPaymentAttempts(orderId), `payments-${orderId}`);
 
   const [note, setNote] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -57,8 +60,18 @@ export default function AdminOrderDetail() {
   const noteValue = note ?? order.adminNote ?? '';
   const actions = NEXT_STATUSES[status] ?? [];
 
+  const online = order.paymentMethod === 'JAZZCASH' || order.paymentMethod === 'EASYPAISA';
+  const walletName = online ? WALLET_LABELS[order.paymentMethod as 'JAZZCASH' | 'EASYPAISA'] : '';
+  const paid = order.paymentStatus === 'PAID';
+
   const transition = async (next: OrderStatus) => {
-    if (next === 'CANCELLED' && !window.confirm(`Cancel ${order.manifestId}?${order.stockDeducted ? ' Its units will be returned to stock.' : ''}`)) {
+    const refundNote = online && (paid || order.paymentStatus === 'REVIEW')
+      ? ` The customer paid by ${walletName}: refund them from the ${walletName} merchant portal.`
+      : '';
+    if (next === 'CANCELLED' && !window.confirm(`Cancel ${order.manifestId}?${order.stockDeducted ? ' Its units will be returned to stock.' : ''}${refundNote}`)) {
+      return;
+    }
+    if (next === 'CONFIRMED' && online && !paid && !window.confirm(`${order.manifestId} has not been paid by ${walletName} yet. Confirm it anyway?`)) {
       return;
     }
     setBusy(true);
@@ -104,7 +117,7 @@ export default function AdminOrderDetail() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="space-y-2">
           <p className="font-mono text-[10px] tracking-[0.3em] text-slate-400 uppercase">
-            Placed {formatDateTime(order.createdAt)} · {order.paymentMethod}
+            Placed {formatDateTime(order.createdAt)} · {PAYMENT_METHOD_LABELS[order.paymentMethod] ?? order.paymentMethod}
           </p>
           <h1 className="font-mono text-3xl font-black tracking-widest text-primary md:text-4xl">
             {order.manifestId}
@@ -121,9 +134,18 @@ export default function AdminOrderDetail() {
             {order.stockDeducted ? <PackageCheck size={12} /> : <PackageOpen size={12} />}
             {order.stockDeducted ? 'Stock deducted' : 'Stock not deducted'}
           </span>
+          <PaymentBadge method={order.paymentMethod} status={order.paymentStatus} />
           <StatusBadge status={order.status} />
         </div>
       </div>
+
+      {order.paymentStatus === 'REVIEW' && (
+        <p className="flex items-start gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm font-bold text-amber-900">
+          <TriangleAlert size={18} className="mt-0.5 shrink-0" />
+          This {walletName} payment needs checking. Look up the references below in the {walletName} merchant
+          portal, then confirm the order or refund the customer.
+        </p>
+      )}
 
       <AdminError message={actionError} />
 
@@ -176,7 +198,7 @@ export default function AdminOrderDetail() {
                 <dd className="font-bold">{order.shipping === 0 ? 'Free' : formatPrice(order.shipping)}</dd>
               </div>
               <div className="flex justify-between border-t border-slate-100 pt-2 text-base">
-                <dt className="font-black">Collect on delivery</dt>
+                <dt className="font-black">{online ? (paid ? `Paid by ${walletName}` : `Due by ${walletName}`) : 'Collect on delivery'}</dt>
                 <dd className="font-black">{formatPrice(order.total)}</dd>
               </div>
             </dl>
@@ -272,6 +294,71 @@ export default function AdminOrderDetail() {
               </a>
             </div>
           </section>
+
+          {online && (
+            <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-6">
+              <h2 className="text-lg font-black tracking-tighter uppercase italic">Payment</h2>
+              <dl className="space-y-1 text-sm">
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-500">Method</dt>
+                  <dd className="font-bold">{walletName}</dd>
+                </div>
+                <div className="flex justify-between gap-3">
+                  <dt className="text-slate-500">Status</dt>
+                  <dd><PaymentBadge method={order.paymentMethod} status={order.paymentStatus} /></dd>
+                </div>
+                {order.paymentWallet && (
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-slate-500">Wallet</dt>
+                    <dd className="font-mono">{order.paymentWallet}</dd>
+                  </div>
+                )}
+                {order.paymentRef && (
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-slate-500">Reference</dt>
+                    <dd className="font-mono break-all">{order.paymentRef}</dd>
+                  </div>
+                )}
+                {order.paidAt && (
+                  <div className="flex justify-between gap-3">
+                    <dt className="text-slate-500">Paid</dt>
+                    <dd>{formatDateTime(order.paidAt)}</dd>
+                  </div>
+                )}
+              </dl>
+              {order.paymentMessage && <p className="rounded-xl bg-slate-50 p-3 text-xs text-slate-600">{order.paymentMessage}</p>}
+
+              <div className="space-y-2 border-t border-slate-100 pt-3">
+                <h3 className="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Attempts</h3>
+                {attempts.loading ? (
+                  <p className="text-xs text-slate-400">Loading…</p>
+                ) : (attempts.data?.length ?? 0) === 0 ? (
+                  <p className="text-xs text-slate-400">No payment attempted yet.</p>
+                ) : (
+                  <ul className="space-y-2">
+                    {attempts.data?.map((attempt) => (
+                      <li key={attempt.txnRef} className="rounded-xl border border-slate-100 p-3 text-xs">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-mono font-bold">{attempt.txnRef}</span>
+                          <span className="font-black">{attempt.status}</span>
+                        </div>
+                        <p className="text-slate-500">
+                          {attempt.createdAt && formatDateTime(attempt.createdAt)} · {attempt.wallet}
+                          {attempt.code ? ` · code ${attempt.code}` : ''}
+                          {attempt.providerRef ? ` · ref ${attempt.providerRef}` : ''}
+                        </p>
+                        {attempt.message && <p className="text-slate-600">{attempt.message}</p>}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <p className="text-[11px] leading-relaxed text-slate-400">
+                  Transaction references match the “Txn Ref” in the {walletName} merchant portal. Refunds are made
+                  there.
+                </p>
+              </div>
+            </section>
+          )}
 
           <section className="space-y-2 rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="text-lg font-black tracking-tighter uppercase italic">Destination</h2>
