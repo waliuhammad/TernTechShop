@@ -25,16 +25,18 @@ import {
   doc,
   getDoc,
   getDocs,
+  increment,
   serverTimestamp,
   setDoc,
   updateDoc,
+  writeBatch,
 } from 'firebase/firestore';
 
 let testEnv;
 
 const PRODUCT_ID = 'p-gpu-01';
 const PRODUCT_PRICE = 45200000; // Rs. 452,000 in paisa
-const PRODUCT_STOCK = 6;
+const PRODUCT_STOCK = 60;
 
 const CUSTOMER = 'customer-uid';
 const OTHER = 'other-uid';
@@ -92,6 +94,41 @@ function baseOrder(overrides = {}) {
     city: 'Islamabad',
     ...overrides,
   };
+}
+
+/**
+ * Places an order the way the storefront does: one batched write creating the
+ * order and taking each line's quantity out of its product's stock.
+ *
+ * `reservations` and `deductions` override what the batch claims and takes,
+ * so tests can forge either side. `stock: false` writes the order alone.
+ */
+function placeOrder(db, orderId, order, { stock = true, reservations, deductions = {}, extra = [] } = {}) {
+  const batch = writeBatch(db);
+  batch.set(doc(db, 'orders', orderId), {
+    stockDeducted: true,
+    reservations: reservations ?? Object.fromEntries(order.items.map((item) => [item.productId, item.quantity])),
+    createdAt: serverTimestamp(),
+    ...order,
+  });
+  if (stock) {
+    for (const item of order.items) {
+      batch.update(doc(db, 'products', item.productId), {
+        stock: increment(-(deductions[item.productId] ?? item.quantity)),
+        lastOrderId: orderId,
+      });
+    }
+  }
+  for (const [productId, data] of extra) batch.update(doc(db, 'products', productId), data);
+  return batch.commit();
+}
+
+async function stockOf(productId) {
+  let stock;
+  await testEnv.withSecurityRulesDisabled(async (ctx) => {
+    stock = (await getDoc(doc(ctx.firestore(), 'products', productId))).data().stock;
+  });
+  return stock;
 }
 
 before(async () => {
@@ -392,7 +429,7 @@ describe('cart', () => {
 
 describe('orders — integrity', () => {
   it('accepts a correctly priced order', async () => {
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'ok-1'), baseOrder()));
+    await assertSucceeds(placeOrder(asCustomer(), 'ok-1', baseOrder()));
   });
 
   it('REJECTS a tampered unit price', async () => {
@@ -408,13 +445,13 @@ describe('orders — integrity', () => {
         },
       ],
     });
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'tampered-price'), order));
+    await assertFails(placeOrder(asCustomer(), 'tampered-price', order));
   });
 
   it('REJECTS a tampered total', async () => {
     const order = baseOrder();
     order.total = 100;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'tampered-total'), order));
+    await assertFails(placeOrder(asCustomer(), 'tampered-total', order));
   });
 
   it('REJECTS a tampered line total', async () => {
@@ -423,14 +460,14 @@ describe('orders — integrity', () => {
     order.items[0].lineTotal = PRODUCT_PRICE; // paying for one, taking three
     order.subtotal = PRODUCT_PRICE;
     order.total = PRODUCT_PRICE;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'tampered-line'), order));
+    await assertFails(placeOrder(asCustomer(), 'tampered-line', order));
   });
 
   it('REJECTS a subtotal that does not match the lines', async () => {
     const order = baseOrder();
     order.subtotal = 1000;
     order.total = 1000;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'bad-subtotal'), order));
+    await assertFails(placeOrder(asCustomer(), 'bad-subtotal', order));
   });
 
   it('REJECTS a product that does not exist', async () => {
@@ -446,14 +483,14 @@ describe('orders — integrity', () => {
         },
       ],
     });
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'ghost-product'), order));
+    await assertFails(placeOrder(asCustomer(), 'ghost-product', order, { stock: false }));
   });
 
   it('REJECTS an invented discount with no coupon', async () => {
     const order = baseOrder();
     order.discount = 40000000;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'fake-discount'), order));
+    await assertFails(placeOrder(asCustomer(), 'fake-discount', order));
   });
 
   it('REJECTS an unknown coupon code', async () => {
@@ -461,7 +498,7 @@ describe('orders — integrity', () => {
     order.couponCode = 'NOTREAL';
     order.discount = 1000000;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'unknown-coupon'), order));
+    await assertFails(placeOrder(asCustomer(), 'unknown-coupon', order));
   });
 
   it('REJECTS a discount larger than the coupon allows', async () => {
@@ -469,7 +506,7 @@ describe('orders — integrity', () => {
     order.couponCode = 'DEPLOY10';
     order.discount = 30000000; // far beyond the Rs. 15,000 cap
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'over-discount'), order));
+    await assertFails(placeOrder(asCustomer(), 'over-discount', order));
   });
 
   it('accepts a correctly computed capped coupon discount', async () => {
@@ -479,7 +516,7 @@ describe('orders — integrity', () => {
     order.discount = 1500000;
     order.shipping = 0;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'good-coupon'), order));
+    await assertSucceeds(placeOrder(asCustomer(), 'good-coupon', order));
   });
 
   it('accepts a coupon created from the admin panel', async () => {
@@ -489,7 +526,7 @@ describe('orders — integrity', () => {
     order.discount = Math.floor((PRODUCT_PRICE * 15) / 100);
     order.shipping = 0;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'admin-coupon'), order));
+    await assertSucceeds(placeOrder(asCustomer(), 'admin-coupon', order));
   });
 
   it('accepts a coupon whose cap is stored as null (as the admin panel saves it)', async () => {
@@ -507,7 +544,7 @@ describe('orders — integrity', () => {
     order.discount = Math.floor((PRODUCT_PRICE * 20) / 100);
     order.shipping = 0;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'null-cap-coupon'), order));
+    await assertSucceeds(placeOrder(asCustomer(), 'null-cap-coupon', order));
   });
 
   it('REJECTS an inactive coupon', async () => {
@@ -524,7 +561,7 @@ describe('orders — integrity', () => {
     order.discount = 50000;
     order.shipping = 0;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'inactive-coupon'), order));
+    await assertFails(placeOrder(asCustomer(), 'inactive-coupon', order));
   });
 
   it('REJECTS a coupon below its minimum order value', async () => {
@@ -544,7 +581,7 @@ describe('orders — integrity', () => {
     order.discount = 68000;
     order.shipping = 0;
     order.total = order.subtotal - order.discount + order.shipping;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'under-minimum'), order));
+    await assertFails(placeOrder(asCustomer(), 'under-minimum', order));
   });
 
   it('accepts free shipping at or above the threshold', async () => {
@@ -562,7 +599,7 @@ describe('orders — integrity', () => {
     order.subtotal = 680000; // Rs. 6,800 >= Rs. 5,000
     order.shipping = 0;
     order.total = 680000;
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'free-ship-ok'), order));
+    await assertSucceeds(placeOrder(asCustomer(), 'free-ship-ok', order));
   });
 
   it('REJECTS more lines than the rules can verify', async () => {
@@ -578,20 +615,139 @@ describe('orders — integrity', () => {
     order.subtotal = PRODUCT_PRICE * 9;
     order.shipping = 0;
     order.total = order.subtotal;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'too-many-lines'), order));
+    await assertFails(placeOrder(asCustomer(), 'too-many-lines', order));
   });
 
   it('REJECTS an order placed on behalf of another user', async () => {
-    await assertFails(setDoc(doc(asOther(), 'orders', 'spoofed'), baseOrder()));
+    await assertFails(placeOrder(asOther(), 'spoofed', baseOrder()));
   });
 
   it('REJECTS an order from a guest', async () => {
-    await assertFails(setDoc(doc(asGuest(), 'orders', 'guest-order'), baseOrder()));
+    await assertFails(placeOrder(asGuest(), 'guest-order', baseOrder()));
   });
 
   it('REJECTS a status other than PENDING on creation', async () => {
     const order = baseOrder({ status: 'DELIVERED' });
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'prestatus'), order));
+    await assertFails(placeOrder(asCustomer(), 'prestatus', order));
+  });
+});
+
+describe('orders — stock reserved at checkout', () => {
+  const oneCheap = (quantity = 1) => {
+    const items = [
+      { productId: 'p-cheap', name: 'NETGEAR GS308', sku: 'TT-NET-GS308', unitPrice: 680000, quantity, lineTotal: 680000 * quantity },
+    ];
+    const order = baseOrder({ items });
+    order.subtotal = 680000 * quantity;
+    order.shipping = 0;
+    order.total = order.subtotal;
+    return order;
+  };
+
+  it('placing an order takes exactly its quantity out of stock', async () => {
+    const before = await stockOf('p-cheap');
+    await assertSucceeds(placeOrder(asCustomer(), 'reserve-ok', oneCheap(3)));
+    assert.equal(await stockOf('p-cheap'), before - 3);
+  });
+
+  it('REJECTS an order that claims a deduction but takes no stock', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-none', oneCheap(), { stock: false }));
+  });
+
+  it('REJECTS an old-style order without stock deducted', async () => {
+    await assertFails(
+      placeOrder(asCustomer(), 'reserve-old', { ...oneCheap(), stockDeducted: false, reservations: {} }, { stock: false }),
+    );
+  });
+
+  it('REJECTS taking more stock than the order is for', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-more', oneCheap(1), { deductions: { 'p-cheap': 5 } }));
+  });
+
+  it('REJECTS taking less stock than the order is for', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-less', oneCheap(4), { deductions: { 'p-cheap': 1 } }));
+  });
+
+  it('REJECTS ordering more than is in stock (the last unit cannot sell twice)', async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), 'products', 'p-last'), validProduct({ name: 'Last One', slug: 'last-one', sku: 'L-1', price: 680000, stock: 1 }));
+    });
+    const lastOne = (id) => {
+      const order = oneCheap();
+      order.items = [{ ...order.items[0], productId: 'p-last', name: 'Last One', sku: 'L-1' }];
+      return placeOrder(asCustomer(), id, order);
+    };
+    await assertSucceeds(lastOne('last-first'));
+    await assertFails(lastOne('last-second'));
+    assert.equal(await stockOf('p-last'), 0);
+  });
+
+  it('REJECTS a customer changing stock without placing an order', async () => {
+    await assertFails(updateDoc(doc(asCustomer(), 'products', 'p-cheap'), { stock: increment(-1) }));
+    await assertFails(updateDoc(doc(asCustomer(), 'products', 'p-cheap'), { stock: increment(-1), lastOrderId: 'made-up' }));
+  });
+
+  it('REJECTS replaying an earlier order to take stock again', async () => {
+    await assertFails(
+      updateDoc(doc(asCustomer(), 'products', 'p-cheap'), { stock: increment(-3), lastOrderId: 'reserve-ok' }),
+    );
+  });
+
+  it('REJECTS a customer adding stock', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-add', oneCheap(1), { deductions: { 'p-cheap': -1 } }));
+  });
+
+  it('REJECTS draining a product that is not on the order', async () => {
+    await assertFails(
+      placeOrder(asCustomer(), 'reserve-extra', oneCheap(), {
+        extra: [[PRODUCT_ID, { stock: increment(-1), lastOrderId: 'reserve-extra' }]],
+      }),
+    );
+  });
+
+  it('REJECTS a price change slipped into the checkout write', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-price', oneCheap(), { extra: [['p-cheap', { price: 100 }]] }));
+  });
+
+  it('REJECTS the same product on two lines', async () => {
+    const order = oneCheap();
+    order.items = [order.items[0], { ...order.items[0] }];
+    order.subtotal = 1360000;
+    order.total = 1360000;
+    await assertFails(placeOrder(asCustomer(), 'reserve-dupe', order));
+  });
+
+  it('REJECTS taking stock for another customer\'s order', async () => {
+    await assertFails(placeOrder(asOther(), 'reserve-spoof', oneCheap()));
+  });
+
+  it('REJECTS a fractional quantity', async () => {
+    const order = oneCheap(1);
+    order.items[0].quantity = 1.5;
+    order.items[0].lineTotal = 1020000;
+    order.subtotal = order.total = 1020000;
+    await assertFails(placeOrder(asCustomer(), 'reserve-fraction', order, { reservations: { 'p-cheap': 1.5 } }));
+  });
+
+  it('REJECTS a missing or too-short consignee name', async () => {
+    await assertFails(placeOrder(asCustomer(), 'reserve-noname', { ...oneCheap(), fullName: 'A' }));
+    const nameless = oneCheap();
+    delete nameless.fullName;
+    await assertFails(placeOrder(asCustomer(), 'reserve-noname-2', nameless));
+  });
+
+  it('accepts a multi-line delivery address', async () => {
+    await assertSucceeds(
+      placeOrder(asCustomer(), 'reserve-multiline', { ...oneCheap(), address: 'Office 22, Blue Area\nJinnah Avenue' }),
+    );
+  });
+
+  it('staff can still restock a product that was reserved', async () => {
+    await assertSucceeds(updateDoc(doc(asStaff(), 'products', 'p-cheap'), { stock: increment(3) }));
+  });
+
+  it('staff can still edit a product that carries a reservation marker', async () => {
+    await assertSucceeds(updateDoc(doc(asStaff(), 'products', 'p-cheap'), { name: 'NETGEAR GS308 v3' }));
   });
 });
 
@@ -757,7 +913,7 @@ describe('suspensions', () => {
   });
 
   it('control: the customer can order before being suspended', async () => {
-    await assertSucceeds(setDoc(doc(asSuspect(), 'orders', 'suspect-before'), baseOrder({ userId: SUSPECT })));
+    await assertSucceeds(placeOrder(asSuspect(), 'suspect-before', baseOrder({ userId: SUSPECT })));
   });
 
   it('an admin can suspend a customer', async () => {
@@ -777,7 +933,7 @@ describe('suspensions', () => {
   });
 
   it('a suspended user CANNOT place an order', async () => {
-    await assertFails(setDoc(doc(asSuspect(), 'orders', 'suspect-during'), baseOrder({ userId: SUSPECT })));
+    await assertFails(placeOrder(asSuspect(), 'suspect-during', baseOrder({ userId: SUSPECT })));
   });
 
   it('a suspended user cannot lift their own suspension', async () => {
@@ -790,7 +946,7 @@ describe('suspensions', () => {
 
   it('an admin can reinstate, and ordering works again', async () => {
     await assertSucceeds(deleteDoc(doc(asAdmin(), 'suspensions', SUSPECT)));
-    await assertSucceeds(setDoc(doc(asSuspect(), 'orders', 'suspect-after'), baseOrder({ userId: SUSPECT })));
+    await assertSucceeds(placeOrder(asSuspect(), 'suspect-after', baseOrder({ userId: SUSPECT })));
   });
 });
 
@@ -805,14 +961,14 @@ describe('orders — lookup budget', () => {
       lineTotal: 1000000,
     }));
 
-  it('a full 7-product order with a coupon fits in the 10-lookup limit', async () => {
+  it('a full 7-product order with a coupon and stock deduction fits the lookup limits', async () => {
     const order = baseOrder({ items: lines(7) });
     order.subtotal = 7000000; // Rs. 70,000
     order.couponCode = 'DEPLOY10';
     order.discount = 700000;
     order.shipping = 0;
     order.total = order.subtotal - order.discount;
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'budget-full'), order));
+    await assertSucceeds(placeOrder(asCustomer(), 'budget-full', order));
   });
 
   it('a full 7-product order still rejects one forged price on the last line', async () => {
@@ -823,7 +979,7 @@ describe('orders — lookup budget', () => {
     order.subtotal = 6000100;
     order.shipping = 0;
     order.total = 6000100;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'budget-forged'), order));
+    await assertFails(placeOrder(asCustomer(), 'budget-forged', order));
   });
 
   it('an 8-product order is refused', async () => {
@@ -831,7 +987,7 @@ describe('orders — lookup budget', () => {
     order.subtotal = 8000000;
     order.shipping = 0;
     order.total = 8000000;
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'budget-eight'), order));
+    await assertFails(placeOrder(asCustomer(), 'budget-eight', order));
   });
 });
 
@@ -875,9 +1031,9 @@ describe('shipping settings from the admin panel', () => {
       }),
     );
     // Rs. 6,800 is now below the threshold, so shipping applies at the NEW fee.
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'ship-old-fee'), cheapOrder(25000)));
-    await assertFails(setDoc(doc(asCustomer(), 'orders', 'ship-free'), cheapOrder(0)));
-    await assertSucceeds(setDoc(doc(asCustomer(), 'orders', 'ship-new-fee'), cheapOrder(30000)));
+    await assertFails(placeOrder(asCustomer(), 'ship-old-fee', cheapOrder(25000)));
+    await assertFails(placeOrder(asCustomer(), 'ship-free', cheapOrder(0)));
+    await assertSucceeds(placeOrder(asCustomer(), 'ship-new-fee', cheapOrder(30000)));
     // Restore for any later suite.
     await assertSucceeds(
       updateDoc(doc(asAdmin(), 'settings', 'logistics'), {

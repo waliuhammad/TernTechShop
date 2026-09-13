@@ -13,12 +13,20 @@ rules_version = '2';
 // re-derives every figure from the products collection and rejects any order
 // whose arithmetic does not match.
 //
-// Budget note: Firestore allows 10 document lookups per single-document
-// request (repeat lookups of the same document count once). An order costs one
-// per product line, plus one each for the coupon, the suspension check and the
-// shipping settings — 7 + 1 + 1 + 1 = 10 at most, which is why
-// MAX_ORDER_LINES is 7. A test places a full 7-line order with a coupon to
-// prove it fits, and an 8-line order to prove it is refused.
+// Stock is reserved at checkout. Placing an order is ONE batched write: the
+// order document plus a stock decrement on each of its products. The rules
+// tie the two together: every line's product must carry this order's id, and
+// a product may only lose stock for an order being created in the same write,
+// by the same customer, by exactly the quantity that order reserves. Stock can
+// never go below zero, so the last unit cannot be sold twice.
+//
+// Budget note: Firestore allows 10 document lookups per document written
+// (repeat lookups of the same document count once) and 20 per batch. An order
+// costs one per product line, plus one each for the coupon, the suspension
+// check and the shipping settings — 7 + 1 + 1 + 1 = 10 at most, which is why
+// MAX_ORDER_LINES is 7. Each product decrement adds one lookup of the order.
+// A test places a full 7-line order with a coupon to prove it fits, and an
+// 8-line order to prove it is refused.
 // ===========================================================================
 
 service cloud.firestore {
@@ -150,9 +158,45 @@ service cloud.firestore {
             || (d.compareAtPrice is int && d.compareAtPrice > d.price));
     }
 
+    /// A customer's checkout taking units out of stock. Allowed only as part
+    /// of creating an order (see validOrder), and only by the exact quantity
+    /// that order reserves for this product.
+    ///
+    /// Written as small functions that each receive a value once. A checkout
+    /// is one request, and Firestore stops evaluating a request's rules after
+    /// 1,000 expressions across ALL of its writes, so the order and product
+    /// rules here are kept lean. The 7-line test with a coupon guards this.
+    function validStockReservation(productId) {
+      return signedIn()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stock', 'lastOrderId'])
+        && reservationFits(productId, request.resource.data, resource.data.stock);
+    }
+
+    function reservationFits(productId, next, stockBefore) {
+      return next.stock is int
+        && next.stock >= 0
+        && stockBefore - next.stock > 0
+        && reservedByNewOrder(
+             productId,
+             stockBefore - next.stock,
+             getAfter(/databases/$(database)/documents/orders/$(next.lastOrderId)).data);
+    }
+
+    /// `createdAt == request.time` proves the order is being created in this
+    /// very write, so an older order can never be replayed to take more stock.
+    function reservedByNewOrder(productId, quantity, order) {
+      return order.userId == request.auth.uid
+        && order.createdAt == request.time
+        && order.reservations.get(productId, 0) == quantity;
+    }
+
     match /products/{productId} {
       allow read: if true;
-      allow create, update: if isStaff() && validProduct(request.resource.data);
+      allow create: if isStaff() && validProduct(request.resource.data);
+      // Reservation first, so a customer's checkout spends no lookups on the
+      // role check.
+      allow update: if validStockReservation(productId)
+        || (isStaff() && validProduct(request.resource.data));
       // Deleting breaks nothing historical (order lines are snapshots), but
       // archiving via isActive is the normal path, so deletion is admin-only.
       allow delete: if isAdmin();
@@ -293,19 +337,31 @@ service cloud.firestore {
     // Orders — the integrity-critical collection.
     // ===================================================================
 
+    /// The product as it will be once this write lands.
     /// One line re-derived from the catalog: the price the client claims must
-    /// equal the price actually stored on the product, the quantity must be
-    /// available, and the line total must be the honest product of the two.
-    function validLine(line) {
-      // No exists() before get(): lookups are budgeted (10 per request) and a
-      // get() on a missing product is an evaluation error, which denies the
-      // order anyway. Checking both would spend two lookups per line.
-      return line.keys().hasAll(['productId', 'name', 'sku', 'unitPrice', 'quantity', 'lineTotal'])
-        && line.productId is string
-        && isPositiveInt(line.quantity)
-        && line.quantity <= 99
-        && line.unitPrice == get(/databases/$(database)/documents/products/$(line.productId)).data.price
-        && line.lineTotal == line.unitPrice * line.quantity;
+    /// equal the price stored on the product, the line total must be the
+    /// honest product of the two, and the product must have been decremented
+    /// by this order in the same write (validStockReservation checks the
+    /// amount against `reservations`).
+    function validLine(line, orderId, reservations) {
+      // Kept deliberately lean (see the expression budget note above).
+      // - No exists() before getAfter(): a lookup of a missing product is an
+      //   evaluation error, which denies the order anyway.
+      // - The quantity needs no separate type or range check: it must equal
+      //   this product's reservation, and validStockReservation only accepts
+      //   a whole, positive decrement that stock can cover.
+      return line.quantity <= 99
+        && reservations.get(line.productId, 0) == line.quantity
+        && line.lineTotal == line.unitPrice * line.quantity
+        && lineMatchesProduct(
+             line.unitPrice,
+             orderId,
+             getAfter(/databases/$(database)/documents/products/$(line.productId)).data);
+    }
+
+    /// The product as it will be once this write lands.
+    function lineMatchesProduct(unitPrice, orderId, product) {
+      return unitPrice == product.price && product.get('lastOrderId', '') == orderId;
     }
 
     /// Sum of the claimed line totals, for up to maxOrderLines() lines.
@@ -317,19 +373,17 @@ service cloud.firestore {
            + (items.size() > 3 ? items[3].lineTotal : 0)
            + (items.size() > 4 ? items[4].lineTotal : 0)
            + (items.size() > 5 ? items[5].lineTotal : 0)
-           + (items.size() > 6 ? items[6].lineTotal : 0)
-           + (items.size() > 7 ? items[7].lineTotal : 0);
+           + (items.size() > 6 ? items[6].lineTotal : 0);
     }
 
-    function allLinesValid(items) {
-      return (items.size() < 1 || validLine(items[0]))
-        && (items.size() < 2 || validLine(items[1]))
-        && (items.size() < 3 || validLine(items[2]))
-        && (items.size() < 4 || validLine(items[3]))
-        && (items.size() < 5 || validLine(items[4]))
-        && (items.size() < 6 || validLine(items[5]))
-        && (items.size() < 7 || validLine(items[6]))
-        && (items.size() < 8 || validLine(items[7]));
+    function allLinesValid(items, orderId, r) {
+      return (items.size() < 1 || validLine(items[0], orderId, r))
+        && (items.size() < 2 || validLine(items[1], orderId, r))
+        && (items.size() < 3 || validLine(items[2], orderId, r))
+        && (items.size() < 4 || validLine(items[3], orderId, r))
+        && (items.size() < 5 || validLine(items[4], orderId, r))
+        && (items.size() < 6 || validLine(items[5], orderId, r))
+        && (items.size() < 7 || validLine(items[6], orderId, r));
     }
 
     /// Discount the submitted coupon code actually entitles this order to.
@@ -370,42 +424,52 @@ service cloud.firestore {
     }
 
     function expectedShipping(subtotal, discount) {
-      return (subtotal - discount) >= logistics().freeShippingThreshold
-        ? 0
-        : logistics().standardShippingFee;
+      return shippingFor(subtotal - discount, logistics());
     }
 
-    function validOrder(d) {
+    function shippingFor(amount, settings) {
+      return amount >= settings.freeShippingThreshold ? 0 : settings.standardShippingFee;
+    }
+
+    function validOrder(orderId, d) {
       return d.userId == request.auth.uid
         && d.status == 'PENDING'
         && d.paymentMethod == 'COD'
+        && d.createdAt == request.time
+        // Stock is taken in this same write, so cancelling puts it back.
+        && d.stockDeducted == true
         && d.items is list
         && d.items.size() >= 1
         && d.items.size() <= maxOrderLines()
-        && allLinesValid(d.items)
-        && isNonNegativeInt(d.subtotal)
+        // One reservation per line, so a product cannot appear on two lines.
+        && d.reservations is map
+        && d.reservations.size() == d.items.size()
+        && allLinesValid(d.items, orderId, d.reservations)
+        // Whole and non-negative by construction: every line total is a
+        // catalog price (int) times a reserved quantity (int).
         && d.subtotal == lineSum(d.items)
         && d.discount == expectedDiscount(d.get('couponCode', ''), d.subtotal)
         && d.shipping == expectedShipping(d.subtotal, d.discount)
         && d.total == d.subtotal - d.discount + d.shipping
         // Consignee details must be present and plausible.
-        && d.fullName is string && d.fullName.size() >= 3 && d.fullName.size() <= 120
-        && d.phone is string && d.phone.size() >= 10 && d.phone.size() <= 20
-        && d.address is string && d.address.size() >= 10 && d.address.size() <= 500
-        && d.city is string && d.city.size() >= 2;
+        // matches() on a non-string is an evaluation error, which denies.
+        && d.fullName.matches('(?s)^.{3,120}$')
+        && d.phone.matches('^.{10,20}$')
+        && d.address.matches('(?s)^.{10,500}$')
+        && d.city.matches('^.{2,120}$');
     }
 
     match /orders/{orderId} {
       allow read: if signedIn()
         && (resource.data.userId == request.auth.uid || isStaff());
 
-      allow create: if signedIn() && !isSuspended() && validOrder(request.resource.data);
+      allow create: if signedIn() && !isSuspended() && validOrder(orderId, request.resource.data);
 
       // A customer cannot alter an order once placed. Staff may move it
       // through its lifecycle but can never rewrite the money or the lines.
-      // `stockDeducted` records whether confirming this order has already
-      // taken its units out of inventory, so cancelling can put them back
-      // exactly once.
+      // `stockDeducted` records whether this order's units are out of
+      // inventory (true from checkout; older orders were deducted on
+      // confirmation), so cancelling can put them back exactly once.
       allow update: if isStaff()
         && request.resource.data.diff(resource.data).affectedKeys()
              .hasOnly(['status', 'adminNote', 'updatedAt', 'stockDeducted'])
