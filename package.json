@@ -11,6 +11,7 @@
     "emulators": "firebase emulators:start --project demo-terntech --only auth,firestore",
     "test:rules": "node --test tests/rules.test.mjs",
     "seed": "tsx scripts/seed-firestore.ts",
+    "import-products": "tsx scripts/import-products.ts",
     "dev:emulator": "vite --mode emulator"
   },
   "dependencies": {

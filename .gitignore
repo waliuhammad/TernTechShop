@@ -35,3 +35,14 @@ dist-ssr
 firebase-debug.log*
 firestore-debug.log*
 ui-debug.log*
+
+# Product photos live in Cloudinary once imported; keep them out of Git.
+# (info.txt, product.json and .uploads.json are committed.)
+product-assets/**/*.jpg
+product-assets/**/*.jpeg
+product-assets/**/*.png
+product-assets/**/*.webp
+product-assets/**/*.avif
+product-assets/**/*.JPG
+product-assets/**/*.JPEG
+product-assets/**/*.PNG

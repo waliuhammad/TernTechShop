@@ -1,0 +1,26 @@
+# Copy this file into each product folder and fill it in.
+# Lines starting with # are ignored. Leave anything you don't know blank.
+
+# Selling price in rupees (required)
+price:
+
+# Units you have in stock (required)
+stock:
+
+# Old / "was" price in rupees, if it's on sale (optional)
+compare at price:
+
+# Exact model name, if you know it (optional — Claude identifies it from the photos otherwise)
+name:
+
+# Brand (optional)
+brand:
+
+# Category (optional): Processors, Graphics Cards, Motherboards, Storage, Peripherals, Networking
+category:
+
+# Show on the homepage as featured? yes / no (optional, default no)
+featured:
+
+# Anything else Claude should know: condition, warranty, colour, what's in the box… (optional)
+notes:
