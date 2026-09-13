@@ -430,7 +430,10 @@ service cloud.firestore {
     function validOrder(orderId, d) {
       return d.userId == request.auth.uid
         && d.status == 'PENDING'
-        && d.paymentMethod == 'COD'
+        // Online orders start unpaid. Only the payment server (Admin SDK,
+        // which bypasses these rules) can mark one paid.
+        && d.paymentMethod in ['COD', 'JAZZCASH', 'EASYPAISA']
+        && d.get('paymentStatus', 'NONE') == (d.paymentMethod == 'COD' ? 'NONE' : 'UNPAID')
         && d.createdAt == request.time
         // Stock is taken in this same write, so cancelling puts it back.
         && d.stockDeducted == true
@@ -476,6 +479,16 @@ service cloud.firestore {
             && request.resource.data.get('adminNote', '').size() <= 1000);
 
       allow delete: if false;
+    }
+
+    // ===================================================================
+    // Payments — one document per wallet payment attempt, written only by the
+    // payment server (Admin SDK). Staff can read them to reconcile with the
+    // JazzCash / Easypaisa merchant portals.
+    // ===================================================================
+    match /payments/{txnRef} {
+      allow read: if isStaff();
+      allow write: if false;
     }
 
     // ===================================================================

@@ -751,6 +751,67 @@ describe('orders — stock reserved at checkout', () => {
   });
 });
 
+describe('orders — online payment', () => {
+  const online = (paymentMethod, overrides = {}) => {
+    const items = [
+      { productId: 'p-cheap', name: 'NETGEAR GS308', sku: 'TT-NET-GS308', unitPrice: 680000, quantity: 1, lineTotal: 680000 },
+    ];
+    const order = baseOrder({ items, paymentMethod, paymentStatus: 'UNPAID', ...overrides });
+    order.subtotal = 680000;
+    order.shipping = 0;
+    order.total = 680000;
+    return order;
+  };
+
+  it('accepts an unpaid JazzCash order', async () => {
+    await assertSucceeds(placeOrder(asCustomer(), 'pay-jazz', online('JAZZCASH')));
+  });
+
+  it('accepts an unpaid Easypaisa order', async () => {
+    await assertSucceeds(placeOrder(asCustomer(), 'pay-easy', online('EASYPAISA')));
+  });
+
+  it('REJECTS an online order that claims to be paid already', async () => {
+    await assertFails(placeOrder(asCustomer(), 'pay-forged', online('JAZZCASH', { paymentStatus: 'PAID' })));
+  });
+
+  it('REJECTS an online order with no payment status', async () => {
+    const order = online('EASYPAISA');
+    delete order.paymentStatus;
+    await assertFails(placeOrder(asCustomer(), 'pay-nostatus', order));
+  });
+
+  it('REJECTS a COD order carrying a payment status', async () => {
+    await assertFails(placeOrder(asCustomer(), 'pay-cod-status', online('COD', { paymentStatus: 'PAID' })));
+  });
+
+  it('REJECTS an unknown payment method', async () => {
+    await assertFails(placeOrder(asCustomer(), 'pay-unknown', online('BITCOIN')));
+  });
+
+  it('a customer cannot mark their order paid', async () => {
+    await assertFails(updateDoc(doc(asCustomer(), 'orders', 'pay-jazz'), { paymentStatus: 'PAID' }));
+  });
+
+  it('staff cannot mark an order paid either (only the payment server can)', async () => {
+    await assertFails(updateDoc(doc(asStaff(), 'orders', 'pay-jazz'), { paymentStatus: 'PAID' }));
+  });
+
+  it('staff can still move an online order through its lifecycle', async () => {
+    await assertSucceeds(updateDoc(doc(asStaff(), 'orders', 'pay-easy'), { status: 'CONFIRMED' }));
+  });
+
+  it('payment attempts are readable by staff only, and writable by nobody', async () => {
+    await testEnv.withSecurityRulesDisabled(async (ctx) => {
+      await setDoc(doc(ctx.firestore(), 'payments', 'T123'), { orderId: 'pay-jazz', userId: CUSTOMER, status: 'PAID' });
+    });
+    await assertSucceeds(getDoc(doc(asStaff(), 'payments', 'T123')));
+    await assertFails(getDoc(doc(asCustomer(), 'payments', 'T123')));
+    await assertFails(setDoc(doc(asCustomer(), 'payments', 'T999'), { orderId: 'pay-jazz', status: 'PAID' }));
+    await assertFails(setDoc(doc(asStaff(), 'payments', 'T999'), { orderId: 'pay-jazz', status: 'PAID' }));
+  });
+});
+
 describe('orders — access and lifecycle', () => {
   it('is readable by the customer who placed it', async () => {
     await assertSucceeds(getDoc(doc(asCustomer(), 'orders', 'ok-1')));
@@ -980,6 +1041,16 @@ describe('orders — lookup budget', () => {
     order.shipping = 0;
     order.total = 6000100;
     await assertFails(placeOrder(asCustomer(), 'budget-forged', order));
+  });
+
+  it('a full 7-product ONLINE order with a coupon also fits', async () => {
+    const order = baseOrder({ items: lines(7), paymentMethod: 'EASYPAISA', paymentStatus: 'UNPAID' });
+    order.subtotal = 7000000;
+    order.couponCode = 'DEPLOY10';
+    order.discount = 700000;
+    order.shipping = 0;
+    order.total = order.subtotal - order.discount;
+    await assertSucceeds(placeOrder(asCustomer(), 'budget-full-online', order));
   });
 
   it('an 8-product order is refused', async () => {
