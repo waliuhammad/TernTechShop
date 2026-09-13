@@ -3,8 +3,10 @@
 A multi-page React storefront recreating the design and shopping experience of
 `terntechshop.com`, backed by **Firebase Authentication** and **Cloud Firestore**.
 
-It still builds to a static `dist/` folder for Hostinger — Firebase is a client SDK talking to
-Google-hosted infrastructure, so there is no server to run.
+The storefront builds to a static `dist/` folder for Hostinger — Firebase is a client SDK talking
+to Google-hosted infrastructure. The one exception is **JazzCash / Easypaisa payments**, which run
+through a small Node payment server in [`server/`](server) (a second Hostinger web app), because
+merchant credentials must never reach the browser.
 
 **Stack:** Vite 8 · React 19 · TypeScript (strict) · Tailwind CSS v4 · React Router 7 ·
 Firebase 12 (Auth + Firestore) · Framer Motion · Lucide.
@@ -24,6 +26,7 @@ npm run dev             # http://localhost:5173
 | **[docs/FIREBASE-SETUP.md](docs/FIREBASE-SETUP.md)** | Connecting your Firebase project — do this first |
 | **[docs/CLOUDINARY-SETUP.md](docs/CLOUDINARY-SETUP.md)** | Turning on product image uploads (free) |
 | **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** | Uploading `dist/` to Hostinger |
+| **[docs/PAYMENTS-SETUP.md](docs/PAYMENTS-SETUP.md)** | JazzCash & Easypaisa: payment server, keys, going live |
 | **[docs/SPEC.md](docs/SPEC.md)** | Design reference, page-by-page layout |
 
 Without a `.env` the site still runs on the bundled catalog, with sign-in disabled.
@@ -62,6 +65,7 @@ Without a `.env` the site still runs on the bundled catalog, with sign-in disabl
 | **Order history** | Per-account, with status |
 | **Search / filters / sort / pagination** | All mirrored to the URL |
 | **Coupons** | Looked up by exact code, never listable; re-validated server-side on every order |
+| **Payments** | Cash on Delivery, JazzCash or Easypaisa wallet. Wallet orders update live to Paid; unpaid ones cancel after 30 minutes and return their stock |
 | **Reviews** | One per customer per product; hidden until staff approve; rating recalculated from approved reviews |
 | **Contact form** | Saved to Firestore, shown in Admin → Inbox |
 | **Warranty registration** | One registration per serial number, reviewed in Admin → Inbox |
@@ -92,7 +96,7 @@ granting yourself a role; publishing your own review without approval; reading s
 warranty registration or contact message; and changing a product's stock except by placing a
 genuine order for it.
 
-**All of this is tested.** `npm run test:rules` runs 166 cases against the emulator, including
+**All of this is tested.** `npm run test:rules` runs 177 cases against the emulator, including
 each attack above.
 
 ---
@@ -105,7 +109,7 @@ each attack above.
 | Unconfirmed orders hold stock | Stock is reserved at checkout, so a fake COD order keeps its units out of stock until staff cancel it |
 | Image uploads via Cloudinary (unsigned) | The upload preset name is public; someone could upload images to your account, but not read or delete existing ones |
 | Suspension signs out, not disables | A suspended customer is signed straight back out with a message; the rules refuse their cart, orders and reviews regardless. Disabling the Firebase account itself needs a server |
-| No online payments | Cash on Delivery only |
+| Wallets, not cards | JazzCash and Easypaisa mobile-wallet payments; no debit/credit cards. Refunds are made in the merchant portals |
 | SEO pages refresh on deploy | Public pages and products are pre-rendered at build time from live Firestore data. Products added or edited later are still served, but their crawler copy and sitemap entry update on the next **Redeploy** |
 
 Details and remedies: [docs/FIREBASE-SETUP.md](docs/FIREBASE-SETUP.md#known-limits).
@@ -146,6 +150,9 @@ firestore.indexes.json   Composite indexes (deployed with the rules)
 firebase.json            Emulator configuration
 scripts/
   seed-firestore.ts      Catalog upload + admin grant (Admin SDK)
+  prerender.ts           Post-build SEO pages, sitemap.xml, robots.txt
+server/                  Payment server (Express): JazzCash + Easypaisa wallet API,
+                         deployed separately — see docs/PAYMENTS-SETUP.md
 tests/
   rules.test.mjs         Security rules tests
 public/
@@ -158,7 +165,7 @@ src/
   lib/                   firebase, money, coupons, catalog, storage, icons, utils
   hooks/                 useAsync (admin data loading)
   services/              Firestore access: catalog, cart, wishlist, orders, admin,
-                         reviews, inbox, addresses, settings
+                         reviews, inbox, addresses, settings, payments
   pages/                 One file per route; admin/ for the admin panel
   types/                 Shared TypeScript types
 ```

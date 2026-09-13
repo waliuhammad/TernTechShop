@@ -104,6 +104,9 @@ Upload into `public_html/shop/`.
 
 ## Updating the site later
 
+**The payment server** (`server/`) is a separate Hostinger web app at `api.terntechshop.com` and is
+deployed on its own — see [PAYMENTS-SETUP.md](PAYMENTS-SETUP.md).
+
 **Products, prices, stock, categories, coupons, shipping settings, reviews and messages** live in
 Firestore — manage them in the admin panel (`/admin`) and the change is live immediately. No
 rebuild or upload needed.
