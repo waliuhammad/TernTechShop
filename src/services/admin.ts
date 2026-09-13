@@ -89,16 +89,17 @@ export class InsufficientStockError extends Error {
 /**
  * Moves an order to a new status and keeps inventory consistent, atomically.
  *
- * - First move into a committed status (e.g. PENDING -> CONFIRMED) deducts
- *   each line's quantity from stock, and fails if any product is short.
+ * - Orders placed from the storefront already had their stock taken at
+ *   checkout (`stockDeducted: true`), so confirming them changes no stock.
+ * - Older orders placed before checkout reservation: the first move into a
+ *   committed status deducts each line, and fails if any product is short.
  * - Cancelling an order whose stock was deducted puts the units back.
  * - `stockDeducted` on the order makes both operations happen exactly once,
  *   even if the button is pressed twice or two staff act at the same time:
  *   the transaction re-reads the order and retries on conflict.
  *
- * This is where overselling is actually prevented. Firestore rules cannot
- * decrement stock when a customer orders, so reservation happens here, when
- * staff confirm — two orders for the last unit cannot both be confirmed.
+ * Overselling is prevented at checkout: the rules refuse an order whose
+ * stock decrement would take any product below zero.
  */
 export async function updateOrderStatus(
   orderId: string,
@@ -233,23 +234,37 @@ async function assertSlugAvailable(slug: string, exceptId: string | null) {
  * Creates (productId = null) or updates a product. Returns the id.
  * Ratings and the date added are preserved on edit.
  */
-export async function saveProduct(productId: string | null, input: ProductInput): Promise<string> {
+/**
+ * `loadedStock` is the stock figure the editor form opened with. Customers'
+ * orders take stock while the form is open, so if staff left the field alone
+ * the live figure is kept rather than overwritten with the stale one.
+ */
+export async function saveProduct(
+  productId: string | null,
+  input: ProductInput,
+  loadedStock?: number,
+): Promise<string> {
   const db = getDbOrThrow();
   await assertSlugAvailable(input.slug, productId);
 
   const ref = productId ? doc(db, 'products', productId) : doc(collection(db, 'products'));
-  const existing = productId ? await getDoc(ref) : null;
-  const previous = existing?.exists() ? existing.data() : null;
 
-  await setDoc(ref, {
-    ...input,
-    // Firestore rules treat an absent compareAtPrice as "not on sale"; store
-    // null explicitly so clearing a sale price actually clears it.
-    compareAtPrice: input.compareAtPrice,
-    rating: Number(previous?.rating ?? 0),
-    reviewCount: Number(previous?.reviewCount ?? 0),
-    addedAt: String(previous?.addedAt ?? new Date().toISOString().slice(0, 10)),
-    updatedAt: serverTimestamp(),
+  await runTransaction(db, async (tx) => {
+    const existing = productId ? await tx.get(ref) : null;
+    const previous = existing?.exists() ? existing.data() : null;
+    const stockUntouched = previous && loadedStock !== undefined && input.stock === loadedStock;
+
+    tx.set(ref, {
+      ...input,
+      stock: stockUntouched ? Number(previous.stock ?? input.stock) : input.stock,
+      // Firestore rules treat an absent compareAtPrice as "not on sale"; store
+      // null explicitly so clearing a sale price actually clears it.
+      compareAtPrice: input.compareAtPrice,
+      rating: Number(previous?.rating ?? 0),
+      reviewCount: Number(previous?.reviewCount ?? 0),
+      addedAt: String(previous?.addedAt ?? new Date().toISOString().slice(0, 10)),
+      updatedAt: serverTimestamp(),
+    });
   });
 
   return ref.id;

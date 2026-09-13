@@ -116,7 +116,7 @@ export default function AdminOrderDetail() {
               'flex items-center gap-1.5 rounded-full px-3 py-1 font-mono text-[10px] font-bold uppercase',
               order.stockDeducted ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-500',
             )}
-            title="Stock is deducted when an order is first confirmed, and returned if it is cancelled."
+            title="Stock is taken when the customer places the order, and returned if it is cancelled."
           >
             {order.stockDeducted ? <PackageCheck size={12} /> : <PackageOpen size={12} />}
             {order.stockDeducted ? 'Stock deducted' : 'Stock not deducted'}
@@ -211,8 +211,9 @@ export default function AdminOrderDetail() {
 
             {status === 'PENDING' && (
               <p className="text-xs leading-relaxed font-medium text-slate-400">
-                Confirming deducts each line from stock. If a product has sold out since this order
-                was placed, confirmation is refused — call the customer first.
+                {order.stockDeducted
+                  ? 'Stock for this order is already reserved. Cancelling returns it to stock.'
+                  : 'Placed before stock reservation: confirming deducts each line from stock, and is refused if a product has sold out.'}
               </p>
             )}
 

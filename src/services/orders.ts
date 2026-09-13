@@ -1,13 +1,15 @@
 import {
   collection,
   doc,
+  getDoc,
   getDocs,
+  increment,
   limit,
   orderBy,
   query,
   serverTimestamp,
-  setDoc,
   where,
+  writeBatch,
   type Timestamp,
 } from 'firebase/firestore';
 import { getDbOrThrow } from '@/lib/firebase';
@@ -20,6 +22,10 @@ import type { OrderTotals, ResolvedCartLine, ShippingDetails } from '@/types';
  * accepted: every unit price is checked against the live product, the totals
  * are recomputed, and any coupon is looked up server-side. A write that does
  * not add up is rejected, so the figures below are a proposal, not a promise.
+ *
+ * Stock is reserved at the same moment: the order and a decrement of each
+ * product's stock are one batched write, so either both land or neither does,
+ * and the rules refuse any decrement that would take stock below zero.
  */
 
 const MANIFEST_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -35,8 +41,9 @@ function generateManifestId(): string {
 }
 
 /**
- * Rules can only verify this many lines within Firestore's 10-lookup budget:
- * 7 products + coupon + suspension check + shipping settings.
+ * Rules can only verify this many lines within Firestore's per-request limits
+ * (10 lookups per document: 7 products + coupon + suspension check + shipping
+ * settings; and 1,000 evaluated expressions for the whole checkout write).
  */
 export const MAX_ORDER_LINES = 7;
 
@@ -71,6 +78,23 @@ export interface OrderDoc {
   createdAt: string;
   stockDeducted?: boolean;
   adminNote?: string;
+}
+
+/** A product that no longer has enough stock for the cart. */
+export class OutOfStockError extends Error {
+  productName: string;
+  available: number;
+
+  constructor(productName: string, available: number) {
+    super(
+      available > 0
+        ? `Only ${available} x ${productName} left in stock. Reduce the quantity in your cart and try again.`
+        : `${productName} has just sold out. Remove it from your cart to continue.`,
+    );
+    this.name = 'OutOfStockError';
+    this.productName = productName;
+    this.available = available;
+  }
 }
 
 export class OrderRejectedError extends Error {
@@ -110,6 +134,17 @@ export async function placeOrder(input: PlaceOrderInput): Promise<string> {
   const manifestId = generateManifestId();
   const db = getDbOrThrow();
 
+  // Fresh stock, so a shortfall gets a specific message instead of a generic
+  // refusal. The batch below is still what actually guarantees it.
+  const productSnaps = await Promise.all(lines.map((line) => getDoc(doc(db, 'products', line.product.id))));
+  lines.forEach((line, index) => {
+    const snap = productSnaps[index];
+    const available = snap?.exists() ? Number(snap.data().stock ?? 0) : 0;
+    if (available < line.quantity) throw new OutOfStockError(line.product.name, available);
+  });
+
+  const orderRef = doc(collection(db, 'orders'));
+
   const payload = {
     manifestId,
     userId,
@@ -136,13 +171,25 @@ export async function placeOrder(input: PlaceOrderInput): Promise<string> {
     city: shipping.city,
     notes: shipping.notes,
     createdAt: serverTimestamp(),
+    stockDeducted: true,
+    reservations: Object.fromEntries(lines.map((line) => [line.product.id, line.quantity])),
   };
 
+  const batch = writeBatch(db);
+  batch.set(orderRef, payload);
+  for (const line of lines) {
+    batch.update(doc(db, 'products', line.product.id), {
+      stock: increment(-line.quantity),
+      lastOrderId: orderRef.id,
+    });
+  }
+
   try {
-    await setDoc(doc(collection(db, 'orders')), payload);
+    await batch.commit();
   } catch (error) {
-    // `permission-denied` here means the rules rejected the arithmetic — in
-    // practice, a price changed between browsing and checkout.
+    // `permission-denied` here means the rules rejected the order — in
+    // practice, a price changed or the last units sold between the stock
+    // check above and this write.
     if ((error as { code?: string })?.code === 'permission-denied') {
       throw new OrderRejectedError(
         'This manifest could not be authorized. A component price or stock level changed — reload your cart and try again.',

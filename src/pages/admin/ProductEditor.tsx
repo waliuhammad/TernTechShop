@@ -182,7 +182,7 @@ function EditorForm({ productId, product }: { productId: string | null; product:
     setSaving(true);
     setSaveError('');
     try {
-      await saveProduct(productId, input);
+      await saveProduct(productId, input, product?.stock);
       await refresh();
       notify(productId ? `${input.name} updated.` : `${input.name} created.`);
       navigate('/admin/products');

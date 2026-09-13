@@ -4,6 +4,7 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Seo } from '@/components/ui/Seo';
 import { useAuth, type UserProfile } from '@/context/AuthContext';
 import { useCart } from '@/context/CartContext';
+import { useCatalog } from '@/context/CatalogContext';
 import { useToast } from '@/context/ToastContext';
 import { useSettings } from '@/context/SettingsContext';
 import { useAsync } from '@/hooks/useAsync';
@@ -11,7 +12,7 @@ import { fetchAddresses } from '@/services/addresses';
 import { evaluateCoupon, fetchCoupon } from '@/lib/coupons';
 import { formatPrice } from '@/lib/money';
 import { cn } from '@/lib/utils';
-import { MAX_ORDER_LINES, OrderRejectedError, placeOrder } from '@/services/orders';
+import { MAX_ORDER_LINES, OrderRejectedError, OutOfStockError, placeOrder } from '@/services/orders';
 import type { Coupon, ShippingDetails } from '@/types';
 
 const STEPS = ['Shipping', 'Payment', 'Review'] as const;
@@ -119,6 +120,7 @@ interface CheckoutFlowProps {
 
 function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
   const { lines, getTotals, clear } = useCart();
+  const { refresh: refreshCatalog } = useCatalog();
   const { saveProfile } = useAuth();
   const { notify } = useToast();
   const navigate = useNavigate();
@@ -241,10 +243,12 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
       // Only empty the cart once the order has actually been accepted by the
       // security rules — a rejected write must leave the manifest intact.
       await clear();
+      // Stock just changed; don't show the old counts on the next page.
+      void refreshCatalog();
       navigate(`/order-confirmation/${manifestId}`, { replace: true });
     } catch (error) {
       const message =
-        error instanceof OrderRejectedError
+        error instanceof OrderRejectedError || error instanceof OutOfStockError
           ? error.message
           : 'Could not authorize the deployment. Please try again.';
       setSubmitError(message);
