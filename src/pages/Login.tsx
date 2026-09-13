@@ -2,7 +2,7 @@ import { CheckCircle2, Lock, Mail, TriangleAlert, User } from 'lucide-react';
 import { useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Seo } from '@/components/ui/Seo';
-import { authErrorMessage, useAuth } from '@/context/AuthContext';
+import { authErrorMessage, SUSPENDED_MESSAGE, useAuth } from '@/context/AuthContext';
 import { useToast } from '@/context/ToastContext';
 import { isFirebaseConfigured } from '@/lib/firebase';
 import { cn } from '@/lib/utils';
@@ -12,7 +12,7 @@ type Mode = 'login' | 'register' | 'reset';
 const MIN_PASSWORD_LENGTH = 8;
 
 export default function Login() {
-  const { user, loading, signIn, signUp, resetPassword } = useAuth();
+  const { user, loading, accountSuspended, signIn, signUp, resetPassword } = useAuth();
   const { notify } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,7 +33,7 @@ export default function Login() {
   if (!isFirebaseConfigured) {
     return (
       <div className="flex min-h-[70vh] items-center justify-center px-4 py-16">
-        <Seo title="Login Hub" />
+        <Seo noindex title="Login Hub" />
         <div className="max-w-md space-y-4 rounded-3xl border border-amber-200 bg-amber-50 p-8 text-center">
           <TriangleAlert className="mx-auto text-amber-500" size={32} />
           <h1 className="text-xl font-black text-amber-900">Authentication not configured</h1>
@@ -100,7 +100,7 @@ export default function Login() {
 
   return (
     <div className="flex min-h-[80vh] items-center justify-center bg-slate-50 px-4 py-16 sm:px-6">
-      <Seo
+      <Seo noindex
         title={mode === 'register' ? 'New Registration' : 'Login Hub'}
         description="Your professional hardware hub awaits."
       />
@@ -133,6 +133,12 @@ export default function Login() {
                 : 'Your professional hardware hub awaits.'}
           </p>
         </div>
+
+        {accountSuspended && !error && (
+          <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm font-bold text-rose-800">
+            {SUSPENDED_MESSAGE}
+          </p>
+        )}
 
         {resetSent ? (
           <div className="space-y-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-6 text-center">

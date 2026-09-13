@@ -92,7 +92,7 @@ export default function AdminCustomers() {
     await run(
       target.uid,
       () => suspendCustomer(target.uid, reason, user.uid),
-      `${target.name || target.email} suspended — they can no longer order.`,
+      `${target.name || target.email} suspended — they can no longer sign in or order.`,
     );
     setReason('');
   };
@@ -117,8 +117,8 @@ export default function AdminCustomers() {
             Suspend {suspending.name || suspending.email}
           </h2>
           <p className="text-sm text-slate-500">
-            They'll still be able to sign in and see past orders, but adding to cart and checkout
-            will be refused. You can reinstate them at any time.
+            They'll be signed out and told their account is suspended. Adding to cart, checkout and
+            reviews are also refused by the database. You can reinstate them at any time.
           </p>
           <label className="block space-y-1.5">
             <span className="terminal-label text-slate-500">Reason (internal, optional)</span>

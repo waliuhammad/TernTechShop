@@ -12,6 +12,8 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { siteConfig } from '@/config/site';
+import { useToast } from '@/context/ToastContext';
 import { getAuthOrThrow, getDbOrThrow, isFirebaseConfigured } from '@/lib/firebase';
 
 export interface UserProfile {
@@ -32,6 +34,8 @@ interface AuthContextValue {
   isAdmin: boolean;
   /** Set by an admin from the panel. Cart and ordering are blocked by the rules. */
   suspended: boolean;
+  /** True after a suspended customer was signed out, so the login page can explain why. */
+  accountSuspended: boolean;
   /** True until the first auth state resolution — gate redirects on this. */
   loading: boolean;
   signUp: (email: string, password: string, name: string) => Promise<void>;
@@ -52,9 +56,18 @@ const EMPTY_PROFILE: UserProfile = { name: '', email: '', phone: '', city: '', a
  * Sign-in failures are deliberately vague about *which* half was wrong, so the
  * form cannot be used to discover which email addresses have accounts.
  */
+export const SUSPENDED_MESSAGE = `This account has been suspended. Contact ${siteConfig.contact.email} if you think this is a mistake.`;
+
+/** Thrown by signIn when the account exists but an admin has suspended it. */
+class AccountSuspendedError extends Error {
+  code = 'app/account-suspended';
+}
+
 export function authErrorMessage(error: unknown): string {
   const code = (error as { code?: string })?.code ?? '';
   switch (code) {
+    case 'app/account-suspended':
+      return SUSPENDED_MESSAGE;
     case 'auth/email-already-in-use':
       return 'An account already exists for that email. Try signing in instead.';
     case 'auth/invalid-email':
@@ -83,7 +96,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [role, setRole] = useState<UserRole>('CUSTOMER');
   const [suspended, setSuspended] = useState(false);
+  const [accountSuspended, setAccountSuspended] = useState(false);
   const [loading, setLoading] = useState(isFirebaseConfigured);
+  const { notify } = useToast();
 
   useEffect(() => {
     if (!isFirebaseConfigured) return undefined;
@@ -112,19 +127,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         getDoc(doc(db, 'suspensions', nextUser.uid)).catch(() => null),
       ]);
 
+      const nextRole = roleSnap?.exists() ? (roleSnap.data().role as UserRole) : 'CUSTOMER';
+      const isCustomer = nextRole !== 'ADMIN' && nextRole !== 'STAFF';
+
+      // Firebase Auth can only disable an account from a server, so a suspended
+      // customer is signed straight back out here. The rules refuse their cart,
+      // orders and reviews regardless, so this is the visible half of the block.
+      if (isCustomer && suspensionSnap?.exists()) {
+        setAccountSuspended(true);
+        notify(SUSPENDED_MESSAGE, 'error');
+        await firebaseSignOut(getAuthOrThrow());
+        return;
+      }
+
       setProfile(
         profileSnap?.exists()
           ? ({ ...EMPTY_PROFILE, ...profileSnap.data() } as UserProfile)
           : { ...EMPTY_PROFILE, name: nextUser.displayName ?? '', email: nextUser.email ?? '' },
       );
 
-      const nextRole = roleSnap?.exists() ? (roleSnap.data().role as UserRole) : 'CUSTOMER';
-      setRole(nextRole === 'ADMIN' || nextRole === 'STAFF' ? nextRole : 'CUSTOMER');
-      setSuspended(Boolean(suspensionSnap?.exists()));
+      setRole(isCustomer ? 'CUSTOMER' : nextRole);
+      setSuspended(false);
       setUser(nextUser);
       setLoading(false);
     });
-  }, []);
+  }, [notify]);
 
   const signUp = useCallback<AuthContextValue['signUp']>(async (email, password, name) => {
     const credential = await createUserWithEmailAndPassword(
@@ -144,7 +171,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const signIn = useCallback<AuthContextValue['signIn']>(async (email, password) => {
-    await signInWithEmailAndPassword(getAuthOrThrow(), email.trim(), password);
+    setAccountSuspended(false);
+    const credential = await signInWithEmailAndPassword(getAuthOrThrow(), email.trim(), password);
+    const [roleSnap, suspensionSnap] = await Promise.all([
+      getDoc(doc(getDbOrThrow(), 'roles', credential.user.uid)).catch(() => null),
+      getDoc(doc(getDbOrThrow(), 'suspensions', credential.user.uid)).catch(() => null),
+    ]);
+    if (!roleSnap?.exists() && suspensionSnap?.exists()) {
+      setAccountSuspended(true);
+      await firebaseSignOut(getAuthOrThrow());
+      throw new AccountSuspendedError(SUSPENDED_MESSAGE);
+    }
   }, []);
 
   const signOut = useCallback(async () => {
@@ -185,6 +222,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       isStaff: role === 'ADMIN' || role === 'STAFF',
       isAdmin: role === 'ADMIN',
       suspended,
+      accountSuspended,
       loading,
       signUp,
       signIn,
@@ -193,7 +231,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       saveProfile,
       changePassword,
     }),
-    [user, profile, role, suspended, loading, signUp, signIn, signOut, resetPassword, saveProfile, changePassword],
+    [user, profile, role, suspended, accountSuspended, loading, signUp, signIn, signOut, resetPassword, saveProfile, changePassword],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
