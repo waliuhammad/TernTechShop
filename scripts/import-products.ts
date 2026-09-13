@@ -69,8 +69,8 @@ interface ProductJson {
   brand: string;
   category: string;
   tier: (typeof TIERS)[number];
-  /** Rupees, as written by a person. Stored as paisa. */
-  price: number;
+  /** Rupees, as written by a person. Stored as paisa. null = still waiting for a verified price. */
+  price: number | null;
   compareAtPrice?: number | null;
   stock: number;
   shortDescription: string;
@@ -107,7 +107,9 @@ function listImages(folder: string): string[] {
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
 }
 
-function problemsWith(product: ProductJson, images: string[], folder: string, info: Record<string, string>): string[] {
+type PricedProduct = ProductJson & { price: number };
+
+function problemsWith(product: PricedProduct, images: string[], folder: string, info: Record<string, string>): string[] {
   const problems: string[] = [];
   const text = (value: unknown, min: number, max: number) => typeof value === 'string' && value.trim().length >= min && value.length <= max;
 
@@ -197,7 +199,7 @@ async function main() {
   const categories = new Map(categorySnap.docs.map((doc) => [String(doc.data().name), doc.data().isActive !== false]));
 
   let failed = 0;
-  const ready: Array<{ folder: string; id: string; product: ProductJson; images: string[]; exists: boolean }> = [];
+  const ready: Array<{ folder: string; id: string; product: PricedProduct; images: string[]; exists: boolean }> = [];
 
   console.log(`${COMMIT ? 'IMPORTING' : 'CHECKING (nothing is uploaded or written — add --commit to import)'}\n`);
 
@@ -212,14 +214,22 @@ async function main() {
       continue;
     }
 
-    let product: ProductJson;
+    let parsed: ProductJson;
     try {
-      product = JSON.parse(readFileSync(jsonPath, 'utf8')) as ProductJson;
+      parsed = JSON.parse(readFileSync(jsonPath, 'utf8')) as ProductJson;
     } catch (error) {
       console.log(`  ✗  ${name}: product.json is not valid JSON — ${(error as Error).message}`);
       failed += 1;
       continue;
     }
+
+    // A listing whose price hasn't been verified yet waits, rather than blocking
+    // every other product. Add the price to product.json (and info.txt) to import it.
+    if (parsed.price === null || parsed.price === undefined) {
+      console.log(`  …  ${name}: waiting for a verified price (${parsed.name ?? 'unnamed'})`);
+      continue;
+    }
+    const product = parsed as PricedProduct;
 
     const problems = problemsWith(product, images, folder, readInfo(folder));
     if (product.category && !categories.has(product.category)) {
