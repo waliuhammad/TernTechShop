@@ -1,8 +1,8 @@
-price: 
+price: 449
 stock: 10
 compare at price: 
 name: Ultra-Thin Transparent iPhone Case
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — the iPhone model cannot be confirmed from the photo.
+notes: Estimated price — no exact listing for this product. clear iPhone cases list at Rs. 157 (thin TPU) to Rs. 549 (shockproof) on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/7-8-i409529816.html | https://www.daraz.pk/products/11-tpu-i479533133.html

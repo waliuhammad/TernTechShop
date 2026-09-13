@@ -1,8 +1,8 @@
-price: 
+price: 4499
 stock: 16
 compare at price: 
 name: Foldable Smartphone Gimbal Stabilizer with Tripod
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — the model and number of stabilisation axes cannot be confirmed from the photo. Phone gimbals range from about Rs. 4,450 to 7,000+.
+notes: Estimated price — no exact listing for this product. foldable phone gimbal with tripod lists at Rs. 4,450 (was Rs. 6,000) on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/gimbal-stabilizer-for-mobile-handheld-stabilizer-wireless-selfie-stick-anti-shake-selfie-stick-selfie-stick-tripod-vlogging-stand-lazy-phone-holder-desktop-smooth-shake-free-video-portable-gimbal-stabilizer-foldable-selfie-stick-with-tripod-remote-i1962907460.html

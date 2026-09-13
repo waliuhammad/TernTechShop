@@ -1,8 +1,8 @@
-price: 
+price: 1999
 stock: 16
 compare at price: 
 name: P5 Lite Portable Power Bank
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — the P5 Lite brand and capacity could not be confirmed from the photo and no matching listing was found.
+notes: Estimated price — no exact listing for this product. slim branded-style power banks with LED indicators list at Rs. 1,756–2,474 on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/10000mah-i1947457065.html | https://www.daraz.pk/products/1-21a-10000mah20000mah-c-4-21a-1-i646702662.html

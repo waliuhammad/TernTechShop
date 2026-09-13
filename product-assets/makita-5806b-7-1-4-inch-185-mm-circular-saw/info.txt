@@ -1,8 +1,8 @@
-price: 
+price: 29999
 stock: 14
 compare at price: 
 name: Makita 5806B 7-1/4 inch (185 mm) Circular Saw
 brand: Makita
 category: Peripherals
 featured: yes
-notes: Needs price verification — no Pakistani listing was found for the Makita 5806B. Specs from Makita (makita.com.sg).
+notes: Estimated price — no exact listing for this product. generic 185 mm circular saws list at Rs. 11,999–21,999 on Daraz; a genuine Makita commands a premium. Check against your Makita dealer price. References checked 13 Sep 2026. | https://www.daraz.pk/products/solid-7-inch-circular-saw-185mm-1450-watts-sd-610-i269162358.html | https://makita.com.sg/product/5806b-circular-saw/

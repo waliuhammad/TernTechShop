@@ -1,8 +1,8 @@
-price: 
+price: 699
 stock: 23
 compare at price: 
 name: PIR Motion Sensor in Compact Enclosure
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — the sensor model and enclosure are not identifiable. A bare HC-SR501 PIR module sells for about Rs. 210.
+notes: Estimated price — no exact listing for this product. a bare HC-SR501 PIR module is Rs. 210; priced higher for the ready-made enclosure. References checked 13 Sep 2026. | https://digilog.pk/products/hc-sr501-pir-motion-sensor-motion-detector-module-in-pakistan

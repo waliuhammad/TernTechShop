@@ -5,7 +5,7 @@
   "brand": "Unbranded",
   "category": "Motherboards",
   "tier": "Essential",
-  "price": null,
+  "price": 2499,
   "compareAtPrice": null,
   "stock": 24,
   "shortDescription": "Colour TFT screen module with SPI interface for Arduino and ESP32.",

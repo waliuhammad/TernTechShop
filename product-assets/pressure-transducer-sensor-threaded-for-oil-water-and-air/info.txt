@@ -1,8 +1,8 @@
-price: 
+price: 3499
 stock: 10
 compare at price: 
 name: Pressure Transducer Sensor (Threaded, for Oil, Water and Air)
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — pressure range and thread are not visible, so no exact listing matched.
+notes: Estimated price — no exact listing for this product. no local listing for this transducer; estimated from the typical landed cost of 5V G1/4 pressure transducers. Treat as a rough estimate. References checked 13 Sep 2026.

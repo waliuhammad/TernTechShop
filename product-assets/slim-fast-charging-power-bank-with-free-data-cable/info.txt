@@ -1,8 +1,8 @@
-price: 
+price: 649
 stock: 21
 compare at price: 
 name: Slim Fast-Charging Power Bank with Free Data Cable
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — capacity is not visible in the photo, so no exact listing could be matched.
+notes: Estimated price — no exact listing for this product. this slim single-cell style is sold as 2600mAh; comparable listings are Rs. 545–640. References checked 13 Sep 2026. | https://www.daraz.pk/products/mini-power-bank-2600mah-compact-and-portable-charging-solution-i422129260.html | https://www.daraz.pk/products/usb-2600mah-usb-5-1-i1962489370.html

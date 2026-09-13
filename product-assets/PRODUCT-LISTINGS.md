@@ -2,7 +2,7 @@
 
 Generated 13 Sep 2026 from the photos in `product-assets/`. 147 products.
 
-Prices are copied from the cited live Pakistani listings on the date shown. Marketplace prices change often — recheck anything important before publishing. Products marked **Needs price verification** have no trustworthy matching listing; they are not imported until you add a price to their `info.txt`.
+Prices are copied from the cited live Pakistani listings on the date shown. Marketplace prices change often — recheck anything important before publishing. Prices marked **(estimated)** had no exact listing and were set from the comparable listings cited in their source note.
 
 Performance tier uses the store's own four tiers (Essential, Professional, Enterprise, Extreme).
 
@@ -118,8 +118,8 @@ A universal 12V mini UPS that powers your router directly from its built-in batt
 **Category:** Networking  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 1,799 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 17
 
 **Short Description:**
@@ -152,7 +152,9 @@ A 12-volt mini UPS from DSB Electronics that backs up your WiFi router during po
 
 **Price Verification / Source:**
 
-* Needs price verification — no listing found for the DSB Electronics model. Comparable 12V router UPS units sell for about Rs. 2,000–3,000 on Daraz.
+* Estimated price — no exact listing for this product. best-selling 12V router mini UPS on Daraz sells at Rs. 1,699 (805 sold); branded DSB unit with advertised 9–12 hour backup priced slightly above. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/wifi-tp-ptcl-12-ups-1-led-4-6-i946668686.html
+* https://www.tjmart.pk/router-ups
 
 *Folder: `product-assets/dsb-electronics-12v-mini-ups-for-wifi-router/` (1 photo)*
 
@@ -167,8 +169,8 @@ A 12-volt mini UPS from DSB Electronics that backs up your WiFi router during po
 **Category:** Networking  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 2,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 21
 
 **Short Description:**
@@ -200,7 +202,9 @@ A dedicated router UPS from NR Power Energy that sits between the adapter and yo
 
 **Price Verification / Source:**
 
-* Needs price verification — no listing found for the NR Power Energy model. Comparable router UPS units sell for about Rs. 2,000–4,500.
+* Estimated price — no exact listing for this product. boxed router UPS units list at Rs. 1,558–2,199 on Daraz and Rs. 2,700 at TJmart. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/ups-12v-usb-ups-tp-link-tenda-ptcl-12v-1a-15a-i1967546685.html
+* https://www.tjmart.pk/router-ups
 
 *Folder: `product-assets/nr-power-energy-wifi-router-ups-backup-power-supply/` (1 photo)*
 
@@ -266,8 +270,8 @@ A high-capacity 20000mAh lithium-polymer power bank that charges two devices at 
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 1,799 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 23
 
 **Short Description:**
@@ -299,7 +303,9 @@ A slim, lightweight power bank that slips into a pocket or bag and tops up your 
 
 **Price Verification / Source:**
 
-* Needs price verification — capacity is not visible in the photos, so no exact listing could be matched. Slim 10000mAh power banks sell for about Rs. 1,700–2,500 on Daraz.
+* Estimated price — no exact listing for this product. slim dual-USB power banks (10000mAh class) list at Rs. 1,699–2,474 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/10000mah-i1947457065.html
+* https://www.daraz.pk/products/10000-10000-i485817302.html
 
 *Folder: `product-assets/ultra-slim-portable-power-bank-black/` (2 photos)*
 
@@ -314,8 +320,8 @@ A slim, lightweight power bank that slips into a pocket or bag and tops up your 
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 1,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 20
 
 **Short Description:**
@@ -346,7 +352,9 @@ A compact, rounded power bank with a soft-touch finish that charges two phones a
 
 **Price Verification / Source:**
 
-* Needs price verification — capacity is not visible in the photos. Mini 10000mAh power banks sell for about Rs. 1,500–3,000 on Daraz.
+* Estimated price — no exact listing for this product. pocket power banks list at Rs. 792 (5000mAh) to Rs. 1,600–2,450 (10000mAh) on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/5000-mah-i607406995.html
+* https://www.daraz.pk/products/-i1969410008.html
 
 *Folder: `product-assets/mini-pocket-power-bank-with-dual-usb-black/` (2 photos)*
 
@@ -410,8 +418,8 @@ A cylindrical, lipstick-sized power bank in a colourful aluminium shell that fit
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 649 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 21
 
 **Short Description:**
@@ -442,7 +450,9 @@ A slim rectangular power bank with a colour-accent finish and a free data cable 
 
 **Price Verification / Source:**
 
-* Needs price verification — capacity is not visible in the photo, so no exact listing could be matched.
+* Estimated price — no exact listing for this product. this slim single-cell style is sold as 2600mAh; comparable listings are Rs. 545–640. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/mini-power-bank-2600mah-compact-and-portable-charging-solution-i422129260.html
+* https://www.daraz.pk/products/usb-2600mah-usb-5-1-i1962489370.html
 
 *Folder: `product-assets/slim-fast-charging-power-bank-with-free-data-cable/` (1 photo)*
 
@@ -507,8 +517,8 @@ A tiny 1500mAh power bank with a built-in connector that hangs on your keys, rea
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 1,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 16
 
 **Short Description:**
@@ -538,7 +548,9 @@ The P5 Lite is a compact power bank for keeping your phone and earbuds charged t
 
 **Price Verification / Source:**
 
-* Needs price verification — the P5 Lite brand and capacity could not be confirmed from the photo and no matching listing was found.
+* Estimated price — no exact listing for this product. slim branded-style power banks with LED indicators list at Rs. 1,756–2,474 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/10000mah-i1947457065.html
+* https://www.daraz.pk/products/1-21a-10000mah20000mah-c-4-21a-1-i646702662.html
 
 *Folder: `product-assets/p5-lite-portable-power-bank/` (1 photo)*
 
@@ -553,8 +565,8 @@ The P5 Lite is a compact power bank for keeping your phone and earbuds charged t
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 799 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 14
 
 **Short Description:**
@@ -584,7 +596,8 @@ A compact yellow power bank with a snap-on protective cap that keeps the port cl
 
 **Price Verification / Source:**
 
-* Needs price verification — capacity and exact model are not visible in the photo.
+* Estimated price — no exact listing for this product. compact emergency power banks of this size list at about Rs. 799 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/2600mah-i1947633520.html
 
 *Folder: `product-assets/compact-power-bank-with-protective-cap-yellow/` (1 photo)*
 
@@ -1139,8 +1152,8 @@ A replacement 2-pin magnetic USB charging cable made to fit the IMILAB KW66 smar
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 19
 
 **Short Description:**
@@ -1170,7 +1183,9 @@ A replacement magnetic charging dock that holds a square-face smart watch while 
 
 **Price Verification / Source:**
 
-* Needs price verification — the compatible watch model could not be identified from the photo.
+* Estimated price — no exact listing for this product. replacement magnetic smart watch chargers and docks list at Rs. 245–669 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/5v-1a-60-20-i1967769063.html
+* https://www.daraz.pk/products/ronin-r-010-usb-i1948653905.html
 
 *Folder: `product-assets/magnetic-charging-dock-for-square-smart-watches/` (1 photo)*
 
@@ -1531,8 +1546,8 @@ A handlebar-clamp USB charger that wires into your motorcycle battery to charge 
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 1,199 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 24
 
 **Short Description:**
@@ -1564,7 +1579,8 @@ A full-size USB keyboard with a numeric keypad and quiet, low-profile keys for e
 
 **Price Verification / Source:**
 
-* Needs price verification — the exact HP or Dell model is not visible; confirm the model to price it accurately.
+* Estimated price — no exact listing for this product. the best-selling HP USB business keyboard on Daraz is Rs. 1,199 (4.3K sold). References checked 13 Sep 2026.
+* https://www.daraz.pk/products/100-hp-usb-i164704772.html
 
 *Folder: `product-assets/full-size-usb-wired-office-keyboard/` (1 photo)*
 
@@ -2125,8 +2141,8 @@ A classic VR Box 2.0 headset for smartphone VR, bundled with a handheld Bluetoot
 **Category:** Peripherals  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 7,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 11
 
 **Short Description:**
@@ -2158,7 +2174,9 @@ The VR Shinecon G06 headset with built-in headphones, shown with a choice of Blu
 
 **Price Verification / Source:**
 
-* Needs price verification — the exact bundle (which controllers are included) could not be confirmed. The G06EB headset alone lists at about Rs. 8,350–9,300 on Daraz.
+* Estimated price — no exact listing for this product. VR Shinecon G06EB (headphones, no controller) lists at Rs. 8,349–9,299 and G06A with remote at Rs. 4,999; bundle priced between. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/06-47-61-06-i1953163246.html
+* https://www.daraz.pk/products/vr-shinecon-g06a-virtual-reality-glasses-with-bluetooth-remote-controller-ips-display-3d-movie-game-experience-i420694430.html
 
 *Folder: `product-assets/vr-shinecon-g06-headset-with-headphones-and-game-controllers/` (2 photos)*
 
@@ -2913,8 +2931,8 @@ A slim matte-finish hard PC bumper that protects the sides of your Apple Watch w
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 699 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 13
 
 **Short Description:**
@@ -2945,7 +2963,9 @@ A liquid silicone case with a soft-touch outer finish and microfibre lining that
 
 **Price Verification / Source:**
 
-* Needs price verification — no reliable iPhone 11 liquid silicone case listing was found at the time of checking.
+* Estimated price — no exact listing for this product. iPhone 11 silicone cases list at Rs. 274 (basic) to Rs. 1,399 (premium) on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/11-i1958983307.html
+* https://www.daraz.pk/products/xr-xs-11-11-11-12-12-12-13-13-13-14-14-14-15-15-15-7-7-8-8-i1957298523.html
 
 *Folder: `product-assets/liquid-silicone-case-for-iphone-11/` (1 photo)*
 
@@ -2960,8 +2980,8 @@ A liquid silicone case with a soft-touch outer finish and microfibre lining that
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 449 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 10
 
 **Short Description:**
@@ -2992,7 +3012,9 @@ An ultra-thin, lightweight transparent case that protects against scratches whil
 
 **Price Verification / Source:**
 
-* Needs price verification — the iPhone model cannot be confirmed from the photo.
+* Estimated price — no exact listing for this product. clear iPhone cases list at Rs. 157 (thin TPU) to Rs. 549 (shockproof) on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/7-8-i409529816.html
+* https://www.daraz.pk/products/11-tpu-i479533133.html
 
 *Folder: `product-assets/ultra-thin-transparent-iphone-case/` (1 photo)*
 
@@ -3007,8 +3029,8 @@ An ultra-thin, lightweight transparent case that protects against scratches whil
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 299 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 23
 
 **Short Description:**
@@ -3038,7 +3060,8 @@ A clear TPU case with reinforced air-cushion corners that absorb drops while sho
 
 **Price Verification / Source:**
 
-* Needs price verification — the phone model cannot be confirmed from the photo. Clear shockproof cases sell for about Rs. 200–350.
+* Estimated price — no exact listing for this product. clear shockproof TPU cases list at Rs. 242–291 with hundreds sold. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/samsung-a15-5g-soft-tpu-transparent-back-case-shockproof-clear-cover-i463309201.html
 
 *Folder: `product-assets/transparent-shockproof-anti-drop-phone-case/` (1 photo)*
 
@@ -3100,8 +3123,8 @@ A slim transparent case with electroplated chrome edges made for the Samsung Gal
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 349 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 13
 
 **Short Description:**
@@ -3131,7 +3154,9 @@ A slim, soft silicone case with a matte black finish and a raised lip around the
 
 **Price Verification / Source:**
 
-* Needs price verification — the phone model cannot be confirmed from the photo. Matte silicone cases sell for about Rs. 350–360.
+* Estimated price — no exact listing for this product. matte black silicone cases list at Rs. 249–369 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/a22-4g-i434039252.html
+* https://www.daraz.pk/products/90-90-i941394713.html
 
 *Folder: `product-assets/matte-black-soft-silicone-phone-case/` (1 photo)*
 
@@ -3914,8 +3939,8 @@ The PLOKAMA CX-10 chest mount straps a smartphone or action camera to your chest
 **Category:** Peripherals  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 4,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 16
 
 **Short Description:**
@@ -3947,7 +3972,8 @@ A foldable smartphone gimbal that smooths out shaky footage, with built-in tripo
 
 **Price Verification / Source:**
 
-* Needs price verification — the model and number of stabilisation axes cannot be confirmed from the photo. Phone gimbals range from about Rs. 4,450 to 7,000+.
+* Estimated price — no exact listing for this product. foldable phone gimbal with tripod lists at Rs. 4,450 (was Rs. 6,000) on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/gimbal-stabilizer-for-mobile-handheld-stabilizer-wireless-selfie-stick-anti-shake-selfie-stick-selfie-stick-tripod-vlogging-stand-lazy-phone-holder-desktop-smooth-shake-free-video-portable-gimbal-stabilizer-foldable-selfie-stick-with-tripod-remote-i1962907460.html
 
 *Folder: `product-assets/foldable-smartphone-gimbal-stabilizer-with-tripod/` (1 photo)*
 
@@ -4592,8 +4618,8 @@ A teardrop-shaped Bluetooth tag that rings when you tap it in the phone app, and
 **Category:** Motherboards  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 8,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 19
 
 **Short Description:**
@@ -4627,7 +4653,8 @@ An ASUS Micro-ATX desktop motherboard for Intel processors, featuring ASUS EPU p
 
 **Price Verification / Source:**
 
-* Needs price verification — the exact model is not readable in the photo; send the model name (printed near the PCIe slots) to price it.
+* Estimated price — no exact listing for this product. ASUS boards with EPU / Fan Xpert / USB 3.0 Boost are LGA1150-era; used H81 boards list at Rs. 8,500 on Daraz. Assumes a used/refurbished board — adjust if new. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/h81-4th-i3-i5-i7xeon-lga-1150-msiasus-i494143717.html
 
 *Folder: `product-assets/asus-micro-atx-intel-desktop-motherboard-model-to-confirm/` (1 photo)*
 
@@ -4642,8 +4669,8 @@ An ASUS Micro-ATX desktop motherboard for Intel processors, featuring ASUS EPU p
 **Category:** Motherboards  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 10,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 21
 
 **Short Description:**
@@ -4676,7 +4703,9 @@ An ASUS desktop motherboard for Intel processors with four DDR memory slots and 
 
 **Price Verification / Source:**
 
-* Needs price verification — the exact model is not readable in the photo; send the model name to price it.
+* Estimated price — no exact listing for this product. four-DIMM ASUS Intel boards of this generation sit above basic H81 boards (Rs. 8,500) and below the ASUS H110M-R (Rs. 13,999). Assumes used/refurbished. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/h81-4th-i3-i5-i7xeon-lga-1150-msiasus-i494143717.html
+* https://www.daraz.pk/products/asus-h110m-r-6th7th-gen-i939757313.html
 
 *Folder: `product-assets/asus-atx-intel-desktop-motherboard-with-4-dimm-slots-model-to-confirm/` (1 photo)*
 
@@ -4691,8 +4720,8 @@ An ASUS desktop motherboard for Intel processors with four DDR memory slots and 
 **Category:** Motherboards  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 8,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 23
 
 **Short Description:**
@@ -4724,7 +4753,9 @@ A Micro-ATX desktop motherboard for Intel processors with dual memory slots and 
 
 **Price Verification / Source:**
 
-* Needs price verification — brand and model are not readable in the photo.
+* Estimated price — no exact listing for this product. Micro-ATX Intel boards of this style list at Rs. 7,410 (MSI H110M ECO) to Rs. 13,999 (ASUS H110M-R). Assumes used/refurbished. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/msi-h110m-eco-motherboard-6th-7th-gen-supported-i599012041.html
+* https://www.daraz.pk/products/asus-h110m-r-6th7th-gen-i939757313.html
 
 *Folder: `product-assets/micro-atx-intel-desktop-motherboard-model-to-confirm/` (1 photo)*
 
@@ -4789,8 +4820,8 @@ A TP-Link 5-port desktop switch that adds more wired Ethernet ports for PCs, TVs
 **Category:** Networking  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 899 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 16
 
 **Short Description:**
@@ -4822,7 +4853,8 @@ Compact rubber-duck antennas with gold-plated SMA connectors for SIM800, SIM900 
 
 **Price Verification / Source:**
 
-* Needs price verification — frequency and gain are not visible, so no exact listing matched.
+* Estimated price — no exact listing for this product. a single SMA GSM antenna lists at Rs. 500; small stubby antennas are cheaper, so a pack of three is priced at Rs. 899. References checked 13 Sep 2026.
+* https://electrobes.com/product/sma-900-1800mhz-suction-cup-gsm-antenna-for-sim800-sim900-gsm-module/
 
 *Folder: `product-assets/gsm-rubber-antenna-with-sma-connector-pack-of-3/` (1 photo)*
 
@@ -5032,8 +5064,8 @@ The NodeMCU is an ESP8266 (ESP-12E) WiFi development board with a CP2102 USB int
 **Category:** Motherboards  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 2,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 24
 
 **Short Description:**
@@ -5065,7 +5097,9 @@ A colour TFT LCD module on a red PCB with an SPI interface for Arduino, ESP32 an
 
 **Price Verification / Source:**
 
-* Needs price verification — screen size and touch option cannot be confirmed from the photo. 2.4-inch SPI modules list at about Rs. 2,000 and 2.8-inch at about Rs. 3,530.
+* Estimated price — no exact listing for this product. SPI TFT modules list at Rs. 2,000 (2.4-inch) and Rs. 3,530 (2.8-inch) at Digilog. References checked 13 Sep 2026.
+* https://digilog.pk/products/2-4-inch-spi-tft-lcd-touch-display-module-ili9341
+* https://digilog.pk/products/msp2807-2-8-inch-320-240-spi-serial-tft-lcd-module-display-screen-with-touch-panel-driver-ic-ili9341-for-mcu
 
 *Folder: `product-assets/spi-tft-lcd-colour-display-module-red-pcb/` (1 photo)*
 
@@ -5618,8 +5652,8 @@ The LJ12A3-4-Z/BX is an M12 cylindrical inductive proximity switch that detects 
 **Category:** Motherboards  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 3,499 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 10
 
 **Short Description:**
@@ -5650,7 +5684,7 @@ A stainless-steel threaded pressure transducer for measuring oil, fuel, water or
 
 **Price Verification / Source:**
 
-* Needs price verification — pressure range and thread are not visible, so no exact listing matched.
+* Estimated price — no exact listing for this product. no local listing for this transducer; estimated from the typical landed cost of 5V G1/4 pressure transducers. Treat as a rough estimate. References checked 13 Sep 2026.
 
 *Folder: `product-assets/pressure-transducer-sensor-threaded-for-oil-water-and-air/` (1 photo)*
 
@@ -5665,8 +5699,8 @@ A stainless-steel threaded pressure transducer for measuring oil, fuel, water or
 **Category:** Motherboards  
 **Performance Tier:** Enterprise
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 14,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 21
 
 **Short Description:**
@@ -5698,7 +5732,8 @@ An industrial air differential pressure transmitter with twin barbed ports that 
 
 **Price Verification / Source:**
 
-* Needs price verification — the model and range on the label are not readable.
+* Estimated price — no exact listing for this product. no local listing; industrial 4–20 mA air differential pressure transmitters typically cost well above a handheld differential manometer (Rs. 10,250). Treat as a rough estimate. References checked 13 Sep 2026.
+* https://digilog.pk/products/uni-t-ut366a-digital-manometer
 
 *Folder: `product-assets/air-differential-pressure-sensor-transmitter-4-20-ma/` (1 photo)*
 
@@ -5858,8 +5893,8 @@ The FSR402 is a thin round force-sensitive resistor that detects touch and press
 **Category:** Motherboards  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 699 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 23
 
 **Short Description:**
@@ -5889,7 +5924,8 @@ A PIR motion sensor mounted in a compact white enclosure, ready to detect people
 
 **Price Verification / Source:**
 
-* Needs price verification — the sensor model and enclosure are not identifiable. A bare HC-SR501 PIR module sells for about Rs. 210.
+* Estimated price — no exact listing for this product. a bare HC-SR501 PIR module is Rs. 210; priced higher for the ready-made enclosure. References checked 13 Sep 2026.
+* https://digilog.pk/products/hc-sr501-pir-motion-sensor-motion-detector-module-in-pakistan
 
 *Folder: `product-assets/pir-motion-sensor-in-compact-enclosure/` (1 photo)*
 
@@ -5904,8 +5940,8 @@ A PIR motion sensor mounted in a compact white enclosure, ready to detect people
 **Category:** Motherboards  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 799 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 15
 
 **Short Description:**
@@ -5935,7 +5971,9 @@ A compact digital amplifier board with onboard filter inductors and capacitors f
 
 **Price Verification / Source:**
 
-* Needs price verification — the amplifier chip and rating are not readable in the photo.
+* Estimated price — no exact listing for this product. comparable class-D amplifier boards list at Rs. 460 (PAM8610) to Rs. 1,010 (TPA3116 2×80W) at Digilog. References checked 13 Sep 2026.
+* https://digilog.pk/products/pam8610-with-volume-12v-dual-channel-digital-amplifier-board-stereo-audio-amplifier-board-15w-2
+* https://digilog.pk/products/2-channel-digital-power-amplifier-board-2x80w-xh-m567-tpa3116d2-audio-control-amplifier
 
 *Folder: `product-assets/class-d-audio-amplifier-board-model-to-confirm/` (1 photo)*
 
@@ -5950,8 +5988,8 @@ A compact digital amplifier board with onboard filter inductors and capacitors f
 **Category:** Peripherals  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 16,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 21
 
 **Short Description:**
@@ -5981,7 +6019,8 @@ A chronograph with twin sky-screen frames and an LED display that measures the s
 
 **Price Verification / Source:**
 
-* Needs price verification — no matching sky-screen chronograph listing was found (a different WiFi chronograph lists at Rs. 17,500).
+* Estimated price — no exact listing for this product. the only local chronograph listing (a WiFi speed meter) is Rs. 17,500 (was Rs. 24,500); sky-screen chronographs are priced similarly. References checked 13 Sep 2026.
+* https://multanelectronics.com/shop/wifi-smart-chronograph-speed-meter-30-9999-fps/
 
 *Folder: `product-assets/projectile-speed-chronograph-with-led-display/` (1 photo)*
 
@@ -6921,8 +6960,8 @@ An inkless "forever" pencil with a metal-alloy tip that writes and sketches with
 **Category:** Peripherals  
 **Performance Tier:** Essential
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 250 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 24
 
 **Short Description:**
@@ -6953,7 +6992,9 @@ Fullmark correction tape covers mistakes instantly with a clean white film you c
 
 **Price Verification / Source:**
 
-* Needs price verification — no Fullmark listing found; other correction tapes sell for about Rs. 190–275.
+* Estimated price — no exact listing for this product. correction tapes list at Rs. 186–275 on Daraz. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/wbm-correction-tape-quick-dry-high-quality-tape-i141966184.html
+* https://www.daraz.pk/products/aodemei-pet-correction-tape-high-quality-tear-resistant-white-out-correction-tape-for-school-office-and-journaling-i132144492.html
 
 *Folder: `product-assets/fullmark-correction-tape/` (1 photo)*
 
@@ -6968,8 +7009,8 @@ Fullmark correction tape covers mistakes instantly with a clean white film you c
 **Category:** Peripherals  
 **Performance Tier:** Enterprise
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 29,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 14
 
 **Short Description:**
@@ -7001,7 +7042,9 @@ The Makita 5806B is a 185 mm (7-1/4 inch) circular saw with a 1,050W motor for f
 
 **Price Verification / Source:**
 
-* Needs price verification — no Pakistani listing was found for the Makita 5806B. Specs from Makita (makita.com.sg).
+* Estimated price — no exact listing for this product. generic 185 mm circular saws list at Rs. 11,999–21,999 on Daraz; a genuine Makita commands a premium. Check against your Makita dealer price. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/solid-7-inch-circular-saw-185mm-1450-watts-sd-610-i269162358.html
+* https://makita.com.sg/product/5806b-circular-saw/
 
 *Folder: `product-assets/makita-5806b-7-1-4-inch-185-mm-circular-saw/` (1 photo)*
 
@@ -7016,8 +7059,8 @@ The Makita 5806B is a 185 mm (7-1/4 inch) circular saw with a 1,050W motor for f
 **Category:** Peripherals  
 **Performance Tier:** Professional
 
-**Price (Rs.):** Needs price verification  
-**Was Price (Rs.):** Needs price verification  
+**Price (Rs.):** 15,999 (estimated)  
+**Was Price (Rs.):** Not available  
 **Units in Stock:** 10
 
 **Short Description:**
@@ -7050,7 +7093,9 @@ A BGC composite LPG cylinder that is lighter than steel, non-corrosive and trans
 
 **Price Verification / Source:**
 
-* Needs price verification — the cylinder size is not shown. Daraz lists BGC composite cylinders from about Rs. 14,000 (5/10 kg) to Rs. 18,000 (13 kg) with regulator.
+* Estimated price — no exact listing for this product. BGC composite cylinders list at Rs. 13,999–18,000 depending on size (5 kg to 13 kg) with regulator; priced mid-range. Set the exact size before publishing. References checked 13 Sep 2026.
+* https://www.daraz.pk/products/100-10-i1958463912.html
+* https://www.daraz.pk/products/100-pg-bgc-lpg-13-kg-i450280911.html
 
 *Folder: `product-assets/bgc-composite-lpg-cylinder/` (1 photo)*
 

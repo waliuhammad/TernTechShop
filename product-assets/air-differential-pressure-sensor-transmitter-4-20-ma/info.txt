@@ -1,8 +1,8 @@
-price: 
+price: 14999
 stock: 21
 compare at price: 
 name: Air Differential Pressure Sensor Transmitter (4–20 mA)
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — the model and range on the label are not readable.
+notes: Estimated price — no exact listing for this product. no local listing; industrial 4–20 mA air differential pressure transmitters typically cost well above a handheld differential manometer (Rs. 10,250). Treat as a rough estimate. References checked 13 Sep 2026. | https://digilog.pk/products/uni-t-ut366a-digital-manometer

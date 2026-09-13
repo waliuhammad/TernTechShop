@@ -1,8 +1,8 @@
-price: 
+price: 799
 stock: 14
 compare at price: 
 name: Compact Power Bank with Protective Cap (Yellow)
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — capacity and exact model are not visible in the photo.
+notes: Estimated price — no exact listing for this product. compact emergency power banks of this size list at about Rs. 799 on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/2600mah-i1947633520.html

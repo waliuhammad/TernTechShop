@@ -1,8 +1,8 @@
-price: 
+price: 1799
 stock: 23
 compare at price: 
 name: Ultra-Slim Portable Power Bank (Black)
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — capacity is not visible in the photos, so no exact listing could be matched. Slim 10000mAh power banks sell for about Rs. 1,700–2,500 on Daraz.
+notes: Estimated price — no exact listing for this product. slim dual-USB power banks (10000mAh class) list at Rs. 1,699–2,474 on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/10000mah-i1947457065.html | https://www.daraz.pk/products/10000-10000-i485817302.html

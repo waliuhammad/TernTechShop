@@ -1,8 +1,8 @@
-price: 
+price: 799
 stock: 15
 compare at price: 
 name: Class-D Audio Amplifier Board (Model to Confirm)
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — the amplifier chip and rating are not readable in the photo.
+notes: Estimated price — no exact listing for this product. comparable class-D amplifier boards list at Rs. 460 (PAM8610) to Rs. 1,010 (TPA3116 2×80W) at Digilog. References checked 13 Sep 2026. | https://digilog.pk/products/pam8610-with-volume-12v-dual-channel-digital-amplifier-board-stereo-audio-amplifier-board-15w-2 | https://digilog.pk/products/2-channel-digital-power-amplifier-board-2x80w-xh-m567-tpa3116d2-audio-control-amplifier

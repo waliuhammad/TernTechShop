@@ -1,8 +1,8 @@
-price: 
+price: 1499
 stock: 20
 compare at price: 
 name: Mini Pocket Power Bank with Dual USB (Black)
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — capacity is not visible in the photos. Mini 10000mAh power banks sell for about Rs. 1,500–3,000 on Daraz.
+notes: Estimated price — no exact listing for this product. pocket power banks list at Rs. 792 (5000mAh) to Rs. 1,600–2,450 (10000mAh) on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/5000-mah-i607406995.html | https://www.daraz.pk/products/-i1969410008.html

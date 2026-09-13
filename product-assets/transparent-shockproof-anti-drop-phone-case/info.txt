@@ -1,8 +1,8 @@
-price: 
+price: 299
 stock: 23
 compare at price: 
 name: Transparent Shockproof Anti-Drop Phone Case
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — the phone model cannot be confirmed from the photo. Clear shockproof cases sell for about Rs. 200–350.
+notes: Estimated price — no exact listing for this product. clear shockproof TPU cases list at Rs. 242–291 with hundreds sold. References checked 13 Sep 2026. | https://www.daraz.pk/products/samsung-a15-5g-soft-tpu-transparent-back-case-shockproof-clear-cover-i463309201.html

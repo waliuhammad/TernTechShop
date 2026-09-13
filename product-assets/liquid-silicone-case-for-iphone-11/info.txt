@@ -1,8 +1,8 @@
-price: 
+price: 699
 stock: 13
 compare at price: 
 name: Liquid Silicone Case for iPhone 11
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — no reliable iPhone 11 liquid silicone case listing was found at the time of checking.
+notes: Estimated price — no exact listing for this product. iPhone 11 silicone cases list at Rs. 274 (basic) to Rs. 1,399 (premium) on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/11-i1958983307.html | https://www.daraz.pk/products/xr-xs-11-11-11-12-12-12-13-13-13-14-14-14-15-15-15-7-7-8-8-i1957298523.html

@@ -1,8 +1,8 @@
-price: 
+price: 8999
 stock: 19
 compare at price: 
 name: ASUS Micro-ATX Intel Desktop Motherboard (Model to Confirm)
 brand: ASUS
 category: Motherboards
 featured: yes
-notes: Needs price verification — the exact model is not readable in the photo; send the model name (printed near the PCIe slots) to price it.
+notes: Estimated price — no exact listing for this product. ASUS boards with EPU / Fan Xpert / USB 3.0 Boost are LGA1150-era; used H81 boards list at Rs. 8,500 on Daraz. Assumes a used/refurbished board — adjust if new. References checked 13 Sep 2026. | https://www.daraz.pk/products/h81-4th-i3-i5-i7xeon-lga-1150-msiasus-i494143717.html

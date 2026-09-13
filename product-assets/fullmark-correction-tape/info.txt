@@ -1,8 +1,8 @@
-price: 
+price: 250
 stock: 24
 compare at price: 
 name: Fullmark Correction Tape
 brand: Fullmark
 category: Peripherals
 featured: yes
-notes: Needs price verification — no Fullmark listing found; other correction tapes sell for about Rs. 190–275.
+notes: Estimated price — no exact listing for this product. correction tapes list at Rs. 186–275 on Daraz. References checked 13 Sep 2026. | https://www.daraz.pk/products/wbm-correction-tape-quick-dry-high-quality-tape-i141966184.html | https://www.daraz.pk/products/aodemei-pet-correction-tape-high-quality-tear-resistant-white-out-correction-tape-for-school-office-and-journaling-i132144492.html

@@ -1,8 +1,8 @@
-price: 
+price: 1199
 stock: 24
 compare at price: 
 name: Full-Size USB Wired Office Keyboard
 brand: Unbranded
 category: Peripherals
 featured: yes
-notes: Needs price verification — the exact HP or Dell model is not visible; confirm the model to price it accurately.
+notes: Estimated price — no exact listing for this product. the best-selling HP USB business keyboard on Daraz is Rs. 1,199 (4.3K sold). References checked 13 Sep 2026. | https://www.daraz.pk/products/100-hp-usb-i164704772.html

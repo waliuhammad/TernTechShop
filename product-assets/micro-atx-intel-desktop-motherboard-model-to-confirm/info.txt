@@ -1,8 +1,8 @@
-price: 
+price: 8499
 stock: 23
 compare at price: 
 name: Micro-ATX Intel Desktop Motherboard (Model to Confirm)
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — brand and model are not readable in the photo.
+notes: Estimated price — no exact listing for this product. Micro-ATX Intel boards of this style list at Rs. 7,410 (MSI H110M ECO) to Rs. 13,999 (ASUS H110M-R). Assumes used/refurbished. References checked 13 Sep 2026. | https://www.daraz.pk/products/msi-h110m-eco-motherboard-6th-7th-gen-supported-i599012041.html | https://www.daraz.pk/products/asus-h110m-r-6th7th-gen-i939757313.html

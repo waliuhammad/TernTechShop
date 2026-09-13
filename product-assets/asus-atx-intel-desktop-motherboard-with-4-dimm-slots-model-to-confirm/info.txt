@@ -1,8 +1,8 @@
-price: 
+price: 10999
 stock: 21
 compare at price: 
 name: ASUS ATX Intel Desktop Motherboard with 4 DIMM Slots (Model to Confirm)
 brand: ASUS
 category: Motherboards
 featured: yes
-notes: Needs price verification — the exact model is not readable in the photo; send the model name to price it.
+notes: Estimated price — no exact listing for this product. four-DIMM ASUS Intel boards of this generation sit above basic H81 boards (Rs. 8,500) and below the ASUS H110M-R (Rs. 13,999). Assumes used/refurbished. References checked 13 Sep 2026. | https://www.daraz.pk/products/h81-4th-i3-i5-i7xeon-lga-1150-msiasus-i494143717.html | https://www.daraz.pk/products/asus-h110m-r-6th7th-gen-i939757313.html

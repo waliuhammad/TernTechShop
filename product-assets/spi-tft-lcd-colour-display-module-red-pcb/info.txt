@@ -1,8 +1,8 @@
-price: 
+price: 2499
 stock: 24
 compare at price: 
 name: SPI TFT LCD Colour Display Module (Red PCB)
 brand: Unbranded
 category: Motherboards
 featured: yes
-notes: Needs price verification — screen size and touch option cannot be confirmed from the photo. 2.4-inch SPI modules list at about Rs. 2,000 and 2.8-inch at about Rs. 3,530.
+notes: Estimated price — no exact listing for this product. SPI TFT modules list at Rs. 2,000 (2.4-inch) and Rs. 3,530 (2.8-inch) at Digilog. References checked 13 Sep 2026. | https://digilog.pk/products/2-4-inch-spi-tft-lcd-touch-display-module-ili9341 | https://digilog.pk/products/msp2807-2-8-inch-320-240-spi-serial-tft-lcd-module-display-screen-with-touch-panel-driver-ic-ili9341-for-mcu
