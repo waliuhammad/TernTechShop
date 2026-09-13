@@ -76,10 +76,6 @@ service cloud.firestore {
       return value is int && value > 0;
     }
 
-    function isNonNegativeInt(value) {
-      return value is int && value >= 0;
-    }
-
     // ===================================================================
     // Roles — the source of truth for RBAC.
     //
