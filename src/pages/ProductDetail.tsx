@@ -91,11 +91,15 @@ export default function ProductDetail() {
           description: product.shortDescription,
           sku: product.sku,
           brand: { '@type': 'Brand', name: product.brand },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: product.rating,
-            reviewCount: product.reviewCount,
-          },
+          ...(product.reviewCount > 0 && product.rating > 0
+            ? {
+                aggregateRating: {
+                  '@type': 'AggregateRating',
+                  ratingValue: product.rating,
+                  reviewCount: product.reviewCount,
+                },
+              }
+            : {}),
           offers: {
             '@type': 'Offer',
             priceCurrency: 'PKR',

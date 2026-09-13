@@ -32,7 +32,7 @@ export default function Account() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="My Account" description="Manage your operator profile, addresses and password." />
+      <Seo noindex title="My Account" description="Manage your operator profile, addresses and password." />
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="mb-10 space-y-2 md:mb-14">
           <p className="font-mono text-[10px] tracking-[0.3em] text-slate-400 uppercase">// OPERATOR_PROFILE</p>

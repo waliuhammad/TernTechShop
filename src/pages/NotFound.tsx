@@ -4,7 +4,7 @@ import { Seo } from '@/components/ui/Seo';
 export default function NotFound() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 py-20">
-      <Seo title="Route Not Found" />
+      <Seo noindex title="Route Not Found" />
 
       <div className="max-w-lg space-y-8 text-center">
         <p className="font-mono text-[10px] tracking-[0.3em] text-slate-400 uppercase">

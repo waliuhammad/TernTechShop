@@ -9,6 +9,8 @@
 export const siteConfig = {
   name: 'Tern Technologies',
   shortName: 'TernTech',
+  /** Canonical origin used for pre-rendered pages, the sitemap and structured data. */
+  url: 'https://terntechshop.com',
   /** Split for the two-tone wordmark: bold italic + regular accent. */
   wordmark: { lead: 'Tern', accent: 'Technologies' },
   tagline: 'Industrial Hardware Distribution',

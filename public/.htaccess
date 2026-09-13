@@ -5,10 +5,16 @@
 # into public_html (this file included — it starts with a dot, so enable
 # "show hidden files" in the Hostinger File Manager).
 #
-# The SPA fallback below is the important part: without it every deep link
-# (/shop, /cart, /product/xyz) returns the host's 404 page, because those
-# paths do not exist as files on disk.
+# The rewrites below are the important part. Public pages are pre-rendered to
+# .html files (scripts/prerender.ts); every other app route is served the SPA
+# shell, app.html. Without them every deep link returns the host's 404 page.
 # ===========================================================================
+
+# /shop must not be redirected to /shop/ just because dist/product/ and the
+# like are folders.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -19,13 +25,33 @@
   RewriteCond %{HTTP:X-Forwarded-Proto} !https
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Serve real files and directories as-is.
-  RewriteCond %{REQUEST_FILENAME} -f [OR]
-  RewriteCond %{REQUEST_FILENAME} -d
+  # Old and conventional URLs -> their real pages (permanent, so search
+  # engines move their ranking across).
+  RewriteRule ^(privacy|terms|cookies)/?$ /legal#$1 [NE,R=301,L]
+  RewriteRule ^(returns|refund)/?$ /legal#returns [NE,R=301,L]
+  RewriteRule ^(products|search)/?$ /shop [R=301,L]
+
+  # One URL per page: /shop/ -> /shop.
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # Home.
+  RewriteRule ^$ index.html [L]
+
+  # Real files (assets, favicon, sitemap.xml, robots.txt) as-is.
+  RewriteCond %{REQUEST_FILENAME} -f
   RewriteRule ^ - [L]
 
-  # Everything else is a client-side route: hand it index.html.
-  RewriteRule ^ index.html [L]
+  # Pre-rendered pages: /shop -> shop.html, /product/x -> product/x.html.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+
+  # App routes that exist but aren't pre-rendered. /product/ is here for
+  # products added since the last deploy.
+  RewriteRule ^(admin|admin/.*|admin-login|cart|checkout|orders|wishlist|login|account|order-confirmation/.+|product/.+|category/.+)$ app.html [L]
+
+  # Anything else matches no rule and is a genuine 404. ErrorDocument (below)
+  # still answers with the app, which shows its "Route Not Found" screen.
 </IfModule>
 
 # --- Compression -----------------------------------------------------------
@@ -76,4 +102,4 @@
   AddType image/avif .avif
 </IfModule>
 
-ErrorDocument 404 /index.html
+ErrorDocument 404 /app.html

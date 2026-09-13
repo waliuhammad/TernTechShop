@@ -59,7 +59,7 @@ export default function Orders() {
   if (!user) {
     return (
       <div className="min-h-[70vh] bg-slate-50">
-        <Seo title="My Deployments" />
+        <Seo noindex title="My Deployments" />
         <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
           <div className="rounded-3xl border border-slate-200 bg-white">
             <EmptyState
@@ -77,7 +77,7 @@ export default function Orders() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="My Deployments" description="Track your hardware logistics across the network." />
+      <Seo noindex title="My Deployments" description="Track your hardware logistics across the network." />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="mb-10 space-y-2 md:mb-16">

@@ -9,7 +9,7 @@ export default function Wishlist() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="Saved Components" description="Your curated list of high-performance hardware." />
+      <Seo noindex title="Saved Components" description="Your curated list of high-performance hardware." />
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-16">

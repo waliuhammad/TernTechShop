@@ -44,7 +44,7 @@ export default function OrderConfirmation() {
   if (!order) {
     return (
       <div className="min-h-[70vh] bg-white">
-        <Seo title="Order Not Found" />
+        <Seo noindex title="Order Not Found" />
         <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
           <EmptyState
             icon={Package}
@@ -60,7 +60,7 @@ export default function OrderConfirmation() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="Order Confirmed" description="Your hardware manifest has been registered." />
+      <Seo noindex title="Order Confirmed" description="Your hardware manifest has been registered." />
 
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 md:py-20">
         <div className="space-y-6 rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-xl md:p-12">

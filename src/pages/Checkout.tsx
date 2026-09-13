@@ -61,7 +61,7 @@ export default function Checkout() {
   if (!user) {
     return (
       <div className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 py-16">
-        <Seo title="Authorization Required" />
+        <Seo noindex title="Authorization Required" />
         <div className="w-full max-w-md space-y-6 rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white">
             <Lock size={24} />
@@ -89,7 +89,7 @@ export default function Checkout() {
   if (suspended) {
     return (
       <div className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 py-16">
-        <Seo title="Account Suspended" />
+        <Seo noindex title="Account Suspended" />
         <div className="w-full max-w-md space-y-5 rounded-3xl border border-rose-200 bg-white p-8 text-center shadow-xl">
           <h1 className="text-2xl font-black tracking-tighter text-slate-900 uppercase italic">
             Account <span className="text-rose-600 not-italic">Suspended</span>
@@ -257,7 +257,7 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="Checkout" description="Authorize your hardware deployment." />
+      <Seo noindex title="Checkout" description="Authorize your hardware deployment." />
 
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="mb-10 space-y-2 md:mb-16">

@@ -64,7 +64,7 @@ export default function Cart() {
   if (lines.length === 0) {
     return (
       <div className="min-h-[70vh] bg-white">
-        <Seo title="Hardware Cart" description="Your Tern Technologies hardware cart." />
+        <Seo noindex title="Hardware Cart" description="Your Tern Technologies hardware cart." />
         <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
           <EmptyState
             icon={ShoppingCart}
@@ -80,7 +80,7 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen bg-slate-50 pb-24">
-      <Seo title="Hardware Cart" description="Review your hardware manifest before deployment." />
+      <Seo noindex title="Hardware Cart" description="Review your hardware manifest before deployment." />
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-20 lg:px-8">
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4 md:mb-16">

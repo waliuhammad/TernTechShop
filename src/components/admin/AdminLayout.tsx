@@ -56,7 +56,7 @@ export function AdminLayout() {
   if (!isStaff) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4 text-white">
-        <Seo title="Access Denied" />
+        <Seo noindex title="Access Denied" />
         <div className="max-w-md space-y-6 text-center">
           <ShieldAlert size={44} className="mx-auto text-rose-400" />
           <h1 className="text-3xl font-bold tracking-tight">Access denied</h1>
@@ -87,7 +87,7 @@ export function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-slate-50 lg:flex">
-      <Seo title="Admin Portal" />
+      <Seo noindex title="Admin Portal" />
 
       {/* Sidebar — desktop */}
       <aside className="sticky top-0 hidden h-screen w-72 shrink-0 flex-col border-r border-slate-200 bg-white p-6 lg:flex">
