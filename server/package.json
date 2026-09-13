@@ -1,0 +1,28 @@
+{
+  "name": "terntech-payments-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "JazzCash and Easypaisa mobile-wallet payments for terntechshop.com",
+  "type": "module",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "mock-gateways": "tsx test/mock-gateways.ts",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "firebase-admin": "^14.4.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.13.3",
+    "tsx": "^4.23.13",
+    "typescript": "~6.0.2"
+  }
+}
