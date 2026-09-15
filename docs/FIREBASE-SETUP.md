@@ -18,6 +18,13 @@ The free **Spark** plan covers everything in this guide.
 
 **Build → Authentication → Get started → Sign-in method → Email/Password → Enable → Save**
 
+Then, in the same list, **Add new provider → Anonymous → Enable → Save**. Shoppers
+can check out without an account: the site starts an anonymous "guest session"
+only when they place the order, so they can see their confirmation page. If they
+register later from the same browser, those orders move into the new account.
+The security rules keep profiles, saved addresses, wishlists and reviews for
+real accounts.
+
 Then **Settings → Authorized domains → Add domain** and add:
 
 - `terntechshop.com`
@@ -131,6 +138,7 @@ bundle at build time, so a `dist/` built before step 4 won't connect.
 ## Checklist
 
 - [ ] Email/Password sign-in enabled
+- [ ] Anonymous sign-in enabled (guest checkout)
 - [ ] `terntechshop.com` added to Authorized domains
 - [ ] Firestore created in `asia-south1`
 - [ ] `.env` filled in, `VITE_USE_FIREBASE_EMULATOR=0`

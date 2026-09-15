@@ -51,6 +51,19 @@ service cloud.firestore {
       return signedIn() && request.auth.uid == uid;
     }
 
+    /// A guest checkout session (Firebase anonymous sign-in, created only when
+    /// a shopper without an account places an order). Guests may place and
+    /// read their own orders; profiles, addresses, server carts, wishlists
+    /// and reviews stay with real accounts. Call only after signedIn().
+    function isGuest() {
+      return request.auth.token.firebase.sign_in_provider == 'anonymous';
+    }
+
+    /// The owner, signed in with a real account.
+    function isMember(uid) {
+      return isOwner(uid) && !isGuest();
+    }
+
     function roleOf(uid) {
       return get(/databases/$(database)/documents/roles/$(uid)).data.role;
     }
@@ -265,7 +278,7 @@ service cloud.firestore {
     // ===================================================================
     match /users/{uid} {
       allow read: if isOwner(uid) || isStaff();
-      allow create, update: if isOwner(uid)
+      allow create, update: if isMember(uid)
         && request.resource.data.keys().hasOnly(
              ['name', 'email', 'phone', 'city', 'address', 'updatedAt'])
         && request.resource.data.name is string
@@ -279,7 +292,7 @@ service cloud.firestore {
     // ===================================================================
     match /users/{uid}/addresses/{addressId} {
       allow read, delete: if isOwner(uid);
-      allow create, update: if isOwner(uid)
+      allow create, update: if isMember(uid)
         && request.resource.data.keys().hasOnly(
              ['label', 'fullName', 'phone', 'address', 'city', 'isDefault', 'updatedAt'])
         && request.resource.data.label is string
@@ -301,7 +314,7 @@ service cloud.firestore {
     // ===================================================================
     match /carts/{uid}/items/{productId} {
       allow read, delete: if isOwner(uid);
-      allow create, update: if isOwner(uid)
+      allow create, update: if isMember(uid)
         && !isSuspended()
         && request.resource.data.keys().hasOnly(['quantity', 'updatedAt'])
         && isPositiveInt(request.resource.data.quantity)
@@ -321,7 +334,7 @@ service cloud.firestore {
     // ===================================================================
     match /wishlists/{uid}/items/{productId} {
       allow read, delete: if isOwner(uid);
-      allow create, update: if isOwner(uid)
+      allow create, update: if isMember(uid)
         && request.resource.data.keys().hasOnly(['addedAt']);
     }
 
@@ -429,6 +442,8 @@ service cloud.firestore {
 
     function validOrder(orderId, d) {
       return d.userId == request.auth.uid
+        // Staff see "Guest" on an order only when it really was one.
+        && d.get('guestCheckout', false) == isGuest()
         && d.status == 'PENDING'
         // Online orders start unpaid. Only the payment server (Admin SDK,
         // which bypasses these rules) can mark one paid.
@@ -501,6 +516,7 @@ service cloud.firestore {
     // ===================================================================
     function validReview(reviewId, d) {
       return signedIn()
+        && !isGuest()
         && d.keys().hasOnly(
              ['productId', 'userId', 'authorName', 'rating', 'title', 'body', 'status', 'createdAt'])
         && d.userId == request.auth.uid

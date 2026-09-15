@@ -206,6 +206,10 @@ const asAdmin = () => testEnv.authenticatedContext(ADMIN).firestore();
 const asStaff = () => testEnv.authenticatedContext(STAFF).firestore();
 const asSuspect = () => testEnv.authenticatedContext(SUSPECT).firestore();
 const asGuest = () => testEnv.unauthenticatedContext().firestore();
+const GUEST = 'guest-session-uid';
+/** A guest checkout session: Firebase anonymous sign-in. */
+const asGuestSession = (uid = GUEST) =>
+  testEnv.authenticatedContext(uid, { firebase: { sign_in_provider: 'anonymous' } }).firestore();
 
 describe('catalog', () => {
   it('is readable by anyone, signed in or not', async () => {
@@ -1345,6 +1349,98 @@ describe('warranty registrations', () => {
         status: 'APPROVED', note: 'Matched to order.', reviewedBy: STAFF, reviewedAt: serverTimestamp(),
       }),
     );
+  });
+});
+
+describe('guest checkout (no account)', () => {
+  const guestOrder = (overrides = {}) =>
+    baseOrder({ userId: GUEST, manifestId: 'TT-GUEST1', guestCheckout: true, email: 'shopper@example.com', ...overrides });
+
+  it('a shopper with no session at all cannot place an order', async () => {
+    await assertFails(placeOrder(asGuest(), 'guest-none', baseOrder({ userId: 'guest' })));
+  });
+
+  it('a guest session can place a COD order and take the stock', async () => {
+    const before = await stockOf(PRODUCT_ID);
+    await assertSucceeds(placeOrder(asGuestSession(), 'guest-1', guestOrder()));
+    assert.equal(await stockOf(PRODUCT_ID), before - 1);
+  });
+
+  it('a guest session can place an unpaid wallet order', async () => {
+    const items = [
+      { productId: 'p-cheap', name: 'NETGEAR GS308', sku: 'TT-NET-GS308', unitPrice: 680000, quantity: 1, lineTotal: 680000 },
+    ];
+    await assertSucceeds(
+      placeOrder(asGuestSession(), 'guest-wallet', guestOrder({
+        items, subtotal: 680000, shipping: 0, total: 680000, paymentMethod: 'JAZZCASH', paymentStatus: 'UNPAID',
+      })),
+    );
+  });
+
+  it('a guest session can use a coupon like anyone else', async () => {
+    const order = guestOrder({ couponCode: 'DEPLOY10', discount: 1500000 });
+    order.total = order.subtotal - order.discount + order.shipping;
+    await assertSucceeds(placeOrder(asGuestSession(), 'guest-coupon', order));
+  });
+
+  it('REJECTS a guest order that hides that it is a guest order', async () => {
+    const order = guestOrder();
+    delete order.guestCheckout;
+    await assertFails(placeOrder(asGuestSession(), 'guest-hidden', order));
+  });
+
+  it('REJECTS an account order that pretends to be a guest order', async () => {
+    await assertFails(placeOrder(asCustomer(), 'fake-guest', baseOrder({ guestCheckout: true })));
+  });
+
+  it("REJECTS a guest order placed under another shopper's uid", async () => {
+    await assertFails(placeOrder(asGuestSession(), 'guest-spoof', guestOrder({ userId: CUSTOMER })));
+  });
+
+  it('the guest can read back their own order (confirmation page)', async () => {
+    await assertSucceeds(getDoc(doc(asGuestSession(), 'orders', 'guest-1')));
+    await assertSucceeds(
+      getDocs(query(collection(asGuestSession(), 'orders'), where('userId', '==', GUEST), where('manifestId', '==', 'TT-GUEST1'))),
+    );
+  });
+
+  it('another guest session cannot read it', async () => {
+    await assertFails(getDoc(doc(asGuestSession('another-guest'), 'orders', 'guest-1')));
+  });
+
+  it('staff can read and process guest orders', async () => {
+    await assertSucceeds(getDoc(doc(asStaff(), 'orders', 'guest-1')));
+    await assertSucceeds(updateDoc(doc(asStaff(), 'orders', 'guest-1'), { status: 'CONFIRMED' }));
+  });
+
+  it('a guest session cannot alter its order', async () => {
+    await assertFails(updateDoc(doc(asGuestSession(), 'orders', 'guest-1'), { total: 1 }));
+  });
+
+  it('a guest session cannot create a profile, address, server cart or wishlist', async () => {
+    await assertFails(setDoc(doc(asGuestSession(), 'users', GUEST), { name: 'Guest Shopper', email: 'g@example.com' }));
+    await assertFails(setDoc(doc(asGuestSession(), 'users', GUEST, 'addresses', 'a1'), {
+      label: 'Home', fullName: 'Guest Shopper', phone: '03164587553', address: 'House 1, Street 2, F-7', city: 'Islamabad', isDefault: true,
+    }));
+    await assertFails(setDoc(doc(asGuestSession(), 'carts', GUEST, 'items', PRODUCT_ID), { quantity: 1 }));
+    await assertFails(setDoc(doc(asGuestSession(), 'wishlists', GUEST, 'items', PRODUCT_ID), { addedAt: serverTimestamp() }));
+  });
+
+  it('a guest session cannot post a review', async () => {
+    await assertFails(setDoc(doc(asGuestSession(), 'reviews', `p-cheap_${GUEST}`), {
+      productId: 'p-cheap', userId: GUEST, authorName: 'Guest', rating: 5,
+      body: 'Anonymous praise for this switch.', status: 'PENDING', createdAt: serverTimestamp(),
+    }));
+  });
+
+  it('a guest session cannot reserve stock without an order', async () => {
+    await assertFails(updateDoc(doc(asGuestSession(), 'products', PRODUCT_ID), { stock: 0 }));
+  });
+
+  it('an account keeps full access (sign-in provider password)', async () => {
+    const member = testEnv.authenticatedContext('member-uid', { firebase: { sign_in_provider: 'password' } }).firestore();
+    await assertSucceeds(setDoc(doc(member, 'users', 'member-uid'), { name: 'Member', email: 'm@example.com' }));
+    await assertSucceeds(setDoc(doc(member, 'carts', 'member-uid', 'items', 'p-cheap'), { quantity: 1 }));
   });
 });
 

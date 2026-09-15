@@ -1,6 +1,8 @@
 import {
   EmailAuthProvider,
+  linkWithCredential,
   reauthenticateWithCredential,
+  signInAnonymously,
   updatePassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -27,7 +29,15 @@ export interface UserProfile {
 export type UserRole = 'CUSTOMER' | 'STAFF' | 'ADMIN';
 
 interface AuthContextValue {
+  /** A signed-in account. Guest checkout sessions are never exposed here. */
   user: User | null;
+  /**
+   * The uid of this browser's guest checkout session, if a shopper without an
+   * account has placed an order. Only used to show them their own orders.
+   */
+  guestUid: string | null;
+  /** Returns the uid to place an order under, starting a guest session if needed. */
+  ensureCheckoutSession: () => Promise<string>;
   profile: UserProfile | null;
   role: UserRole;
   isStaff: boolean;
@@ -69,6 +79,7 @@ export function authErrorMessage(error: unknown): string {
     case 'app/account-suspended':
       return SUSPENDED_MESSAGE;
     case 'auth/email-already-in-use':
+    case 'auth/credential-already-in-use':
       return 'An account already exists for that email. Try signing in instead.';
     case 'auth/invalid-email':
       return 'That email address does not look valid.';
@@ -93,6 +104,7 @@ export function authErrorMessage(error: unknown): string {
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [guestUid, setGuestUid] = useState<string | null>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [role, setRole] = useState<UserRole>('CUSTOMER');
   const [suspended, setSuspended] = useState(false);
@@ -104,7 +116,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (!isFirebaseConfigured) return undefined;
 
     return onAuthStateChanged(getAuthOrThrow(), async (nextUser) => {
-      if (!nextUser) {
+      if (!nextUser || nextUser.isAnonymous) {
+        // A guest checkout session behaves like being signed out everywhere
+        // except the order pages. No profile, role or suspension to load.
+        setGuestUid(nextUser?.uid ?? null);
         setUser(null);
         setProfile(null);
         setRole('CUSTOMER');
@@ -117,6 +132,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       // would briefly present an admin as a customer, and the admin panel's
       // guard would bounce them before the role arrived.
       setLoading(true);
+      setGuestUid(null);
       const db = getDbOrThrow();
 
       // The role document is the RBAC source of truth. Rules let a user read
@@ -154,12 +170,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [notify]);
 
   const signUp = useCallback<AuthContextValue['signUp']>(async (email, password, name) => {
-    const credential = await createUserWithEmailAndPassword(
-      getAuthOrThrow(),
-      email.trim(),
-      password,
-    );
+    const auth = getAuthOrThrow();
+    const guest = auth.currentUser?.isAnonymous ? auth.currentUser : null;
+
+    // A guest who already ordered keeps the same uid, so those orders show up
+    // in the new account. Linking does not fire the auth listener, so the
+    // account state is published by hand below.
+    const credential = guest
+      ? await linkWithCredential(guest, EmailAuthProvider.credential(email.trim(), password))
+      : await createUserWithEmailAndPassword(auth, email.trim(), password);
     await updateAuthProfile(credential.user, { displayName: name.trim() });
+    // The rules read the sign-in provider from the token; drop the guest one.
+    if (guest) await credential.user.getIdToken(true);
     const fresh: UserProfile = { name: name.trim(), email: email.trim(), phone: '', city: '', address: '' };
     await setDoc(doc(getDbOrThrow(), 'users', credential.user.uid), {
       ...fresh,
@@ -168,6 +190,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // The auth listener fired before this document existed, so it would have
     // loaded an empty profile. Publish the real one.
     setProfile(fresh);
+    if (guest) {
+      setGuestUid(null);
+      setRole('CUSTOMER');
+      setSuspended(false);
+      setUser(credential.user);
+    }
+  }, []);
+
+  const ensureCheckoutSession = useCallback(async () => {
+    const auth = getAuthOrThrow();
+    if (auth.currentUser) return auth.currentUser.uid;
+    const credential = await signInAnonymously(auth);
+    return credential.user.uid;
   }, []);
 
   const signIn = useCallback<AuthContextValue['signIn']>(async (email, password) => {
@@ -217,6 +252,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const value = useMemo<AuthContextValue>(
     () => ({
       user,
+      guestUid,
+      ensureCheckoutSession,
       profile,
       role,
       isStaff: role === 'ADMIN' || role === 'STAFF',
@@ -231,7 +268,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       saveProfile,
       changePassword,
     }),
-    [user, profile, role, suspended, accountSuspended, loading, signUp, signIn, signOut, resetPassword, saveProfile, changePassword],
+    [user, guestUid, ensureCheckoutSession, profile, role, suspended, accountSuspended, loading, signUp, signIn, signOut, resetPassword, saveProfile, changePassword],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

@@ -128,7 +128,14 @@ export default function AdminOrders() {
                     {formatDateTime(order.createdAt)}
                   </td>
                   <td className={tdClass}>
-                    <p className="font-bold text-slate-900">{order.fullName}</p>
+                    <p className="font-bold text-slate-900">
+                      {order.fullName}
+                      {order.guestCheckout && (
+                      <span className="ml-2 rounded bg-slate-100 px-1.5 py-0.5 align-middle font-mono text-[9px] font-bold tracking-widest text-slate-500 uppercase">
+                        Guest
+                      </span>
+                    )}
+                    </p>
                     <p className="font-mono text-xs text-slate-400">{order.phone}</p>
                   </td>
                   <td className={cn(tdClass, 'text-slate-600')}>{order.city}</td>

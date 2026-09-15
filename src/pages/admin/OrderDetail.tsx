@@ -271,7 +271,14 @@ export default function AdminOrderDetail() {
           <section className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="text-lg font-black tracking-tighter uppercase italic">Consignee</h2>
             <div className="space-y-1 text-sm">
-              <p className="font-black text-slate-900">{order.fullName}</p>
+              <p className="font-black text-slate-900">
+                {order.fullName}
+                {order.guestCheckout && (
+                <span className="ml-2 rounded bg-slate-100 px-1.5 py-0.5 align-middle font-mono text-[9px] font-bold tracking-widest text-slate-500 uppercase">
+                  Guest
+                </span>
+              )}
+              </p>
               <p className="text-slate-600">{order.email}</p>
               <p className="font-mono text-slate-600">{order.phone}</p>
             </div>

@@ -63,6 +63,8 @@ export interface OrderDoc {
   id: string;
   manifestId: string;
   userId: string;
+  /** Placed without an account (anonymous guest session). */
+  guestCheckout?: boolean;
   status: string;
   paymentMethod: string;
   items: OrderLine[];
@@ -127,6 +129,8 @@ export interface PlaceOrderInput {
   shipping: ShippingDetails;
   couponCode?: string;
   paymentMethod: PaymentMethod;
+  /** True when `userId` is a guest checkout session rather than an account. */
+  guestCheckout?: boolean;
 }
 
 export interface PlacedOrder {
@@ -135,7 +139,7 @@ export interface PlacedOrder {
 }
 
 export async function placeOrder(input: PlaceOrderInput): Promise<PlacedOrder> {
-  const { userId, lines, totals, shipping, couponCode, paymentMethod } = input;
+  const { userId, lines, totals, shipping, couponCode, paymentMethod, guestCheckout } = input;
 
   if (lines.length === 0) {
     throw new OrderRejectedError('Your manifest is empty.');
@@ -163,6 +167,8 @@ export async function placeOrder(input: PlaceOrderInput): Promise<PlacedOrder> {
   const payload = {
     manifestId,
     userId,
+    // The rules require this to match the session type exactly.
+    ...(guestCheckout ? { guestCheckout: true } : {}),
     status: 'PENDING',
     paymentMethod,
     // Wallet orders start unpaid; only the payment server can mark them paid.

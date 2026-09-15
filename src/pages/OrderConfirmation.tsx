@@ -12,7 +12,9 @@ import { formatDateTime } from '@/lib/utils';
 
 export default function OrderConfirmation() {
   const { manifestId } = useParams<{ manifestId: string }>();
-  const { user, loading: authLoading } = useAuth();
+  const { user, guestUid, loading: authLoading } = useAuth();
+  // A guest sees the orders placed from this browser's guest session.
+  const uid = user?.uid ?? guestUid;
   const location = useLocation();
   // Set by checkout when the order was placed but the wallet payment couldn't start.
   const paymentError = (location.state as { paymentError?: string } | null)?.paymentError ?? '';
@@ -23,9 +25,9 @@ export default function OrderConfirmation() {
   // Live: a wallet payment moves from "approve on your phone" to paid while
   // the customer watches.
   useEffect(() => {
-    if (authLoading || !user || !manifestId) return undefined;
+    if (authLoading || !uid || !manifestId) return undefined;
     return watchOrderByManifest(
-      user.uid,
+      uid,
       manifestId,
       (result) => {
         setOrder(result);
@@ -36,9 +38,9 @@ export default function OrderConfirmation() {
         setLoading(false);
       },
     );
-  }, [user, manifestId, authLoading]);
+  }, [uid, manifestId, authLoading]);
 
-  if (authLoading || (user && manifestId && loading)) {
+  if (authLoading || (uid && manifestId && loading)) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="h-10 w-10 animate-spin rounded-full border-2 border-slate-200 border-t-primary" />
@@ -55,8 +57,8 @@ export default function OrderConfirmation() {
             icon={Package}
             title="Order Not Found"
             description="No manifest with that identifier is registered to your account."
-            actionLabel="View All Deployments"
-            actionHref="/orders"
+            actionLabel={user ? 'View All Deployments' : 'Continue Shopping'}
+            actionHref={user ? '/orders' : '/shop'}
           />
         </div>
       </div>
@@ -184,9 +186,17 @@ export default function OrderConfirmation() {
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link to="/orders" className="secondary-btn flex-grow text-center">
-              View All Deployments
-            </Link>
+            {user ? (
+              <Link to="/orders" className="secondary-btn flex-grow text-center">
+                View All Deployments
+              </Link>
+            ) : (
+              // Registering from this browser upgrades the guest session, so
+              // this order moves into the new account.
+              <Link to="/login" state={{ from: '/orders' }} className="secondary-btn flex-grow text-center">
+                Create Account to Track
+              </Link>
+            )}
             <Link to="/shop" className="primary-btn flex-grow text-center">
               Source More
             </Link>

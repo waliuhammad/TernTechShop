@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Banknote, Check, Lock, ShieldCheck, Smartphone, TriangleAlert } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Banknote, Check, ShieldCheck, Smartphone, TriangleAlert } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { validateWallet, WalletFields, type WalletDetails, type WalletErrors } from '@/components/payment/WalletFields';
@@ -68,33 +68,9 @@ export default function Checkout() {
     );
   }
 
-  // Orders carry a verified userId — the security rules reject anything else.
-  if (!user) {
-    return (
-      <div className="flex min-h-[70vh] items-center justify-center bg-slate-50 px-4 py-16">
-        <Seo noindex title="Authorization Required" />
-        <div className="w-full max-w-md space-y-6 rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-xl">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white">
-            <Lock size={24} />
-          </div>
-          <h1 className="text-2xl font-black tracking-tighter text-slate-900 uppercase italic">
-            Authentication <span className="text-primary not-italic">Required</span>
-          </h1>
-          <p className="leading-relaxed font-medium text-slate-500">
-            Deployments are authorized against a verified operator identity. Sign in to finalize
-            this manifest — your cart travels with you.
-          </p>
-          <button
-            type="button"
-            onClick={() => navigate('/login', { state: { from: '/checkout' } })}
-            className="primary-btn w-full py-4"
-          >
-            Initialize Session
-          </button>
-        </div>
-      </div>
-    );
-  }
+  // No account needed: a guest checks out as-is, and a private guest session
+  // is started only at the moment the order is placed.
+  if (!user) return <CheckoutFlow key="guest" userId={null} profile={null} />;
 
   // Mirrors the rules, which would refuse the order anyway — this just says why.
   if (suspended) {
@@ -124,14 +100,15 @@ export default function Checkout() {
 }
 
 interface CheckoutFlowProps {
-  userId: string;
+  /** null for a guest checkout. */
+  userId: string | null;
   profile: UserProfile | null;
 }
 
 function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
   const { lines, getTotals, clear } = useCart();
   const { refresh: refreshCatalog } = useCatalog();
-  const { saveProfile } = useAuth();
+  const { saveProfile, ensureCheckoutSession } = useAuth();
   const { notify } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
@@ -203,7 +180,10 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
   const totals = getTotals(discount);
 
   const { logistics } = useSettings();
-  const savedAddresses = useAsync(() => fetchAddresses(userId), `checkout-addresses-${userId}`);
+  const savedAddresses = useAsync(
+    () => (userId ? fetchAddresses(userId) : Promise.resolve([])),
+    `checkout-addresses-${userId ?? 'guest'}`,
+  );
 
   // Zones are editable in Admin -> Settings; match the city against each
   // sector's name, falling back to the last (catch-all) zone.
@@ -241,8 +221,8 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
       notify('Check the highlighted fields before continuing.', 'error');
       return;
     }
-    // Remember the consignee for next time.
-    void saveProfile({
+    // Remember the consignee for next time (accounts only).
+    if (userId) void saveProfile({
       name: details.fullName,
       email: details.email,
       phone: details.phone,
@@ -271,8 +251,12 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
     setSubmitError('');
 
     try {
+      // Guests get a private session now, so the order can be tied to this
+      // browser and shown back to them. Nothing is asked of the shopper.
+      const orderUserId = userId ?? (await ensureCheckoutSession());
       const { orderId, manifestId } = await placeOrder({
-        userId,
+        userId: orderUserId,
+        guestCheckout: !userId,
         lines,
         totals,
         shipping: details,
@@ -304,10 +288,14 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
       }
       navigate(`/order-confirmation/${manifestId}`, { replace: true, state: { paymentError } });
     } catch (error) {
+      const code = (error as { code?: string })?.code;
       const message =
         error instanceof OrderRejectedError || error instanceof OutOfStockError
           ? error.message
-          : 'Could not authorize the deployment. Please try again.';
+          : // Anonymous sign-in switched off in Firebase: guests must use an account.
+            code === 'auth/operation-not-allowed' || code === 'auth/admin-restricted-operation'
+            ? 'Guest checkout is unavailable right now. Please sign in or create an account to place this order.'
+            : 'Could not authorize the deployment. Please try again.';
       setSubmitError(message);
       notify(message, 'error');
       setSubmitting(false);
@@ -399,6 +387,20 @@ function CheckoutFlow({ userId, profile }: CheckoutFlowProps) {
                     Tell us where the hardware should land.
                   </p>
                 </div>
+
+                {!userId && (
+                  <p className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-slate-600">
+                    Checking out as a guest — no account needed.{' '}
+                    <button
+                      type="button"
+                      onClick={() => navigate('/login', { state: { from: '/checkout' } })}
+                      className="font-bold text-primary underline"
+                    >
+                      Sign in
+                    </button>{' '}
+                    to use saved addresses and track orders from your account.
+                  </p>
+                )}
 
                 {(savedAddresses.data?.length ?? 0) > 0 && (
                   <label className="block space-y-2">
